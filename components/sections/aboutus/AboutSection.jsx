@@ -15,6 +15,7 @@ function AboutSection() {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
+
         {/* Overlay */}
         <div className="absolute inset-0 bg-[#0d2d63]/75" />
 

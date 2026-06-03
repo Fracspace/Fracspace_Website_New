@@ -1,30 +1,31 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import investingMockup from "../../../assets/investingMockup.png";
 
 function HowToInvest() {
   return (
     <section className="mt-12">
-      <h2 className="text-center text-4xl font-jakarta">
+      <h2 className="text-center text-3xl px-1 md:text-4xl font-jakarta">
         How To Start Investing
       </h2>
       <div>
         <div className="z-30 relative py-8 md:py-12 mx-auto max-w-7xl">
           <div className="md:mt-12 mx-10 max-w-7xl flex flex-col md:flex-row  justify-between">
-            <div className=" w-auto md:w-[40vw] rounded-lg">
-              <h2 className="font-jakarta text-2xl font-jakarta">
+            <div className="w-auto md:w-[40vw] rounded-lg">
+              <h2 className="font-jakarta text-lg text-center md:text-auto md:text-2xl font-jakarta">
                 Start Investing in Four Simple Steps
               </h2>
-              {/* <Image
+              <Image
                 alt="hero image"
-                src={heroImg}
-                className="aspect-[3/3] rounded-xl"
-              /> */}
+                src={investingMockup}
+                className=" aspect-[5/4] md:aspect-[5/5] rounded-xl  max-h-[350px]"
+              />
               <p className="pt-4">
                 A seamless, app-first experience - from discovery to earnings in
                 days.
               </p>
-              <button className="bg-black mt-4 text-white font-dm px-3 py-2 flex items-center justify-center">
+              <button className="bg-black mt-4 text-white font-dm px-3 py-2 flex items-center justify-center cursor-pointer">
                 Download App <ArrowRight />
               </button>
             </div>

@@ -16,7 +16,7 @@ import Image from "next/image";
 function InTheNews() {
   return (
     <section className="mx-auto max-w-7xl px-10">
-      <h2 className="text-4xl font-jakarta mb-12 mt-4 text-center">
+      <h2 className="text-3xl md:text-4xl font-jakarta mb-12 mt-4 text-center">
         In the News
       </h2>
       <div>

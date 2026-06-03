@@ -3,7 +3,7 @@ import React from "react";
 function Investors() {
   return (
     <section className="mt-12">
-      <h2 className="text-center text-4xl font-jakarta">
+      <h2 className="text-center text-3xl md:text-4xl font-jakarta">
         Trusted By Investors
       </h2>
       <p className="text-center mt-6 font-dm px-10">
@@ -21,7 +21,7 @@ function Investors() {
           >
             <source src="/videos/AbdulBasith.mp4" type="video/mp4"></source>
           </video>
-          <p className="mt-2 ml-2">Abdul Basith</p>
+          <p className="mt-2 ml-2 text-lg">Abdul Basith</p>
         </div>
         <div className="mt-4 md:mt-0 md:w-[30vw] md:ml-8 shadow-lg py-4 rounded-lg">
           <video
@@ -31,7 +31,7 @@ function Investors() {
             controls
             src="/videos/PrashantGudipudi.mp4"
           />
-          <p className="mt-2 ml-2">Prashanth Gudipudi</p>
+          <p className="mt-2 ml-2 text-lg">Prashanth Gudipudi</p>
         </div>
         <div className="mt-4 md:mt-0 md:w-[30vw] md:ml-8 shadow-lg py-4 rounded-lg">
           <video
@@ -41,7 +41,7 @@ function Investors() {
             controls
             src="/videos/Srivivasbonnam.mp4"
           />
-          <p className="mt-2 ml-2">Srinivas</p>
+          <p className="mt-2 ml-2 text-lg">Srinivas</p>
         </div>
       </div>
     </section>

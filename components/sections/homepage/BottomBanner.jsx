@@ -7,9 +7,9 @@ import appstoreImg from "../../../assets/appstore.png";
 function BottomBanner() {
   return (
     <section className="">
-      <div className="shadow-xl border border-gray-200 rounded-xl flex flex-col md:flex-row items-center mx-auto max-w-7xl ml-10 mr-10 px-6 py-4 mt-12">
-        <div className=" md:w-[70vw]">
-          <h2 className="text-2xl md:text-4xl font-jakarta leading-[1.5]">
+      <div className="shadow-xl border border-gray-200 rounded-xl flex flex-col md:flex-row items-center md:mx-auto max-w-7xl md:ml-10 md:mr-10 px-6 py-4 mt-12">
+        <div className="md:w-[70vw]">
+          <h2 className="text-xl md:text-4xl font-jakarta leading-[1.5]">
             Explore, invest, and earn - all in one app. Download Fracspace
             today!
           </h2>
@@ -17,7 +17,7 @@ function BottomBanner() {
             Explore verified co-ownership opportunities and invest with
             confidence.
           </p>
-          <div className="flex  md:flex-row">
+          <div className="flex md:flex-row">
             <Image
               alt="google play store icon"
               src={googleplayImg}
@@ -34,7 +34,7 @@ function BottomBanner() {
           <Image
             alt="fracspace mobile app image"
             src={mobiImg}
-            className=" my-6 md:my-0 aspect-[3/2] md:aspect-[3/4] md:h-[50vh] "
+            className=" my-6 md:my-0 aspect-[3/2] md:aspect-[3/4] md:h-[50vh] xl:h-[40vh] "
           />
         </div>
       </div>

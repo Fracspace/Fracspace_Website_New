@@ -3,23 +3,48 @@ import React from "react";
 import Image from "next/image";
 import Linkedin from "../../../assets/linkedin.png";
 import unnathSirImg from "../../../assets/unnathSir.jpeg";
-import dnsImg from "../../../assets/dns1.webp";
+
+// sales Team
+import abhisheikImg from "../../../assets/TeamMates/sales/abhishek.webp";
+import divyaImg from "../../../assets/TeamMates/sales/divya.webp";
+import dnsImg from "../../../assets/TeamMates/sales/dns1.webp";
+
+// Tech Team
+import akhilImg from "../../../assets/TeamMates/tech/akhil.webp";
+import krishnaImg from "../../../assets/TeamMates/tech/krishna.webp";
+import nagamaniImg from "../../../assets/TeamMates/tech/nagamani.webp";
+import rakeshImg from "../../../assets/TeamMates/tech/rakesh1.webp";
+import tejaswiniImg from "../../../assets/TeamMates/tech/tejaswini.webp";
+import vishnuImg from "../../../assets/TeamMates/tech/vishnu.webp";
+
+// marketing
+import hruthikImg from "../../../assets/TeamMates/marketing/hruthik.webp";
+import vivekanandaImg from "../../../assets/TeamMates/marketing/vivekananda.webp";
+
+// hospitality
+import deepakImg from "../../../assets/TeamMates/hospitality/deepak.webp";
+import mansoorImg from "../../../assets/TeamMates/hospitality/mansoor.webp";
+import ranjithImg from "../../../assets/TeamMates/hospitality/ranjith.webp";
+import shivaImg from "../../../assets/TeamMates/hospitality/shiva.webp";
+import srinivasImg from "../../../assets/TeamMates/hospitality/srinivas.webp";
+
+// construction
+import madhuImg from "../../../assets/TeamMates/construction/madhu1.webp";
+import tarunImg from "../../../assets/TeamMates/construction/tarun.webp";
+
+// hr & accounts
+import naveenSirImg from "../../../assets/TeamMates/hr/naveenSir.webp";
 
 function OurTeam() {
-  const teamMembers = [
+  const salesTeamMembers = [
     {
       name: "Divya",
-      role: "Senior Consultant",
-      image: dnsImg
+      role: "Second In Command",
+      image: divyaImg
     },
     {
       name: "Prasanth",
-      role: "Special Projects Consultant",
-      image: dnsImg
-    },
-    {
-      name: "Rishab",
-      role: "Director of Sales-Pacapace",
+      role: "Special Projects Commander",
       image: dnsImg
     },
     {
@@ -28,24 +53,114 @@ function OurTeam() {
       image: dnsImg
     },
     {
-      name: "Rishab",
-      role: "Director of Sales-Pacapace",
-      image: dnsImg
+      name: "Abhisheik",
+      role: "Pre-sales Executive",
+      image: abhisheikImg
+    }
+  ];
+
+  const techTeam = [
+    {
+      name: "Rakesh",
+      role: "Second Engineer In Command(SDE-2)",
+      image: rakeshImg
     },
     {
-      name: "Prashanth",
-      role: "Hospitality & Growth Manager",
-      image: dnsImg
+      name: "Vishnuteja",
+      role: "Senior FullStack Developer",
+      image: vishnuImg
     },
     {
-      name: "Prashanth",
-      role: "Hospitality & Growth Manager",
-      image: dnsImg
+      name: "Krishna",
+      role: "Junior Software Developer",
+      image: krishnaImg
     },
     {
-      name: "Prashanth",
-      role: "Hospitality & Growth Manager",
-      image: dnsImg
+      name: "Akhil",
+      role: "Junior Software Developer",
+      image: akhilImg
+    },
+    {
+      name: "Tejaswini",
+      role: "UI/UX Designer",
+      image: tejaswiniImg
+    },
+    {
+      name: "Nagamani",
+      role: "IT Admin",
+      image: nagamaniImg
+    }
+  ];
+
+  const marketingTeam = [
+    {
+      name: "Vivekananda",
+      role: "Digital Marketing Specialist",
+      image: vivekanandaImg
+    },
+    {
+      name: "Hruthik",
+      role: "Video Editor",
+      image: hruthikImg
+    }
+  ];
+
+  const hrTeam = [
+    {
+      name: "Hr",
+      role: "Video Editor",
+      image: hruthikImg
+    },
+    {
+      name: "Naveen",
+      role: "Accounts Head",
+      image: naveenSirImg
+    }
+  ];
+
+  const hospitality = [
+    {
+      name: "Mansoor",
+      role: "Fitness Trainer",
+      image: mansoorImg
+    },
+    {
+      name: "Deepak",
+      role: "Fitness Trainer",
+      image: deepakImg
+    }
+  ];
+
+  const constructionTeam = [
+    {
+      name: "Tharun",
+      role: "Project Commander",
+      image: hruthikImg
+    },
+    {
+      name: "Madhu",
+      role: "Site Engineer",
+      image: hruthikImg
+    },
+    {
+      name: "Hruthik",
+      role: "Video Editor",
+      image: hruthikImg
+    }
+  ];
+
+  const houseTeam = [
+    {
+      name: "Shiva",
+      image: shivaImg
+    },
+    {
+      name: "Ranjith",
+      image: ranjithImg
+    },
+    {
+      name: "Srinivas",
+      image: srinivasImg
     }
   ];
 
@@ -139,7 +254,7 @@ function OurTeam() {
           </h3>
 
           <div className="flex items-center justify-center flex-wrap gap-6">
-            {teamMembers.map((member, index) => (
+            {salesTeamMembers?.map((member, index) => (
               <div
                 key={index}
                 className="
@@ -158,7 +273,69 @@ function OurTeam() {
               >
                 <div className="flex flex-col items-center text-center">
                   {/* Image */}
-                  <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full">
+                  <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-full">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    {/* Name */}
+                    <div>
+                      <h4 className="text-lg font-dm font-semibold text-gray-900">
+                        {member.name}
+                      </h4>
+                    </div>
+
+                    <div>
+                      <Image
+                        src={Linkedin}
+                        alt="linkedin icon"
+                        className="ml-2 font-dm w-[6vw] md:w-[2vw] md:h-[4vh] cursor-pointer"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Role */}
+                  <p className="mt- font-dm text-sm leading-6 text-gray-500">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Marketing Team Grid */}
+        <div className="mt-6">
+          <h3 className="mb-8 font-jakarta text-2xl font-semibold text-gray-900">
+            Marketing Team
+          </h3>
+
+          <div className="flex items-center justify-center flex-wrap gap-6">
+            {marketingTeam?.map((member, index) => (
+              <div
+                key={index}
+                className="
+                  w-full
+                  rounded-2xl
+                  bg-white
+                  p-5
+                  shadow-md
+                  transition
+                  duration-300
+                  hover:-translate-y-1
+                  hover:shadow-xl
+                  sm:w-[calc(50%-12px)]
+                  lg:w-[calc(25%-18px)]
+                "
+              >
+                <div className="flex flex-col items-center text-center">
+                  {/* Image */}
+                  <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-full">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -201,7 +378,7 @@ function OurTeam() {
           </h3>
 
           <div className="flex items-center justify-center flex-wrap gap-6">
-            {teamMembers.map((member, index) => (
+            {techTeam?.map((member, index) => (
               <div
                 key={index}
                 className="
@@ -220,7 +397,131 @@ function OurTeam() {
               >
                 <div className="flex flex-col items-center text-center">
                   {/* Image */}
-                  <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full">
+                  <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-full">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    {/* Name */}
+                    <div>
+                      <h4 className="text-lg font-dm font-semibold text-gray-900">
+                        {member.name}
+                      </h4>
+                    </div>
+
+                    <div>
+                      <Image
+                        src={Linkedin}
+                        alt="linkedin icon"
+                        className="ml-2 font-dm w-[6vw] md:w-[2vw] md:h-[4vh] cursor-pointer"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Role */}
+                  <p className="mt- font-dm text-sm leading-6 text-gray-500">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hospitality Team Grid */}
+        <div className="mt-6">
+          <h3 className="mb-8 font-jakarta text-2xl font-semibold text-gray-900">
+            Hospitality Team
+          </h3>
+
+          <div className="flex items-center justify-center flex-wrap gap-6">
+            {hospitality?.map((member, index) => (
+              <div
+                key={index}
+                className="
+                  w-full
+                  rounded-2xl
+                  bg-white
+                  p-5
+                  shadow-md
+                  transition
+                  duration-300
+                  hover:-translate-y-1
+                  hover:shadow-xl
+                  sm:w-[calc(50%-12px)]
+                  lg:w-[calc(25%-18px)]
+                "
+              >
+                <div className="flex flex-col items-center text-center">
+                  {/* Image */}
+                  <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-full">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    {/* Name */}
+                    <div>
+                      <h4 className="text-lg font-dm font-semibold text-gray-900">
+                        {member.name}
+                      </h4>
+                    </div>
+
+                    <div>
+                      <Image
+                        src={Linkedin}
+                        alt="linkedin icon"
+                        className="ml-2 font-dm w-[6vw] md:w-[2vw] md:h-[4vh] cursor-pointer"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Role */}
+                  <p className="mt- font-dm text-sm leading-6 text-gray-500">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* House Team Grid */}
+        <div className="mt-6">
+          <h3 className="mb-8 font-jakarta text-2xl font-semibold text-gray-900">
+            House Team
+          </h3>
+
+          <div className="flex items-center justify-center flex-wrap gap-6">
+            {houseTeam?.map((member, index) => (
+              <div
+                key={index}
+                className="
+                  w-full
+                  rounded-2xl
+                  bg-white
+                  p-5
+                  shadow-md
+                  transition
+                  duration-300
+                  hover:-translate-y-1
+                  hover:shadow-xl
+                  sm:w-[calc(50%-12px)]
+                  lg:w-[calc(25%-18px)]
+                "
+              >
+                <div className="flex flex-col items-center text-center">
+                  {/* Image */}
+                  <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-full">
                     <Image
                       src={member.image}
                       alt={member.name}

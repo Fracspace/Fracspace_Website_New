@@ -5,19 +5,23 @@ import searchIcon from "../../../assets/icons/search.png";
 import diamondIcon from "../../../assets/icons/diamond.png";
 import rocketIcon from "../../../assets/icons/rocket.png";
 import moneyIcon from "../../../assets/icons/money.png";
+import { useMediaQuery } from "react-responsive";
 
 function HowFsWorks() {
+  const isMobile = useMediaQuery({ maxWidth: 600 });
   return (
     <section className="mt-12">
       <div className="relative flex items-center w-full h-full py-20 overflow-hidden">
-        <Image
-          alt="how fracspace works"
-          src={howFsWorksBg}
-          className="z-0 w-full h-full absolute top-0 left-0"
-        />
-        <div className=" z-10 w-full h-full bg-gradient-to-r from-slate-900/90 to-blue-900/60 z-10 absolute top-0 left-0"></div>
+        {!isMobile && (
+          <Image
+            alt="how fracspace works"
+            src={howFsWorksBg}
+            className="z-0 w-full h-full absolute top-0 left-0"
+          />
+        )}
+        <div className=" z-10 w-full h-full bg-[linear-gradient(to_right,#021265cc,#003399aa),radial-gradient(circle_at_top,#00a6ff55,transparent_30%),radial-gradient(circle_at_bottom_left,#7c3aed55,transparent_30%)] md:bg-gradient-to-r md:from-slate-900/90 md:to-blue-900/60 z-10 absolute top-0 left-0"></div>
         <div className="z-20 relative  w-full">
-          <h2 className="text-4xl text-white text-center font-jakarta">
+          <h2 className="text-3xl md:text-4xl text-white text-center font-jakarta">
             How Fractional Investment Works?
           </h2>
           <p className="text-white text-center pt-8 mx-8 font-dm">
@@ -26,7 +30,7 @@ function HowFsWorks() {
           </p>
 
           <div className="flex flex-col md:flex-row mt-20 mx-auto max-w-7xl justify-center gap-8">
-            <div className="mx-8 w-auto md:mx-0 md:w-[20vw] bg-[#17194f] border border-gray-400 p-4 rounded-lg">
+            <div className="mx-8 w-auto md:mx-0 md:w-[20vw]  border border-gray-400 p-4 rounded-lg">
               <div className="flex items-center justify-between">
                 <div className="text-white">
                   <Image

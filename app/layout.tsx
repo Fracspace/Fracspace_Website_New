@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/layouts/Navbar";
-import Footer from "../components/layouts/Footer";
+import LayoutClient from "./LayoutClient";
 
 export const metadata: Metadata = {
   title: "Fracspace",
@@ -32,11 +31,7 @@ export default function RootLayout({
       className={`${jakarta.variable} ${dmsans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="fixed z-40 w-[100vw] bg-white h-[12vh]">
-          <Navbar />
-        </div>
-        <div className="mt-[12vh] w-[100%]">{children}</div>
-        <Footer />
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ import { MapPin } from "lucide-react";
 function FeaturedProperties() {
   return (
     <section className="mt-12 mx-auto max-w-7xl px-10">
-      <h2 className="text-4xl font-jakarta">Featured Properties</h2>
+      <h2 className="text-3xl md:text-4xl font-jakarta">Featured Properties</h2>
       <div className="mt-4 flex flex-col  md:flex-row md:items-center md:justify-between">
         <div className="text-gray-600 font-dm">
           Carefully selected assets with high potential for rental yield and
@@ -57,7 +57,7 @@ function FeaturedProperties() {
           </div>
         </div>
 
-        <div className="relative mt-8 md:mt-0 rounded-lg md:w-[30vw] shadow-lg">
+        <div className="relative md:ml-6 mt-8 md:mt-0 rounded-lg md:w-[30vw] shadow-lg">
           <Image
             src={img1}
             alt="property image"
@@ -90,7 +90,7 @@ function FeaturedProperties() {
           </div>
         </div>
 
-        <div className="relative mt-8 md:mt-0 rounded-lg md:w-[30vw] shadow-lg">
+        <div className="relative md:ml-6 mt-8 md:mt-0 rounded-lg md:w-[30vw] shadow-lg">
           <Image
             src={img1}
             alt="property image"
