@@ -21,12 +21,12 @@ function BottomBanner() {
             <Image
               alt="google play store icon"
               src={googleplayImg}
-              className="w-[30vw] md:w-[10vw] mt-3"
+              className="w-[30vw] md:w-[10vw] mt-3 cursor-pointer"
             />
             <Image
               alt="apple app store icon"
               src={appstoreImg}
-              className="w-[30vw] md:w-[10vw] mt-3 ml-3"
+              className="w-[30vw] md:w-[10vw] mt-3 ml-3 cursor-pointer"
             />
           </div>
         </div>

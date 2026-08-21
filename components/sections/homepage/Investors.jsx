@@ -25,7 +25,6 @@ function Investors() {
         </div>
         <div className="mt-4 md:mt-0 md:w-[30vw] md:ml-8 shadow-lg py-4 rounded-lg">
           <video
-            autoplay
             muted
             loop
             controls
@@ -35,7 +34,6 @@ function Investors() {
         </div>
         <div className="mt-4 md:mt-0 md:w-[30vw] md:ml-8 shadow-lg py-4 rounded-lg">
           <video
-            autoplay
             muted
             loop
             controls

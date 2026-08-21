@@ -5,7 +5,7 @@ import teamImg from "../../../assets/teamImg.webp";
 
 function AboutSection() {
   return (
-    <div className="w-full bg-[#f5f5f5] overflow-hidden">
+    <div className="w-full  overflow-hidden">
       {/* Hero Section */}
       <section className="relative w-full min-h-[500px] md:min-h-[500px] overflow-hidden">
         {/* Background Image */}
@@ -14,7 +14,6 @@ function AboutSection() {
           alt="Luxury Property"
           className="absolute inset-0 w-full h-full object-cover"
         />
-
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-[#0d2d63]/75" />
@@ -44,7 +43,7 @@ function AboutSection() {
             preserveAspectRatio="none"
             viewBox="0 0 1440 320"
           >
-            <path fill="#f5f5f5" d="M0,224L1440,128L1440,320L0,320Z" />
+            <path fill="white" d="M0,224L1440,128L1440,320L0,320Z" />
           </svg>
         </div>
       </section>

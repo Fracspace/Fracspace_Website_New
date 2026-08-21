@@ -41,7 +41,12 @@ function Navbar() {
               </li>
               <li className="cursor-pointer">Blogs</li>
               <li className="cursor-pointer">Agents</li>
-              <li className="cursor-pointer">Contact</li>
+              <li
+                className="cursor-pointer"
+                onClick={() => router.push("/contact")}
+              >
+                Contact
+              </li>
               <div>
                 <button
                   className="bg-[#021265] text-white font-jakarta flex px-4 py-2 rounded-xl cursor-pointer"

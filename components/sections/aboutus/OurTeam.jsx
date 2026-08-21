@@ -165,7 +165,7 @@ function OurTeam() {
   ];
 
   return (
-    <section className="bg-[#f7f7f7] px-5 py-12 sm:px-8 lg:px-16">
+    <section className="px-5 py-12 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <div className="mb-10">

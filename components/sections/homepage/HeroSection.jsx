@@ -18,7 +18,8 @@ function HeroSection() {
             className="w-full h-full absolute top-0 left-0"
           />
         )}
-        <div className="w-full h-full bg-[linear-gradient(to_right,#021265cc,#003399aa),radial-gradient(circle_at_top,#00a6ff55,transparent_30%),radial-gradient(circle_at_bottom_left,#7c3aed55,transparent_30%)] md:from-slate-900/90 md:to-blue-900/60 z-10 absolute top-0 left-0"></div>
+        <div className="w-full h-full bg-[linear-gradient(to_right,#021265cc,#003399aa),radial-gradient(circle_at_top,#00a6ff55,transparent_30%),radial-gradient(circle_at_bottom_left,#7c3aed55,transparent_30%)] md:bg-[#0d2d63]/75 z-10 absolute top-0 left-0"></div>
+
         <div className="z-40 gap-8 relative flex flex-col md:flex-row items-center mx-auto  px-10  2xl:max-w-7xl pt-14 pb-25">
           <div className="">
             <h1 className="text-white leading-[1.2] z-100 text-3xl md:text-6xl font-thin font-jakarta ">
@@ -60,6 +61,7 @@ function HeroSection() {
               </div>
             </div>
           </div>
+
           <div className=" relative">
             <Image
               alt="featured image"
