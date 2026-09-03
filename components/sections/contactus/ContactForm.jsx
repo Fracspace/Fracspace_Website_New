@@ -8,7 +8,6 @@ function ContactForm() {
     lastName: "",
     phone: "",
     email: "",
-    service: "",
     message: ""
   });
 
@@ -93,27 +92,6 @@ function ContactForm() {
                   className="w-full h-11 px-3 font-dm border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-            </div>
-
-            {/* Service */}
-            <div>
-              <label className="block text-sm mb-2 text-gray-700 font-jakarta">
-                Select your service
-              </label>
-
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full h-11 px-3 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-              >
-                <option value="">Select a service type</option>
-                <option value="fractional-investment">
-                  Fractional Investment
-                </option>
-                <option value="property-management">Property Management</option>
-                <option value="consultation">Consultation</option>
-              </select>
             </div>
 
             {/* Message */}

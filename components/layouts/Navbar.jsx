@@ -18,53 +18,53 @@ function Navbar() {
 
   return (
     <>
-      <div className="ml-[3vw] mr-[3vw] flex items-center justify-between border-b border-bule-200 md:border-none">
+      <div className="mx-auto flex items-center justify-between md:border-none w-full max-w-7xl px-4">
         <div>
           <Image
             alt="fracspace logo"
             src={logo}
-            className="w-[50vw] h-[12vh] md:w-[16vw] md:h-[12vh]"
+            className="w-[48vw] max-w-[180px] md:w-[14vw] md:max-w-[210px] h-auto object-contain cursor-pointer"
+            onClick={() => router.push("/")}
           />
         </div>
 
         {!isMobile ? (
           <div>
-            <ul className="w-[50vw] flex items-center justify-between">
-              <li className="cursor-pointer" onClick={() => router.push("/")}>
+            <ul className="flex items-center gap-6 lg:gap-8">
+              <li className="cursor-pointer hover:text-blue-600 transition" onClick={() => router.push("/")}>
                 Home
               </li>
               <li
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-blue-600 transition"
                 onClick={() => router.push("/about")}
               >
                 About Us
               </li>
-              <li className="cursor-pointer">Blogs</li>
-              <li className="cursor-pointer">Agents</li>
+              <li className="cursor-pointer hover:text-blue-600 transition" onClick={() => router.push("/properties")}>Properties</li>
               <li
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-blue-600 transition"
                 onClick={() => router.push("/contact")}
               >
                 Contact
               </li>
-              <div>
+              <li>
                 <button
-                  className="bg-[#021265] text-white font-jakarta flex px-4 py-2 rounded-xl cursor-pointer"
+                  className="bg-[#021265] text-white font-jakarta flex px-4 py-2.5 rounded-xl cursor-pointer hover:bg-blue-800 transition items-center whitespace-nowrap"
                   onClick={openDownloadModal}
                 >
                   <Image
                     src={scannerIcon}
                     alt="download app"
-                    className="w-[2vw] h-[2vw] mr-2"
-                  />{" "}
+                    className="w-5 h-5 mr-2"
+                  />
                   Download App
                 </button>
-              </div>
+              </li>
             </ul>
           </div>
         ) : (
           <div
-            className="mr-4 cursor-pointer"
+            className="mr-4 cursor-pointer p-2 hover:bg-gray-100 rounded-full"
             onClick={() => setIsMenu(!isMenu)}
           >
             {" "}
@@ -74,19 +74,21 @@ function Navbar() {
       </div>
 
       {isMenu && (
-        <div className="bg-white">
-          <ul className="w-full flex-col items-center justify-between">
-            <li className="text-center text-md font-jakarta pt-4">Home</li>
-            <li className="text-center text-md font-jakarta pt-4">About Us</li>
-            <li className="text-center text-md font-jakarta pt-4">Blogs</li>
-            <li className="text-center text-md font-jakarta pt-4">Agents</li>
-            <li className="text-center text-md font-jakarta pt-4">Contact</li>
-            <div className="flex mt-4 pb-4 items-center justify-center mx-auto w-full">
-              <button className="bg-[#021265] text-white font-jakarta flex px-4 py-2 rounded-xl cursor-pointer">
+        <div className="bg-white border-b border-gray-100 shadow-lg absolute left-0 right-0 z-50 transition-all duration-300">
+          <ul className="w-full flex flex-col items-center justify-between py-4">
+            <li className="text-center text-md font-jakarta py-3 w-full cursor-pointer hover:bg-gray-50" onClick={() => { router.push("/"); setIsMenu(false); }}>Home</li>
+            <li className="text-center text-md font-jakarta py-3 w-full cursor-pointer hover:bg-gray-50" onClick={() => { router.push("/about"); setIsMenu(false); }}>About Us</li>
+            <li className="text-center text-md font-jakarta py-3 w-full cursor-pointer hover:bg-gray-50" onClick={() => { router.push("/properties"); setIsMenu(false); }}>Properties</li>
+            <li className="text-center text-md font-jakarta py-3 w-full cursor-pointer hover:bg-gray-50" onClick={() => { router.push("/contact"); setIsMenu(false); }}>Contact</li>
+            <div className="flex mt-4 pb-2 items-center justify-center mx-auto w-full">
+              <button 
+                className="bg-[#021265] text-white font-jakarta flex px-6 py-2 rounded-xl cursor-pointer hover:bg-blue-800 transition"
+                onClick={() => { openDownloadModal(); setIsMenu(false); }}
+              >
                 <Image
                   src={scannerIcon}
                   alt="download app"
-                  className="w-[8vw] h-[8vw] mr-2"
+                  className="w-[6vw] h-[6vw] mr-2"
                 />{" "}
                 Download App
               </button>

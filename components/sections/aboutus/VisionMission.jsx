@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Search, Lock, Shield, BarChart3 } from "lucide-react";
 
 function VisionMission() {

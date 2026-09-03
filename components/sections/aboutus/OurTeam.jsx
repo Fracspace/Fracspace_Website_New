@@ -8,11 +8,16 @@ import unnathSirImg from "../../../assets/unnathSir.jpeg";
 import abhisheikImg from "../../../assets/TeamMates/sales/abhishek.webp";
 import divyaImg from "../../../assets/TeamMates/sales/divya.webp";
 import dnsImg from "../../../assets/TeamMates/sales/dns1.webp";
+import charithImg from '../../../assets/TeamMates/sales/charith.jpg';
+import gitanshImg from '../../../assets/TeamMates/sales/gitansh.jpg';
+import harshathImg from '../../../assets/TeamMates/sales/harshath.jpg';
+import likithaImg from '../../../assets/TeamMates/sales/likitha.jpg';
+import nithyaImg from '../../../assets/TeamMates/sales/nithya.jpg';
 
 // Tech Team
-import akhilImg from "../../../assets/TeamMates/tech/akhil.webp";
+// import akhilImg from "../../../assets/TeamMates/tech/akhil.webp";
 import krishnaImg from "../../../assets/TeamMates/tech/krishna.webp";
-import nagamaniImg from "../../../assets/TeamMates/tech/nagamani.webp";
+import shashidharImg from "../../../assets/TeamMates/tech/shashidhar.jpg";
 import rakeshImg from "../../../assets/TeamMates/tech/rakesh1.webp";
 import tejaswiniImg from "../../../assets/TeamMates/tech/tejaswini.webp";
 import vishnuImg from "../../../assets/TeamMates/tech/vishnu.webp";
@@ -20,6 +25,10 @@ import vishnuImg from "../../../assets/TeamMates/tech/vishnu.webp";
 // marketing
 import hruthikImg from "../../../assets/TeamMates/marketing/hruthik.webp";
 import vivekanandaImg from "../../../assets/TeamMates/marketing/vivekananda.webp";
+import mithunImg from "../../../assets/TeamMates/marketing/mithun.jpg";
+import nikithaImg from "../../../assets/TeamMates/marketing/nikitha.jpg";
+import gopichandImg from "../../../assets/TeamMates/marketing/gopichand.jpg";
+
 
 // hospitality
 import deepakImg from "../../../assets/TeamMates/hospitality/deepak.webp";
@@ -33,7 +42,8 @@ import madhuImg from "../../../assets/TeamMates/construction/madhu1.webp";
 import tarunImg from "../../../assets/TeamMates/construction/tarun.webp";
 
 // hr & accounts
-import naveenSirImg from "../../../assets/TeamMates/hr/naveenSir.webp";
+import tejaswiniAccImg from "../../../assets/TeamMates/hrAccounts/tejaswini.jpg";
+import faizhanImg from "../../../assets/TeamMates/hrAccounts/faizhan.jpg";
 
 function OurTeam() {
   const salesTeamMembers = [
@@ -48,14 +58,34 @@ function OurTeam() {
       image: dnsImg
     },
     {
-      name: "Prashanth",
-      role: "Hospitality & Growth Manager",
-      image: dnsImg
-    },
-    {
       name: "Abhisheik",
       role: "Pre-sales Executive",
       image: abhisheikImg
+    },
+    {
+      name: "Charith",
+      role: "Pre-sales Executive",
+      image: charithImg
+    },
+    {
+      name: "Gitansh",
+      role: "Pre-sales Executive",
+      image: gitanshImg
+    },
+    {
+      name: "Harshath",
+      role: "Pre-sales Executive",
+      image: harshathImg
+    },
+    {
+      name: "Likitha",
+      role: "Pre-sales Executive",
+      image: likithaImg
+    },
+    {
+      name: "Nithya",
+      role: "Pre-sales Executive",
+      image: nithyaImg
     }
   ];
 
@@ -76,19 +106,14 @@ function OurTeam() {
       image: krishnaImg
     },
     {
-      name: "Akhil",
-      role: "Junior Software Developer",
-      image: akhilImg
-    },
-    {
       name: "Tejaswini",
       role: "UI/UX Designer",
       image: tejaswiniImg
     },
     {
-      name: "Nagamani",
+      name: "Shashidhar",
       role: "IT Admin",
-      image: nagamaniImg
+      image: shashidharImg
     }
   ];
 
@@ -102,19 +127,34 @@ function OurTeam() {
       name: "Hruthik",
       role: "Video Editor",
       image: hruthikImg
+    },
+    {
+      name: "Mithun",
+      role: "Graphic Designer",
+      image: mithunImg
+    },
+    {
+      name: "Nikitha",
+      role: "PR & Media Manager",
+      image: nikithaImg
+    },
+    {
+      name: "Gopichand",
+      role: "Video Editor",
+      image: gopichandImg
     }
   ];
 
-  const hrTeam = [
+  const hrAccountsTeam = [
     {
-      name: "Hr",
-      role: "Video Editor",
-      image: hruthikImg
+      name: "tejaswini",
+      role: "Jr Accountant",
+      image: tejaswiniAccImg
     },
     {
-      name: "Naveen",
-      role: "Accounts Head",
-      image: naveenSirImg
+      name: "Faizhan",
+      role: "Jr Accountant",
+      image: faizhanImg
     }
   ];
 
@@ -135,17 +175,12 @@ function OurTeam() {
     {
       name: "Tharun",
       role: "Project Commander",
-      image: hruthikImg
+      image: tarunImg
     },
     {
       name: "Madhu",
       role: "Site Engineer",
-      image: hruthikImg
-    },
-    {
-      name: "Hruthik",
-      role: "Video Editor",
-      image: hruthikImg
+      image: madhuImg
     }
   ];
 
@@ -174,10 +209,9 @@ function OurTeam() {
           </h2>
 
           <p className="max-w-4xl font-dm text-sm leading-7 text-gray-600 sm:text-base">
-            Meet Pacapace’s team of professionals with experience across real
+            Meet Fracspace’s team of professionals with experience across real
             estate, finance, technology, and entrepreneurship.
           </p>
-
           <p className="mt-3 font-dm max-w-4xl text-sm leading-7 text-gray-600 sm:text-base">
             We believe structured ownership may unlock long-term opportunities
             for modern investors.
@@ -215,7 +249,7 @@ function OurTeam() {
 
               <p className="mb-4 font-dm text-sm leading-7 text-gray-600 sm:text-base">
                 Unnath Reddy is a visionary entrepreneur and the founder of
-                Pacapace, a real estate technology platform transforming how
+                Fracspace, a real estate technology platform transforming how
                 people invest into structured property assets.
               </p>
 
@@ -226,7 +260,7 @@ function OurTeam() {
               </p>
 
               <p className="mb-5 font-dm text-sm leading-7 text-gray-600 sm:text-base">
-                Today, he leads Pacapace’s mission to democratize real estate
+                Today, he leads Fracspace’s mission to democratize real estate
                 investing and provide secure access to modern real-estate backed
                 opportunities.
               </p>

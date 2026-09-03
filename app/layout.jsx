@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import LayoutClient from "./LayoutClient";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Fracspace",
   description: "Fracspace | Co-own Luxury Properties"
 };
@@ -20,11 +19,7 @@ const dmsans = DM_Sans({
   variable: "--font-dm"
 });
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html
       lang="en"

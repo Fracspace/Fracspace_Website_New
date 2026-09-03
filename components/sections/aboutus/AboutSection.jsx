@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import bg1 from "../../../assets/herobg.webp";
-import teamImg from "../../../assets/teamImg.webp";
 
 function AboutSection() {
   return (
-    <div className="w-full  overflow-hidden">
+    <div className="w-full overflow-hidden">
       {/* Hero Section */}
       <section className="relative w-full min-h-[500px] md:min-h-[500px] overflow-hidden">
         {/* Background Image */}
@@ -50,44 +49,32 @@ function AboutSection() {
 
       {/* Who We Are Section */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 md:px-8 lg:px-12 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
-          <div>
-            <h2 className="text-3xl font-jakarta md:text-4xl lg:text-5xl  text-[#111] mb-8">
-              Who We Are
-            </h2>
+        <div className="max-w-4xl">
+          <h2 className="text-3xl font-jakarta md:text-4xl lg:text-5xl text-[#111] mb-8">
+            Who We Are
+          </h2>
 
-            <div className="space-y-6 text-[#444] leading-7 md:leading-8 text-sm sm:text-base">
-              <p className="font-dm">
-                <span className="font-semibold">Fracspace</span> is a modern
-                fractional real estate investment platform designed to make
-                premium property ownership accessible, transparent, and
-                simplified.
-              </p>
+          <div className="space-y-6 text-[#444] leading-7 md:leading-8 text-sm sm:text-base">
+            <p className="font-dm">
+              <span className="font-semibold">Fracspace</span> is a modern
+              fractional real estate investment platform designed to make
+              premium property ownership accessible, transparent, and
+              simplified.
+            </p>
 
-              <p className="font-dm">
-                We enable investors to co-own high-quality real estate assets
-                with structured legal frameworks, professional management, and
-                technology-driven portfolio tracking.
-              </p>
+            <p className="font-dm">
+              We enable investors to co-own high-quality real estate assets
+              with structured legal frameworks, professional management, and
+              technology-driven portfolio tracking.
+            </p>
 
-              <p className="font-dm">
-                Our approach combines real estate expertise with digital
-                convenience — making property investment{" "}
-                <span className="font-semibold">
-                  smarter and more accessible.
-                </span>
-              </p>
-            </div>
-          </div>
-
-          {/* Right Image */}
-          <div className="w-full">
-            <Image
-              src={teamImg}
-              alt="Fracspace Team"
-              className="w-full h-auto  object-cover shadow-2xl"
-            />
+            <p className="font-dm">
+              Our approach combines real estate expertise with digital
+              convenience — making property investment{" "}
+              <span className="font-semibold">
+                smarter and more accessible.
+              </span>
+            </p>
           </div>
         </div>
       </section>

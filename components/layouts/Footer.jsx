@@ -5,9 +5,11 @@ import Image from "next/image";
 import howFsWorksBg from "../../assets/howFsWorksBg.webp";
 import logo from "../../assets/logo22.png";
 import { useMediaQuery } from "react-responsive";
+import { useRouter } from "next/navigation";
 
 function Footer() {
   const isMobile = useMediaQuery({ maxWidth: 600 });
+  const router = useRouter();
   return (
     <section>
       <div className="mt-16 md:pl-3 md:pr-3 relative w-full h-full py-12 overflow-hidden">
@@ -24,8 +26,7 @@ function Footer() {
             <div className="">
               <Image
                 alt="fracspace logo"
-                aspect
-                className="md:w-60 md:h-12"
+                className="md:w-60 md:h-12 object-contain"
                 src={logo}
               />
               <p className="ml-2 mt-4 font-dm text-gray-300">
@@ -39,14 +40,14 @@ function Footer() {
           <div className="z-20 ml-2  text-white md:w-[10vw] mt-2">
             <p className="text-xl font-600 font-jakarta ">Quick Links</p>
             <ul className="mt-4">
-              <li className="cursor-pointer font-dm text-gray-300">Home</li>
-              <li className="cursor-pointer pt-2 font-dm text-gray-300">
+              <li className="cursor-pointer font-dm text-gray-300 hover:text-white transition" onClick={() => router.push("/")}>Home</li>
+              <li className="cursor-pointer pt-2 font-dm text-gray-300 hover:text-white transition" onClick={() => router.push("/about")}>
                 About Us
               </li>
-              <li className="cursor-pointer pt-2 font-dm text-gray-300">
-                Agents
+              <li className="cursor-pointer pt-2 font-dm text-gray-300 hover:text-white transition" onClick={() => router.push("/properties")}>
+                Properties
               </li>
-              <li className="cursor-pointer pt-2 font-dm text-gray-300">
+              <li className="cursor-pointer pt-2 font-dm text-gray-300 hover:text-white transition" onClick={() => router.push("/contact")}>
                 Contact Us
               </li>
             </ul>
@@ -70,17 +71,14 @@ function Footer() {
           <div className="z-20 ml-2 text-white mt-2">
             <p className="text-xl font-600 font-jakarta">Legal</p>
             <ul className="mt-4">
-              <li className="cursor-pointer font-dm text-gray-300">
+              <li className="cursor-pointer font-dm text-gray-300 hover:text-white transition" onClick={() => router.push("/termsofuse")}>
                 Terms Of Service
               </li>
-              <li className="pt-2 cursor-pointer font-dm text-gray-300">
+              <li className="pt-2 cursor-pointer font-dm text-gray-300 hover:text-white transition" onClick={() => router.push("/privacypolicy")}>
                 Privacy Policy
               </li>
-              <li className="pt-2 cursor-pointer font-dm text-gray-300">
+              <li className="pt-2 cursor-pointer font-dm text-gray-300 hover:text-white transition" onClick={() => router.push("/refundpolicy")}>
                 Refund Policy
-              </li>
-              <li className="pt-2 cursor-pointer font-dm text-gray-300">
-                Data Deletion
               </li>
             </ul>
           </div>

@@ -29,71 +29,71 @@ function WhyInvestWithFs() {
           <h2 className="text-center font-jakarta text-3xl md:text-4xl text-white font-jakarta">
             Why Invest with Fracspace?
           </h2>
-          <div className="mt-12 mx-10 max-w-7xl flex flex-col md:flex-row  justify-between">
-            <div className=" w-auto md:w-[40vw] rounded-lg relative">
+          <div className="mt-12 mx-5 sm:mx-10 max-w-7xl flex flex-col lg:flex-row gap-12 justify-between items-start">
+            <div className="w-full lg:w-[40vw] rounded-xl relative max-w-[500px] mx-auto lg:mx-0">
               <Image
                 alt="hero image"
                 src={hilltopImg}
-                className="aspect-[3/3] rounded-xl relative"
+                className="w-full aspect-square rounded-2xl object-cover shadow-2xl"
               />
-              <div className="bg-white md:w-[10vw] p-2 rounded-lg absolute top-[-20] left-[-20]">
-                <p className="text-xl text-center font-jakarta">200+</p>
-                <p className="text-xs text-center font-dm">Happy Investors</p>
+              <div className="bg-white p-4 rounded-xl absolute -top-6 -left-6 shadow-xl border border-gray-100 flex flex-col items-center justify-center min-w-[120px]">
+                <p className="text-2xl font-bold font-jakarta text-[#021265]">200+</p>
+                <p className="text-[10px] text-gray-500 font-dm uppercase tracking-wider text-center">Happy Investors</p>
               </div>
             </div>
-            <div className="mt-12 ml-12 md:mt-0 w-auto md:w-[45vw]">
-              <div className="flex border-b border-gray-400 py-4">
-                <div className="w-[50vw] md:w-auto">
+            <div className="w-full lg:w-[50vw] space-y-6">
+              <div className="flex gap-4 border-b border-white/10 pb-6 items-start">
+                <div className="flex-shrink-0">
                   <Image
                     src={lockIcon}
                     alt="lock icon"
-                    className="w-[30vw] md:w-[6vw] px-2 py-2 bg-[#EDE6DA] rounded-lg"
+                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
                   />
                 </div>
-                <div className="ml-4 md:ml-2">
-                  <p className="text-white font-jakarta text-lg">
+                <div className="flex-1">
+                  <p className="text-white font-jakarta text-lg font-semibold">
                     Secure Legal Structure
                   </p>
-                  <p className="text-gray-200 font-dm text-md">
-                    Legally defined co-own with transparent documentation,
-                    registered title deeds,& agreements that safeguard every
+                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
+                    Legally defined co-ownership with transparent documentation,
+                    registered title deeds, and agreements that safeguard every
                     rupee you invest.
                   </p>
                 </div>
               </div>
 
-              <div className="flex mt-4 border-b border-gray-400 py-4">
-                <div className="w-[50vw] md:w-auto">
+              <div className="flex gap-4 border-b border-white/10 pb-6 items-start">
+                <div className="flex-shrink-0">
                   <Image
                     src={managedAssetIcon}
                     alt="lock icon"
-                    className="w-[30vw] md:w-[6vw] px-2 py-2 bg-[#EDE6DA] rounded-lg"
+                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
                   />
                 </div>
-                <div className="ml-4 md:ml-2">
-                  <p className="text-white font-jakarta text-lg">
+                <div className="flex-1">
+                  <p className="text-white font-jakarta text-lg font-semibold">
                     Fully Managed Assets
                   </p>
-                  <p className="text-gray-200 font-dm text-md">
-                    We handle operations, tenants, maintenance and compliance -
+                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
+                    We handle operations, tenants, maintenance, and compliance -
                     you simply earn, without ever managing a property yourself.
                   </p>
                 </div>
               </div>
 
-              <div className="flex mt-4 border-b border-gray-400 py-4">
-                <div className="w-[50vw] md:w-auto">
+              <div className="flex gap-4 border-b border-white/10 pb-6 items-start">
+                <div className="flex-shrink-0">
                   <Image
                     src={dualIncomeIcon}
                     alt="lock icon"
-                    className="w-[30vw] md:w-[6vw] px-2 py-2 bg-[#EDE6DA] rounded-lg"
+                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
                   />
                 </div>
-                <div className="ml-4 md:ml-2">
-                  <p className="text-white font-jakarta text-lg">
+                <div className="flex-1">
+                  <p className="text-white font-jakarta text-lg font-semibold">
                     Dual Income Stream
                   </p>
-                  <p className="text-gray-200 font-dm text-md">
+                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
                     Earn monthly rental income while your asset appreciates in
                     value - creating a powerful compounding wealth effect over
                     time.
@@ -101,19 +101,19 @@ function WhyInvestWithFs() {
                 </div>
               </div>
 
-              <div className="flex mt-4  py-4">
-                <div className="w-[50vw] md:w-auto">
+              <div className="flex gap-4 pb-6 items-start">
+                <div className="flex-shrink-0">
                   <Image
                     src={complemtaryIcon}
                     alt="lock icon"
-                    className="w-[30vw] md:w-[6vw] px-2 py-2 bg-[#EDE6DA] rounded-lg"
+                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
                   />
                 </div>
-                <div className="ml-4 md:ml-2">
-                  <p className="text-white font-jakarta text-lg">
+                <div className="flex-1">
+                  <p className="text-white font-jakarta text-lg font-semibold">
                     Complimentary Stays
                   </p>
-                  <p className="text-gray-200 font-dm text-md">
+                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
                     Enjoy exclusive stay privileges and premium owner benefits
                     at every property you hold a frac in - reward yourself as
                     you earn.
