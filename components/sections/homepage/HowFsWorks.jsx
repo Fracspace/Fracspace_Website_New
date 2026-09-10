@@ -1,107 +1,80 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
-import howFsWorksBg from "../../../assets/howFsWorksBg.webp";
-import searchIcon from "../../../assets/icons/search.png";
-import diamondIcon from "../../../assets/icons/diamond.png";
-import rocketIcon from "../../../assets/icons/rocket.png";
-import moneyIcon from "../../../assets/icons/money.png";
-import { useMediaQuery } from "react-responsive";
 
 function HowFsWorks() {
-  const isMobile = useMediaQuery({ maxWidth: 600 });
+  const steps = [
+    {
+      n: "01",
+      icon: "◎",
+      title: "Choose property",
+      body: "Browse curated premium assets vetted by our in-house sourcing and legal teams."
+    },
+    {
+      n: "02",
+      icon: "◈",
+      title: "Invest in fraction",
+      body: "Purchase a share starting at a fraction of the full asset value, fully documented."
+    },
+    {
+      n: "03",
+      icon: "▤",
+      title: "Earn rental income",
+      body: "Receive your share of net rental income directly to your bank account."
+    },
+    {
+      n: "04",
+      icon: "↗",
+      title: "Exit anytime",
+      body: "Sell your share after lock-in through the resale window or a private transfer."
+    }
+  ];
+
   return (
-    <section className="mt-12">
-      <div className="relative flex items-center w-full h-full py-20 overflow-hidden">
-        {!isMobile && (
-          <Image
-            alt="how fracspace works"
-            src={howFsWorksBg}
-            className="z-0 w-full h-full absolute top-0 left-0"
-          />
-        )}
-        <div className=" z-10 w-full h-full bg-[linear-gradient(to_right,#021265cc,#003399aa),radial-gradient(circle_at_top,#00a6ff55,transparent_30%),radial-gradient(circle_at_bottom_left,#7c3aed55,transparent_30%)] md:bg-gradient-to-r md:from-slate-900/90 md:to-blue-900/60 z-10 absolute top-0 left-0"></div>
-        <div className="z-20 relative  w-full">
-          <h2 className="text-3xl md:text-4xl text-white text-center font-jakarta">
-            How Fractional Investment Works?
-          </h2>
-          <p className="text-white text-center pt-8 mx-8 font-dm">
-            Fractional ownership made accessible, transparent, and completely
-            hassle-free.
-          </p>
+    <section
+      id="how"
+      className="relative bg-gradient-to-r from-[#071A38] via-[#0B2452] to-[#0F2A57] text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-manrope"
+    >
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 96px)"
+        }}
+      ></div>
 
-          <div className="flex flex-col md:flex-row mt-20 mx-auto max-w-7xl justify-center gap-8">
-            <div className="mx-8 w-auto md:mx-0 md:w-[20vw]  border border-gray-400 p-4 rounded-lg">
-              <div className="flex items-center justify-between">
-                <div className="text-white">
-                  <Image
-                    src={searchIcon}
-                    alt="search icon"
-                    className="w-6 h-6"
-                  />
-                </div>
-                <div className="text-gray-400 text-2xl font-jakarta">01</div>
-              </div>
-              <p className="text-white mt-4 font-jakarta">Choose Property</p>
-              <p className="text-gray-400 mt-1 font-dm">
-                Browse curated premium assets vetted by our real estate and
-                legal experts.
-              </p>
-            </div>
+      <div className="relative max-w-[1180px] mx-auto text-center">
+        <h2 className="font-jakarta text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-3">
+          From browsing to ownership
+        </h2>
+        <p className="text-sm sm:text-base text-[#A9BDE2] max-w-xl mx-auto mb-12 leading-relaxed">
+          Fractional ownership made accessible, transparent and completely hassle-free.
+        </p>
 
-            <div className="mx-8 w-auto md:mx-0 md:w-[20vw] border border-gray-400 p-4 rounded-lg">
-              <div className="flex items-center justify-between">
-                <div className="text-white">
-                  <Image
-                    src={diamondIcon}
-                    alt="search icon"
-                    className="w-6 h-6"
-                  />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-left">
+          {steps.map((s, idx) => (
+            <div
+              key={idx}
+              className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-6 transition-all duration-300 backdrop-blur-xs flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <span className="w-9 h-9 rounded-xl bg-white/10 text-white flex items-center justify-center text-base font-bold">
+                    {s.icon}
+                  </span>
+                  <span className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white/30">
+                    {s.n}
+                  </span>
                 </div>
-                <div className="text-gray-400 text-2xl font-jakarta">02</div>
+                <h3 className="font-jakarta text-base font-bold text-white mb-2">
+                  {s.title}
+                </h3>
+                <p className="text-xs sm:text-[13px] leading-relaxed text-[#A9BDE2]">
+                  {s.body}
+                </p>
               </div>
-              <p className="text-white mt-4 font-jakarta">Invest In Fraction</p>
-              <p className="text-gray-400 mt-1 font-dm">
-                Purchase fractional shares starting from just ₹10 Lakhs securely
-                through our app.
-              </p>
             </div>
-
-            <div className="mx-8 w-auto md:mx-0 md:w-[20vw] border border-gray-400 p-4 rounded-lg">
-              <div className="flex items-center justify-between">
-                <div className="text-white">
-                  <Image
-                    src={rocketIcon}
-                    alt="search icon"
-                    className="w-6 h-6"
-                  />
-                </div>
-                <div className="text-gray-400 text-2xl font-jakarta">03</div>
-              </div>
-              <p className="text-white mt-4 font-jakarta">Earn Rental Income</p>
-              <p className="text-gray-400 mt-1 font-dm">
-                Receive steady monthly rental yields directly to your bank
-                account.
-              </p>
-            </div>
-
-            <div className="mx-8 w-auto md:mx-0 md:w-[20vw] border border-gray-400 p-4 rounded-lg">
-              <div className="flex items-center justify-between">
-                <div className="text-white">
-                  <Image
-                    src={moneyIcon}
-                    alt="search icon"
-                    className="w-6 h-6"
-                  />
-                </div>
-                <div className="text-gray-400 text-2xl font-jakarta">04</div>
-              </div>
-              <p className="text-white mt-4 font-jakarta">Exit Property</p>
-              <p className="text-gray-400 mt-1 font-dm">
-                Sell your Fracs on our secondary market for capital appreciation
-                at your convenience.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

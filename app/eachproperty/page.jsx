@@ -4,16 +4,16 @@ import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import axios from "axios";
-import { 
-  MapPin, 
-  Home, 
-  Maximize, 
-  Grid, 
-  Users, 
-  Tag, 
-  Flame, 
-  CheckCircle2, 
-  AlertCircle, 
+import {
+  MapPin,
+  Home,
+  Maximize,
+  Grid,
+  Users,
+  Tag,
+  Flame,
+  CheckCircle2,
+  AlertCircle,
   Loader2,
   ChevronLeft,
   ChevronRight
@@ -163,7 +163,7 @@ function PropertyDetailsContent() {
 
   return (
     <div className="bg-gray-50/30 min-h-screen font-dm">
-      
+
       {/* Premium Hero Header Section */}
       <section className="relative w-full h-[380px] lg:h-[480px] flex items-end overflow-hidden">
         <Image
@@ -174,7 +174,7 @@ function PropertyDetailsContent() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent"></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-12 pb-12 text-white">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="bg-blue-600/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -187,7 +187,7 @@ function PropertyDetailsContent() {
               </span>
             )}
           </div>
-          
+
           <h1 className="text-3xl sm:text-5xl font-bold font-jakarta leading-tight max-w-4xl tracking-tight">
             {propertyDetails.name}
           </h1>
@@ -202,10 +202,10 @@ function PropertyDetailsContent() {
       {/* Main Grid Content Layout */}
       <main className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          
+
           {/* Left Columns - Details, Attributes, and Carousel */}
           <div className="lg:col-span-2 space-y-12">
-            
+
             {/* Gallery Carousel Container */}
             {propertyImages.length > 0 && (
               <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100/60 overflow-hidden">
@@ -270,7 +270,7 @@ function PropertyDetailsContent() {
                 Property Specifications
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                
+
                 <div className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50/50 border border-gray-100/50">
                   <div className="p-3 bg-blue-50 rounded-xl text-blue-900">
                     <Home className="w-5 h-5" />
@@ -375,13 +375,12 @@ function PropertyDetailsContent() {
                 </div>
               </section>
             )}
-
           </div>
 
           {/* Sticky Enquiry Form Section (Right Column) */}
           <div className="lg:col-span-1 lg:sticky lg:top-28 space-y-6">
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-blue-900/5 relative overflow-hidden">
-              
+
               {/* Highlight background element */}
               <div className="absolute top-0 inset-x-0 h-1.5 bg-[#021265]"></div>
 
@@ -390,7 +389,7 @@ function PropertyDetailsContent() {
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                
+
                 {/* Form status notification banner */}
                 {formError && (
                   <div className="p-3.5 bg-red-50 text-red-600 rounded-xl text-xs flex items-center gap-2 border border-red-100">
@@ -438,7 +437,7 @@ function PropertyDetailsContent() {
                       <option value="+65">+65 (SG)</option>
                       <option value="+61">+61 (AU)</option>
                     </select>
-                    
+
                     <input
                       type="tel"
                       name="phoneNumber"
@@ -466,7 +465,6 @@ function PropertyDetailsContent() {
                     className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-blue-900/10 focus:border-[#021265] transition outline-none text-sm text-gray-800 font-medium"
                   />
                 </div>
-
                 <div>
                   <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Select Budget</label>
                   <select
@@ -520,7 +518,6 @@ function PropertyDetailsContent() {
 
         </div>
       </main>
-
     </div>
   );
 }

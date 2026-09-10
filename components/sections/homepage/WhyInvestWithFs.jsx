@@ -1,130 +1,90 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import heroImg from "../../../assets/herobg.webp";
-import complemtaryIcon from "../../../assets/icons/complementaryStays.png";
-import lockIcon from "../../../assets/icons/lock.png";
-import dualIncomeIcon from "../../../assets/icons/dualIncome.png";
-import managedAssetIcon from "../../../assets/icons/managedAsset.png";
-
 import hilltopImg from "../../../assets/hilltopImg.webp";
 
-import { useMediaQuery } from "react-responsive";
-
 function WhyInvestWithFs() {
-  const isMobile = useMediaQuery({ maxWidth: 350 });
+  const benefits = [
+    {
+      icon: "⚖",
+      title: "Secure legal structure",
+      body: "Legally defined co-ownership with transparent documentation, registered for every investor."
+    },
+    {
+      icon: "⚙",
+      title: "Fully managed assets",
+      body: "We handle operations, tenants, maintenance and compliance so ownership stays effortless."
+    },
+    {
+      icon: "₹",
+      title: "Dual income stream",
+      body: "Earn monthly rental income while your asset appreciates in value — returns from both sides."
+    },
+    {
+      icon: "✦",
+      title: "Complimentary stays",
+      body: "Enjoy exclusive stay privileges and private-owner benefits across every property in your portfolio."
+    }
+  ];
 
   return (
-    <div>
-      <section className="mt-12 relative overflow-hidden">
-        <div className="w-full h-auto md:min-h-screen absolute bg-[linear-gradient(to_right,#021265cc,#003399aa),radial-gradient(circle_at_top,#00a6ff55,transparent_30%),radial-gradient(circle_at_bottom_left,#7c3aed55,transparent_30%)]   inset-0 md:bg-gradient-to-r md:from-[#122d66]/95 md:via-[#28519a]/90 md:to-[#122d66]/95  z-20"></div>
-        {!isMobile && (
-          <Image
-            alt="hero image"
-            src={heroImg}
-            className="absolute z-10 w-full h-full min-h-screen"
-          />
-        )}
-        <div className="z-30 h-auto relative py-12 mx-auto max-w-7xl">
-          {/* inset-0 bg-gradient-to-r from-[#122d66]/95 via-[#28519a]/90 to-[#122d66]/95  ........... md:bg-gradient-to-r md:from-slate-900/90 md:to-bule-900/60*/}
-          <h2 className="text-center font-jakarta text-3xl md:text-4xl text-white font-jakarta">
-            Why Invest with Fracspace?
-          </h2>
-          <div className="mt-12 mx-5 sm:mx-10 max-w-7xl flex flex-col lg:flex-row gap-12 justify-between items-start">
-            <div className="w-full lg:w-[40vw] rounded-xl relative max-w-[500px] mx-auto lg:mx-0">
+    <section className="relative bg-gradient-to-r from-[#0A1F42] via-[#0D265A] to-[#14357A] text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-manrope">
+      <div className="max-w-[1180px] mx-auto">
+        <h2 className="font-jakarta text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-12 text-center">
+          Why invest with Fracspace?
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          {/* Left Visual with Floating Badge */}
+          <div className="lg:col-span-5 relative flex justify-center">
+            <div className="relative w-full max-w-md aspect-[4/4.2] rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-gradient-to-br from-[#16315F] to-[#122A52]">
               <Image
-                alt="hero image"
                 src={hilltopImg}
-                className="w-full aspect-square rounded-2xl object-cover shadow-2xl"
+                alt="Fracspace Resort"
+                fill
+                className="object-cover"
               />
-              <div className="bg-white p-4 rounded-xl absolute -top-6 -left-6 shadow-xl border border-gray-100 flex flex-col items-center justify-center min-w-[120px]">
-                <p className="text-2xl font-bold font-jakarta text-[#021265]">200+</p>
-                <p className="text-[10px] text-gray-500 font-dm uppercase tracking-wider text-center">Happy Investors</p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F42]/60 to-transparent"></div>
             </div>
-            <div className="w-full lg:w-[50vw] space-y-6">
-              <div className="flex gap-4 border-b border-white/10 pb-6 items-start">
-                <div className="flex-shrink-0">
-                  <Image
-                    src={lockIcon}
-                    alt="lock icon"
-                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
-                  />
-                </div>
-                <div className="flex-1">
-                  <p className="text-white font-jakarta text-lg font-semibold">
-                    Secure Legal Structure
-                  </p>
-                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
-                    Legally defined co-ownership with transparent documentation,
-                    registered title deeds, and agreements that safeguard every
-                    rupee you invest.
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex gap-4 border-b border-white/10 pb-6 items-start">
-                <div className="flex-shrink-0">
-                  <Image
-                    src={managedAssetIcon}
-                    alt="lock icon"
-                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
-                  />
-                </div>
-                <div className="flex-1">
-                  <p className="text-white font-jakarta text-lg font-semibold">
-                    Fully Managed Assets
-                  </p>
-                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
-                    We handle operations, tenants, maintenance, and compliance -
-                    you simply earn, without ever managing a property yourself.
-                  </p>
-                </div>
+            {/* Floating 200+ Badge */}
+            <div className="absolute -top-4 -left-4 sm:top-4 sm:-left-4 bg-white text-[#0B2452] rounded-2xl p-4 sm:p-5 shadow-2xl border border-gray-100 z-10 min-w-[140px] text-center">
+              <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-[#0B2452]">
+                200+
               </div>
-
-              <div className="flex gap-4 border-b border-white/10 pb-6 items-start">
-                <div className="flex-shrink-0">
-                  <Image
-                    src={dualIncomeIcon}
-                    alt="lock icon"
-                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
-                  />
-                </div>
-                <div className="flex-1">
-                  <p className="text-white font-jakarta text-lg font-semibold">
-                    Dual Income Stream
-                  </p>
-                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
-                    Earn monthly rental income while your asset appreciates in
-                    value - creating a powerful compounding wealth effect over
-                    time.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 pb-6 items-start">
-                <div className="flex-shrink-0">
-                  <Image
-                    src={complemtaryIcon}
-                    alt="lock icon"
-                    className="w-12 h-12 p-2 bg-[#EDE6DA] rounded-xl object-contain"
-                  />
-                </div>
-                <div className="flex-1">
-                  <p className="text-white font-jakarta text-lg font-semibold">
-                    Complimentary Stays
-                  </p>
-                  <p className="text-gray-300 font-dm text-sm mt-1 leading-relaxed">
-                    Enjoy exclusive stay privileges and premium owner benefits
-                    at every property you hold a frac in - reward yourself as
-                    you earn.
-                  </p>
-                </div>
+              <div className="text-xs text-[#5C6B8A] font-medium mt-0.5">
+                Satisfied owners
               </div>
             </div>
           </div>
+
+          {/* Right Benefits Column */}
+          <div className="lg:col-span-7 flex flex-col gap-3.5">
+            {benefits.map((b, idx) => (
+              <div
+                key={idx}
+                className="flex gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-5 sm:p-6 transition duration-300 backdrop-blur-xs"
+              >
+                <span className="w-10 h-10 rounded-xl bg-white/15 text-white flex items-center justify-center text-base font-bold shrink-0">
+                  {b.icon}
+                </span>
+                <div>
+                  <h3 className="font-jakarta text-base font-bold text-white mb-1.5">
+                    {b.title}
+                  </h3>
+                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#A9BDE2]">
+                    {b.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 

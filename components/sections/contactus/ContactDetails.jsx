@@ -1,105 +1,65 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+"use client";
 
 import React from "react";
-import Image from "next/image";
-import bg1 from "../../../assets/herobg.webp";
-
 
 function ContactDetails() {
+  const channels = [
+    {
+      icon: "☎",
+      label: "Phone",
+      primary: "+91 98806 26111",
+      secondary: "Mon–Sat · 9:00 AM – 5:30 PM IST",
+      action: "Call us →",
+      href: "tel:+919880626111"
+    },
+    {
+      icon: "✉",
+      label: "Email",
+      primary: "info@fracspace.com",
+      secondary: "General enquiries & partnerships",
+      action: "Write to us →",
+      href: "mailto:info@fracspace.com"
+    },
+    {
+      icon: "◎",
+      label: "Headquarters",
+      primary: "Hyderabad, Telangana",
+      secondary: "Fracspace HQ · Jubilee Hills",
+      action: "View on map →",
+      href: "https://maps.google.com/?q=Jubilee+Hills+Hyderabad"
+    }
+  ];
+
   return (
-    <section className=" py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-semibold text-center font-jakarta mb-12">
-          We'd love to hear from you
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-10 ml-20">
-            {/* Contact Us */}
-            <div className="flex gap-5">
-              <div className="w-12 h-12 bg-white shadow-sm rounded-md flex items-center justify-center">
-                <Phone size={20} className="text-gray-700" />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 font-jakarta">
-                  Contact Us
-                </h3>
-                <p className="text-sm text-gray-500 mt-1 font-dm">
-                  Mon–Sat 9AM–5:30PM
-                </p>
-
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <a
-                    href="tel:+919880626111"
-                    className="text-blue-600 hover:underline font-dm"
-                  >
-                    +91-9880626111
-                  </a>
-
-                  <a
-                    href="tel:+919355565604"
-                    className="text-blue-600 hover:underline font-dm"
-                  >
-                    +91-9355565604
-                  </a>
-                </div>
+    <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white font-manrope">
+      <div className="max-w-[1180px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        {channels.map((ch, idx) => (
+          <a
+            key={idx}
+            href={ch.href}
+            target={ch.href.startsWith("http") ? "_blank" : undefined}
+            rel={ch.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="border border-[#E7EBF2] hover:border-[#16418C] rounded-2xl p-6 sm:p-7 flex flex-col gap-3.5 bg-white transition duration-300 hover:shadow-lg group"
+          >
+            <span className="w-10 h-10 rounded-xl bg-[#EDF2FB] text-[#16418C] flex items-center justify-center text-lg font-bold">
+              {ch.icon}
+            </span>
+            <div>
+              <span className="font-mono-plex text-[10px] tracking-widest text-[#9AA9C4] uppercase font-semibold">
+                {ch.label}
+              </span>
+              <div className="font-jakarta text-base sm:text-lg font-bold text-[#14203A] mt-0.5 group-hover:text-[#16418C] transition">
+                {ch.primary}
               </div>
             </div>
-
-            {/* Write Us */}
-            <div className="flex gap-5">
-              <div className="w-12 h-12 bg-white shadow-sm rounded-md flex items-center justify-center">
-                <Mail size={20} className="text-gray-700" />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 font-jakarta">
-                  Write Us
-                </h3>
-
-                <a
-                  href="mailto:support@fracspace.com"
-                  className="text-blue-600 hover:underline mt-2 inline-block font-dm"
-                >
-                  support@fracspace.com
-                </a>
-              </div>
+            <div className="text-xs sm:text-[13px] text-[#5C6B8A]">
+              {ch.secondary}
             </div>
-
-            {/* Visit */}
-            <div className="flex gap-5">
-              <div className="w-12 h-12 bg-white shadow-sm rounded-md flex items-center justify-center">
-                <MapPin size={20} className="text-gray-700" />
-              </div>
-
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 font-jakarta">
-                  Make a visit
-                </h3>
-
-                <a
-                  href="#"
-                  className="text-blue-600 hover:underline mt-2 inline-block font-dm"
-                >
-                  View on Google map
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Image */}
-          <div>
-            <Image
-              src={bg1}
-              alt="Beach House"
-              width={500}
-              height={300}
-              className="w-full h-[380px] object-cover rounded-2xl shadow-md"
-            />
-          </div>
-        </div>
+            <span className="text-xs font-bold text-[#16418C] mt-auto pt-2">
+              {ch.action}
+            </span>
+          </a>
+        ))}
       </div>
     </section>
   );

@@ -1,4 +1,6 @@
-import React, { useContext } from "react";
+"use client";
+
+import React from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
 import appStoreImg from "../../assets/appModal/appStore.png";
@@ -6,111 +8,98 @@ import playStoreImg from "../../assets/appModal/playstore.png";
 import qrScannerImg from "../../assets/appModal/qr.png";
 import phoneImg from "../../assets/appModal/iphone.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
-import { useMediaQuery } from "react-responsive";
 
 function FracspaceAppModal() {
   const { closeDownloadModal } = useDownloadApp();
-  const  isMobile  = useMediaQuery({ maxWidth: 600 });
 
   return (
-    <section className="">
-      <div className="fixed md:max-h-[70vh] inset-0 top-40 z-50 flex items-center justify-center  px-4">
-        <div className="relative md:h-[70vh] w-full max-w-5xl rounded-sm bg-white px-6 py-8 md:px-10 md:py-10">
-          {/* Close Button */}
-          <button
-            className="absolute cursor-pointer right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-gray-500 text-white transition hover:bg-gray-600"
-            onClick={closeDownloadModal}
-          >
-            <X size={18} />
-          </button>
+    <div
+      onClick={closeDownloadModal}
+      className="fixed inset-0 z-[100] bg-[#0A1428]/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto font-manrope"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-4xl bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-[#E7EBF2] animate-fsSlideUp my-auto"
+      >
+        {/* Close Button */}
+        <button
+          onClick={closeDownloadModal}
+          aria-label="Close modal"
+          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#E7EBF2] hover:bg-[#0B2452] hover:text-white text-[#4A5878] flex items-center justify-center transition cursor-pointer"
+        >
+          <X size={18} />
+        </button>
 
-          <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between">
-            {/* Left Content */}
-            <div className="w-full max-w-2xl">
-              {/* Heading */}
-              <h2 className="max-w-2xl font-jakarta text-xl font-semibold leading-snug text-black md:text-4xl">
-                Manage Your Fracspace Investments in the App
-              </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          
+          {/* Left Text & Actions */}
+          <div className="lg:col-span-7 space-y-5">
+            <span className="font-mono-plex text-xs uppercase tracking-widest text-[#16418C] font-semibold">
+              Fracspace Mobile
+            </span>
+            <h2 className="font-jakarta text-2xl sm:text-3xl lg:text-4xl font-bold text-[#14203A] leading-tight">
+              Manage your Fracspace investments in the app
+            </h2>
+            <p className="text-sm sm:text-base text-[#5C6B8A] leading-relaxed">
+              Explore properties, invest in fractions, and track your portfolio — all in the Fracspace app.
+            </p>
 
-              {isMobile && (
-                <div className="flex justify-center mt-3 mb-3">
-                  <Image
-                    src={phoneImg}
-                    alt="Fracspace App"
-                    className="h-[30vh] w-[30vw]"
-                  />
-                </div>
-              )}
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-6">
+              {/* QR Box */}
+              <div className="w-32 h-32 p-2.5 rounded-2xl border border-[#E7EBF2] bg-[#F7F9FC] shrink-0 flex items-center justify-center">
+                <Image
+                  src={qrScannerImg}
+                  alt="Scan QR code to download"
+                  className="w-full h-full object-contain rounded-lg"
+                />
+              </div>
 
-              {/* Description */}
-              {!isMobile && (
-                <p className="mt-5 max-w-xl font-dm text-base leading-8 text-gray-700 text-md md:text-xl">
-                  Explore properties, invest in fractions, and track your
-                  portfolio – all in the Fracspace app.
+              <div className="space-y-3 text-center sm:text-left">
+                <h3 className="font-jakarta text-base sm:text-lg font-bold text-[#14203A]">
+                  Scan the QR to get the app
+                </h3>
+                <p className="text-xs italic text-[#7B8AA8]">
+                  Available on iOS and Android
                 </p>
-              )}
-
-              {/* QR Section */}
-
-              <div className=" md:mt-10 flex flex-col gap-6 sm:flex-row sm:items-center">
-                {/* QR Code */}
-                {!isMobile && (
-                  <div className="overflow-hidden rounded-2xl border border-gray-300 p-3">
-                    <Image
-                      src={qrScannerImg}
-                      alt="QR Code"
-                      width={140}
-                      height={140}
-                      className="h-[140px] w-[140px] object-cover"
-                    />
-                  </div>
-                )}
-
-                {/* QR Text */}
-                <div>
-                  {!isMobile && (
-                    <h4 className="text-2xl font-dm font-medium text-black">
-                      Scan the QR to Get the App
-                    </h4>
-                  )}
-
-                  <p className="mt-3 text-lg font-dm italic text-gray-500">
-                    Available on iOS and Android
-                  </p>
-                  <div className=" mt-2 md:mt-8 flex flex-wrap items-center gap-4">
-                    <Image
-                      src={appStoreImg}
-                      alt="App Store"
-                      className="h-auto w-[30vw] h-[6vh] md:w-[170px] cursor-pointer"
-                    />
-
-                    <Image
-                      src={playStoreImg}
-                      alt="Google Play"
-                      width={170}
-                      height={50}
-                      className="h-auto w-[30vw] md:w-[170px] cursor-pointer"
-                    />
-                  </div>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 pt-1">
+                  <a
+                    href="https://apps.apple.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#0B1526] hover:bg-[#16418C] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm"
+                  >
+                    App Store
+                  </a>
+                  <a
+                    href="https://play.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#0B1526] hover:bg-[#16418C] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm"
+                  >
+                    Google Play
+                  </a>
                 </div>
               </div>
             </div>
-
-            {/* Right Mobile Mockup */}
-            {!isMobile && (
-              <div className="flex justify-center">
-                <Image
-                  src={phoneImg}
-                  alt="Fracspace App"
-                  className="h-[60vh] w-[220px] md:w-[280px] lg:w-[240px] md:mr-8"
-                />
-              </div>
-            )}
           </div>
+
+          {/* Right Phone Mockup */}
+          <div className="lg:col-span-5 flex justify-center items-center">
+            <div className="relative w-56 sm:w-64 max-w-full flex items-center justify-center">
+              <Image
+                src={phoneImg}
+                alt="Fracspace App Interface"
+                className="w-full h-auto object-contain max-h-[460px] drop-shadow-2xl"
+                priority
+              />
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
 export default FracspaceAppModal;
+

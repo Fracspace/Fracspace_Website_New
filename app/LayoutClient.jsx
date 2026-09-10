@@ -14,14 +14,10 @@ function LayoutContent({ children }) {
 
   return (
     <>
-      <div className="fixed z-40 w-[100vw] bg-white h-[64px] md:h-[12vh] flex items-center shadow-sm">
-        <div className="w-full">
-          <Navbar />
-        </div>
-      </div>
-      <div className="mt-[64px] md:mt-[12vh] w-[100%]">{children}</div>
+      <Navbar />
+      <div className="pt-[74px] w-full min-h-screen flex flex-col">{children}</div>
 
-      <div>{isOpen && <FracspaceAppModal />}</div>
+      {isOpen && <FracspaceAppModal />}
 
       <FloatingWidgets />
 
@@ -37,3 +33,4 @@ export default function LayoutClient({ children }) {
     </DownloadAppProvider>
   );
 }
+
