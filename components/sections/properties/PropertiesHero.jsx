@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import heroImg from "../../../assets/herobg.webp";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 function PropertiesHero({ totalCount = "9" }) {
   return (
@@ -32,7 +33,7 @@ function PropertiesHero({ totalCount = "9" }) {
           <div className="pt-4 grid grid-cols-3 gap-6 max-w-md">
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                {totalCount}
+                <AnimatedCounter target={Number(totalCount) || 9} suffix="+" delay={100} duration={1400} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
                 Live listings
@@ -40,7 +41,7 @@ function PropertiesHero({ totalCount = "9" }) {
             </div>
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                5+
+                <AnimatedCounter target={5} suffix="+" delay={200} duration={1200} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
                 Destinations
@@ -48,7 +49,7 @@ function PropertiesHero({ totalCount = "9" }) {
             </div>
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                8–12%
+                <AnimatedCounter range={[8, 12]} suffix="%" separator="–" delay={300} duration={1500} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
                 Target ROI

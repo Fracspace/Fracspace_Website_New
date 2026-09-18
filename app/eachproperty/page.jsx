@@ -41,6 +41,7 @@ function PropertyDetailsContent() {
     agreeToContact: false
   };
 
+
   const [formData, setFormData] = useState(initialState);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
@@ -512,10 +513,8 @@ function PropertyDetailsContent() {
                 </button>
 
               </form>
-
             </div>
           </div>
-
         </div>
       </main>
     </div>

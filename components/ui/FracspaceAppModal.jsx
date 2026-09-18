@@ -83,8 +83,8 @@ function FracspaceAppModal() {
             </div>
           </div>
 
-          {/* Right Phone Mockup */}
-          <div className="lg:col-span-5 flex justify-center items-center">
+          {/* Right Phone Mockup - Desktop only */}
+          <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
             <div className="relative w-56 sm:w-64 max-w-full flex items-center justify-center">
               <Image
                 src={phoneImg}

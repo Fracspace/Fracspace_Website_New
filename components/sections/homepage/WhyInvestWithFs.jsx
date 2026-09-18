@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import hilltopImg from "../../../assets/hilltopImg.webp";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 function WhyInvestWithFs() {
   const benefits = [
@@ -49,13 +50,13 @@ function WhyInvestWithFs() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F42]/60 to-transparent"></div>
             </div>
 
-            {/* Floating 200+ Badge */}
+            {/* Floating 100+ Badge */}
             <div className="absolute -top-4 -left-4 sm:top-4 sm:-left-4 bg-white text-[#0B2452] rounded-2xl p-4 sm:p-5 shadow-2xl border border-gray-100 z-10 min-w-[140px] text-center">
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-[#0B2452]">
-                200+
+                <AnimatedCounter target={100} suffix="+" delay={150} duration={1600} />
               </div>
               <div className="text-xs text-[#5C6B8A] font-medium mt-0.5">
-                Satisfied owners
+                Satisfied investors
               </div>
             </div>
           </div>

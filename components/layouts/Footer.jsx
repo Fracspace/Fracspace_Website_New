@@ -94,20 +94,20 @@ function Footer() {
           </h4>
           <ul className="space-y-2.5 text-xs sm:text-sm text-[#9FB2D6] leading-relaxed">
             <li>
-              4th Floor, Dreamscape Hotel, MLA Colony, NBT Nagar, Road No. 12, Banjara Hills, Hyderabad, Telangana 500034
+              4th Floor, Dreamscape Hotel, MLA Colony, NBT Nagar, Road No. 12, Banjara Hills, Hyderabad, Telangana, 500034
             </li>
             <li>
               <a href="mailto:support@fracspace.com" className="hover:text-white transition">
                 support@fracspace.com
               </a>
             </li>
-            <li className="space-x-1.5">
-              <a href="tel:+919355565604" className="hover:text-white transition">
-                +91 93555 65604
-              </a>
-              <span>·</span>
+            <li className="flex flex-wrap items-center gap-1.5">
               <a href="tel:+919880626111" className="hover:text-white transition">
                 +91 98806 26111
+              </a>
+              <span>·</span>
+              <a href="tel:+919154867608" className="hover:text-white transition">
+                +91 91548 67608
               </a>
             </li>
           </ul>

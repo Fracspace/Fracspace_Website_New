@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import logo from "../../assets/logo.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
+import { Download } from "lucide-react";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -66,18 +67,14 @@ function Navbar() {
               );
             })}
 
-            {/* Improvised Download App Button */}
+            {/* Redesigned Download App Button */}
             <button
               onClick={openDownloadModal}
-              className="relative inline-flex items-center gap-2.5 bg-gradient-to-r from-[#0B2452] via-[#0E2C68] to-[#16418C] hover:from-[#16418C] hover:to-[#2258BE] text-white px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-md shadow-[#0B2452]/20 hover:shadow-xl hover:shadow-[#16418C]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer border border-white/10 group"
+              className="relative inline-flex items-center gap-2 bg-gradient-to-r from-[#0B2452] via-[#0E2C68] to-[#16418C] hover:from-[#16418C] hover:via-[#1D4FAD] hover:to-[#2258BE] text-white pl-4.5 pr-3 py-2 rounded-full text-xs sm:text-sm font-semibold shadow-sm hover:shadow-lg hover:shadow-[#16418C]/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer border border-white/15 group"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8FB4FF] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7FA6FF]"></span>
-              </span>
-              <span>Download App</span>
-              <span className="text-[#8FB4FF] group-hover:text-white group-hover:translate-x-0.5 transition-all text-xs">
-                ↓
+              <span className="tracking-tight">Download App</span>
+              <span className="w-5 h-5 rounded-full bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                <Download className="w-3 h-3 text-[#99BEFF] group-hover:text-white group-hover:translate-y-0.5 transition-all duration-200" />
               </span>
             </button>
           </nav>
@@ -159,16 +156,25 @@ function Navbar() {
               setMenuOpen(false);
               openDownloadModal();
             }}
-            className="w-full text-center bg-white hover:bg-[#DCE7FF] text-[#0B2452] py-3.5 rounded-full text-sm font-bold transition cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 bg-white hover:bg-[#DCE7FF] text-[#0B2452] py-3.5 rounded-full text-sm font-bold shadow-sm transition-all cursor-pointer group"
           >
-            Download App
+            <span>Download App</span>
+            <Download className="w-4 h-4 text-[#16418C] group-hover:translate-y-0.5 transition-transform duration-200" />
           </button>
-          <a
-            href="tel:+919880626111"
-            className="text-center text-xs text-[#A9BDE2] hover:text-white transition"
-          >
-            +91 98806 26111
-          </a>
+          <div className="flex flex-col gap-1 items-center">
+            <a
+              href="tel:+919880626111"
+              className="text-center text-xs text-[#A9BDE2] hover:text-white transition"
+            >
+              +91 98806 26111
+            </a>
+            <a
+              href="tel:+919154867608"
+              className="text-center text-xs text-[#A9BDE2] hover:text-white transition"
+            >
+              +91 91548 67608
+            </a>
+          </div>
         </div>
       </aside>
     </>

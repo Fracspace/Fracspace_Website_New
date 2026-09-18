@@ -257,7 +257,7 @@ export default function PrivacyPolicy() {
             </p>
             <p className="mt-2 font-semibold">
               Email: <a href="mailto:support@fracspace.com" className="text-blue-900 hover:underline">support@fracspace.com</a> <br />
-              Phone: <a href="tel:+919880626111" className="text-blue-900 hover:underline">+91-9880626111</a>
+              Phone: <a href="tel:+919880626111" className="text-blue-900 hover:underline">+91 98806 26111</a> / <a href="tel:+919154867608" className="text-blue-900 hover:underline">+91 91548 67608</a>
             </p>
           </div>
 

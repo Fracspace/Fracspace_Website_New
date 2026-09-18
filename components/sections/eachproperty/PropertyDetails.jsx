@@ -150,12 +150,15 @@ function PropertyDetails() {
                 Mon-Sat : 9AM-6:30PM
               </p>
 
-              <div className="mt-4 bg-white rounded flex items-center justify-center gap-2 h-9">
+              <a
+                href="tel:+919880626111"
+                className="mt-4 bg-white rounded flex items-center justify-center gap-2 h-9 hover:bg-white/90 transition text-decoration-none"
+              >
                 <Phone size={14} className="text-[#081C7B]" />
-                <span className="text-[#081C7B] text-lg font-medium font-dm">
-                  +91 9890626111
+                <span className="text-[#081C7B] text-base sm:text-lg font-medium font-dm">
+                  +91 98806 26111
                 </span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import heroImg from "../../../assets/herobg.webp";
 import { useDownloadApp } from "@/context/DownloadAppContext";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 function HeroSection() {
   const { openDownloadModal } = useDownloadApp();
@@ -54,18 +55,18 @@ function HeroSection() {
           </div>
 
           {/* Stats Bar */}
-          <div className="pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+          <div className="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg">
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                200+
+                <AnimatedCounter target={200} suffix="+" delay={100} duration={1600} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
-                Properties
+                Fracs sold
               </div>
             </div>
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                15+
+                <AnimatedCounter target={15} suffix="+" delay={200} duration={1400} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
                 Locations
@@ -73,18 +74,10 @@ function HeroSection() {
             </div>
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                300+
+                <AnimatedCounter target={100} suffix="+" delay={300} duration={1600} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
                 Investors
-              </div>
-            </div>
-            <div>
-              <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                8–12%
-              </div>
-              <div className="text-xs text-[#93A8CE] mt-1 font-medium">
-                Target ROI
               </div>
             </div>
           </div>

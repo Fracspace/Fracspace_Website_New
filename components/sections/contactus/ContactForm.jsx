@@ -229,9 +229,9 @@ function ContactForm() {
               <div className="space-y-4 text-xs sm:text-[13.5px] text-[#5C6B8A] leading-relaxed">
                 <div>
                   <span className="font-bold text-[#14203A] block mb-1">
-                    Registered Office:
+                    Office Address:
                   </span>
-                  Plot No. 827, Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033
+                  4th Floor, Dreamscape Hotel, MLA Colony, NBT Nagar, Road No. 12, Banjara Hills, Hyderabad, Telangana, 500034
                 </div>
 
                 <div>
@@ -241,18 +241,11 @@ function ContactForm() {
                   Monday – Saturday · 9:00 AM – 5:30 PM IST<br />
                   Sunday closed
                 </div>
-
-                <div>
-                  <span className="font-bold text-[#14203A] block mb-1">
-                    Visit Policy:
-                  </span>
-                  Visits by appointment only. Please contact your relationship manager or schedule via phone before arriving.
-                </div>
               </div>
 
               <div className="pt-2">
                 <a
-                  href="https://maps.google.com/?q=Jubilee+Hills+Hyderabad"
+                  href="https://maps.google.com/?q=Dreamscape+Hotel+MLA+Colony+Road+No+12+Banjara+Hills+Hyderabad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block border border-[#DDE4EF] hover:border-[#0B2452] text-[#0B2452] px-6 py-2.5 rounded-full text-xs font-bold transition"

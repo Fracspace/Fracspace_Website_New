@@ -4,7 +4,11 @@ import LayoutClient from "./LayoutClient";
 
 export const metadata = {
   title: "Fracspace | Fractional Real Estate & Luxury Property Co-Ownership",
-  description: "Fracspace offers innovative fractional investment opportunities, allowing you to own a curated share of luxury properties and premium holiday homes with predictable returns."
+  description: "Fracspace offers innovative fractional investment opportunities, allowing you to own a curated share of luxury properties and premium holiday homes with predictable returns.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png"
+  }
 };
 
 const jakarta = Plus_Jakarta_Sans({

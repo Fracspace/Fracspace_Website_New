@@ -7,7 +7,7 @@ function ContactDetails() {
     {
       icon: "☎",
       label: "Phone",
-      primary: "+91 98806 26111",
+      primary: "+91 98806 26111 / +91 91548 67608",
       secondary: "Mon–Sat · 9:00 AM – 5:30 PM IST",
       action: "Call us →",
       href: "tel:+919880626111"
@@ -15,18 +15,18 @@ function ContactDetails() {
     {
       icon: "✉",
       label: "Email",
-      primary: "info@fracspace.com",
+      primary: "support@fracspace.com",
       secondary: "General enquiries & partnerships",
       action: "Write to us →",
-      href: "mailto:info@fracspace.com"
+      href: "mailto:support@fracspace.com"
     },
     {
       icon: "◎",
       label: "Headquarters",
-      primary: "Hyderabad, Telangana",
-      secondary: "Fracspace HQ · Jubilee Hills",
+      primary: "Banjara Hills, Hyderabad",
+      secondary: "4th Floor, Dreamscape Hotel, MLA Colony",
       action: "View on map →",
-      href: "https://maps.google.com/?q=Jubilee+Hills+Hyderabad"
+      href: "https://maps.google.com/?q=Dreamscape+Hotel+MLA+Colony+Road+No+12+Banjara+Hills+Hyderabad"
     }
   ];
 

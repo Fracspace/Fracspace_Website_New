@@ -2,13 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import coOwnImg from "../../../assets/coOwnImg.webp";
+import fsOwnership from "../../../assets/fsOwnership.webp";
 
 function CoownSection() {
   const owners = [
     { label: "Investor A — 25%", color: "#6E9BFF", flex: 25 },
-    { label: "Investor B — 28%", color: "#4B7DEB", flex: 28 },
-    { label: "Investor C — 22%", color: "#2F5CC4", flex: 22 },
+    { label: "Investor B — 25%", color: "#4B7DEB", flex: 25 },
+    { label: "Investor C — 25%", color: "#2F5CC4", flex: 25 },
     { label: "Investor D — 25%", color: "#1B3E92", flex: 25 }
   ];
 
@@ -47,15 +47,11 @@ function CoownSection() {
         <div className="lg:col-span-6 space-y-4">
           <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[#E7EBF2] shadow-md">
             <Image
-              src={coOwnImg}
+              src={fsOwnership}
               alt="Fracspace Co-ownership Villa"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-            <div className="absolute top-3 left-3 bg-[#0B2452]/90 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1 rounded-full">
-              Single Luxury Asset
-            </div>
           </div>
 
           <div className="bg-[#0B2452] rounded-2xl p-6 text-white shadow-xl">
