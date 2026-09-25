@@ -6,6 +6,8 @@ import Link from "next/link";
 import { blogsData } from "@/data/blogsData";
 
 function BlogsPage() {
+  return null;
+  /*
   const [selectedTopic, setSelectedTopic] = useState("All topics");
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
@@ -227,6 +229,7 @@ function BlogsPage() {
 
     </main>
   );
+  */
 }
 
 export default BlogsPage;

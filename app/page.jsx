@@ -24,9 +24,9 @@ export default function Home() {
       <FeaturedProperties />
       <WhyInvestWithFs />
       <HowToInvest />
-      <Investors />
+      {/* <Investors /> */}
       <InvestorVideos />
-      <HomeBlogSection />
+      {/* <HomeBlogSection /> */}
       <HomeFaqSection />
       <BottomBanner />
     </main>

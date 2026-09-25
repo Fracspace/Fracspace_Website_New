@@ -93,15 +93,7 @@ function AboutSection() {
                   200+
                 </div>
                 <div className="text-xs text-[#7B8AA8] mt-1 font-medium">
-                  Properties listed
-                </div>
-              </div>
-              <div>
-                <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-[#0B2452]">
-                  300+
-                </div>
-                <div className="text-xs text-[#7B8AA8] mt-1 font-medium">
-                  Investors onboarded
+                  Fractions sold
                 </div>
               </div>
               <div>
@@ -109,7 +101,15 @@ function AboutSection() {
                   15+
                 </div>
                 <div className="text-xs text-[#7B8AA8] mt-1 font-medium">
-                  Destinations
+                  Locations
+                </div>
+              </div>
+              <div>
+                <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-[#0B2452]">
+                  100+
+                </div>
+                <div className="text-xs text-[#7B8AA8] mt-1 font-medium">
+                  Investors
                 </div>
               </div>
             </div>

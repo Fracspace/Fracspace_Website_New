@@ -46,10 +46,10 @@ export default function NotFound() {
         {/* Quick Links */}
         <div className="pt-6 border-t border-[#E7EBF2] flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-[#5C6B8A]">
           <span className="text-[#9AA9C4]">Helpful links:</span>
-          <Link href="/blogs" className="hover:text-[#16418C] transition flex items-center gap-1">
+          {/* <Link href="/blogs" className="hover:text-[#16418C] transition flex items-center gap-1">
             <BookOpen className="w-3.5 h-3.5" /> Blog
           </Link>
-          <span className="text-[#DDE4EF]">·</span>
+          <span className="text-[#DDE4EF]">·</span> */}
           <Link href="/about" className="hover:text-[#16418C] transition">
             About Us
           </Link>
