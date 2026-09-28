@@ -22,7 +22,7 @@ function HeroSection() {
             Contact us
           </span>
           <h1 className="font-jakarta text-3xl sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-[1.1] text-balance">
-            Let's talk co-ownership
+            Your Co-Ownership Journey Starts Here
           </h1>
           <p className="text-base sm:text-lg text-[#B7C6E4] leading-relaxed max-w-xl text-pretty">
             Whether you're exploring your first fraction, listing an asset, or simply curious about our model — our team is here.
