@@ -16,11 +16,21 @@ import {
   AlertCircle,
   Loader2,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck,
+  RefreshCw
 } from "lucide-react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import imgFallback from "../../assets/herobg.webp";
+
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
+import { sendOtpApi, verifyOtpApi } from "../../utils/otpService";
+import OtpModal from "../../components/ui/OtpModal";
+
+const ENQUIRY_API = "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
 
 function PropertyDetailsContent() {
   const searchParams = useSearchParams();
@@ -41,14 +51,36 @@ function PropertyDetailsContent() {
     agreeToContact: false
   };
 
-
   const [formData, setFormData] = useState(initialState);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  // OTP Verification state
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpLoading, setOtpLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState("");
+  const [otpError, setOtpError] = useState("");
+  const [timer, setTimer] = useState(0);
+
+  const isIndian =
+    formData.countryCode === "+91" ||
+    (formData.contact ? formData.contact.startsWith("+91") || formData.contact.startsWith("91") : true);
+
+  // Countdown timer for OTP resend
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
+
   const PROPERTY_API = `https://apitest.fracspace.com/api/users/getPropertyById/${id}`;
-  const ENQUIRY_API = "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
 
   useEffect(() => {
     if (!id) {
@@ -87,26 +119,38 @@ function PropertyDetailsContent() {
       ...prev,
       [name]: type === "checkbox" ? target.checked : value
     }));
+    setFormError("");
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handlePhoneChange = (value, country) => {
+    const dialCode = country?.dialCode || "91";
+    const cleanDigits = (value || "").replace(/\D/g, "");
+    const phone = cleanDigits.startsWith(dialCode) ? cleanDigits.slice(dialCode.length) : cleanDigits;
+    const formattedContact = value ? (value.startsWith("+") ? value : `+${value}`) : "";
+    const countryCode = `+${dialCode}`;
+
+    setFormError("");
+    setFormData((prev) => ({
+      ...prev,
+      contact: formattedContact,
+      countryCode: countryCode,
+      phoneNumber: phone
+    }));
+  };
+
+  const executeFormSubmit = async () => {
+    setSubmitting(true);
     setFormError("");
 
-    const fullContact = `${formData.countryCode}${formData.phoneNumber.trim()}`;
-    if (!formData.phoneNumber.trim()) {
-      setFormError("Phone number is required");
-      return;
-    }
-
-    setSubmitting(true);
-
+    const cleanPhone = (formData.phoneNumber || "").trim().replace(/\D/g, "");
+    const fullContact = formData.contact || `${formData.countryCode} ${cleanPhone}`;
     const payload = {
       name: formData.name,
       email: formData.email,
       contact: fullContact,
       countryCode: formData.countryCode,
-      phoneNumber: formData.phoneNumber,
+      phoneNumber: cleanPhone,
+      phone: fullContact,
       budget: formData.budget,
       agreeToContact: formData.agreeToContact
     };
@@ -120,11 +164,104 @@ function PropertyDetailsContent() {
       });
       setFormSubmitted(true);
       setFormData(initialState);
+      setOtp("");
+      setShowOtpModal(false);
     } catch (err) {
       console.error("Enquiry form error:", err);
-      setFormError("Failed to submit enquiry. Please try again.");
+      setFormError(err.response?.data?.message || err.message || "Failed to submit enquiry. Please try again.");
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormError("");
+
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setFormError("Please enter your name and email.");
+      return;
+    }
+
+    const cleanPhone = (formData.phoneNumber || "").trim().replace(/\D/g, "");
+    if (!cleanPhone) {
+      setFormError("Phone number is required");
+      return;
+    }
+
+    // For Indian numbers: trigger send OTP and open OTP modal
+    if (isIndian) {
+      if (cleanPhone.length !== 10) {
+        setFormError("Please enter a valid 10-digit Indian mobile number.");
+        return;
+      }
+
+      setOtpLoading(true);
+      setOtpError("");
+      setResendSuccess("");
+      setOtp("");
+
+      const fullContact = formData.contact || `+91${cleanPhone}`;
+      try {
+        await sendOtpApi(fullContact);
+        setTimer(30);
+        setShowOtpModal(true);
+      } catch (err) {
+        console.error("Send OTP error:", err);
+        setFormError(err.message || "Failed to send OTP. Please check your mobile number.");
+      } finally {
+        setOtpLoading(false);
+      }
+      return;
+    }
+
+    // International numbers: submit directly!
+    await executeFormSubmit();
+  };
+
+  const handleVerifyOtp = async () => {
+    const cleanOtp = otp.trim();
+    if (!cleanOtp || cleanOtp.length !== 6) {
+      setOtpError("Please enter a valid 6-digit OTP.");
+      return;
+    }
+
+    setOtpLoading(true);
+    setOtpError("");
+    const cleanPhone = (formData.phoneNumber || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+
+    try {
+      const res = await verifyOtpApi(fullContact, cleanOtp);
+      if (res && res.success !== false) {
+        setShowOtpModal(false);
+        await executeFormSubmit();
+      } else {
+        setOtpError(res?.message || "Invalid OTP. Please try again.");
+      }
+    } catch (err) {
+      console.error("Verify OTP error:", err);
+      setOtpError(err.message || "Invalid OTP. Please try again.");
+    } finally {
+      setOtpLoading(false);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    setResendLoading(true);
+    setOtpError("");
+    setResendSuccess("");
+    const cleanPhone = (formData.phoneNumber || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+    try {
+      await sendOtpApi(fullContact);
+      setResendSuccess("A new OTP has been sent to your phone number.");
+      setTimer(30);
+      setTimeout(() => setResendSuccess(""), 4000);
+    } catch (err) {
+      setOtpError(err.message || "Failed to resend OTP. Please try again.");
+    } finally {
+      setResendLoading(false);
     }
   };
 
@@ -421,35 +558,40 @@ function PropertyDetailsContent() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Contact Number</label>
-                  <div className="flex gap-2">
-                    {/* Simplified Country Code Selection */}
-                    <select
-                      name="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleChange}
-                      className="px-3 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl focus:bg-white focus:border-[#021265] transition outline-none text-sm text-gray-700 font-semibold"
-                    >
-                      <option value="+91">+91 (IN)</option>
-                      <option value="+1">+1 (US)</option>
-                      <option value="+44">+44 (UK)</option>
-                      <option value="+971">+971 (AE)</option>
-                      <option value="+65">+65 (SG)</option>
-                      <option value="+61">+61 (AU)</option>
-                    </select>
-
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      placeholder="Phone Number"
-                      value={formData.phoneNumber}
-                      onChange={(e) => {
-                        const numericVal = e.target.value.replace(/\D/g, "");
-                        setFormData(prev => ({ ...prev, phoneNumber: numericVal }));
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Contact Number *</label>
+                  <div className="relative">
+                    <PhoneInput
+                      country={"in"}
+                      value={formData.contact ? formData.contact.replace(/^\+/, "") : ""}
+                      onChange={handlePhoneChange}
+                      enableSearch={true}
+                      searchPlaceholder="Search country..."
+                      inputProps={{
+                        required: true,
+                        name: "phoneNumber"
                       }}
-                      required
-                      className="flex-1 px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-blue-900/10 focus:border-[#021265] transition outline-none text-sm text-gray-800 font-medium"
+                      inputStyle={{
+                        width: "100%",
+                        height: "48px",
+                        fontSize: "0.875rem",
+                        backgroundColor: "#F9FAFB",
+                        borderColor: "#E5E7EB",
+                        borderRadius: "1rem",
+                        color: "#1F2937",
+                        fontFamily: "inherit"
+                      }}
+                      buttonStyle={{
+                        backgroundColor: "#F9FAFB",
+                        borderColor: "#E5E7EB",
+                        borderTopLeftRadius: "1rem",
+                        borderBottomLeftRadius: "1rem"
+                      }}
+                      dropdownStyle={{
+                        borderRadius: "1rem",
+                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                        zIndex: 50
+                      }}
                     />
                   </div>
                 </div>
@@ -497,26 +639,44 @@ function PropertyDetailsContent() {
                   </label>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full cursor-pointer py-4 bg-[#021265] hover:bg-blue-900 disabled:bg-gray-400 text-white font-bold rounded-2xl shadow-lg shadow-blue-900/10 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  {submitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Submitting...</span>
-                    </>
-                  ) : (
-                    <span>Submit Request</span>
-                  )}
-                </button>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={submitting || otpLoading}
+                    className="w-full py-4 font-bold rounded-2xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2 bg-[#021265] hover:bg-blue-900 disabled:bg-gray-300 disabled:text-gray-500 text-white cursor-pointer disabled:cursor-not-allowed shadow-blue-900/10 hover:shadow-xl"
+                  >
+                    {submitting || otpLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>{otpLoading ? "Sending OTP..." : "Submitting..."}</span>
+                      </>
+                    ) : (
+                      <span>Submit Request</span>
+                    )}
+                  </button>
+                </div>
 
               </form>
             </div>
           </div>
         </div>
       </main>
+
+      {/* OTP Verification Modal */}
+      <OtpModal
+        isOpen={showOtpModal}
+        onClose={() => setShowOtpModal(false)}
+        phoneNumber={formData.contact || `${formData.countryCode} ${formData.phoneNumber}`}
+        otp={otp}
+        setOtp={setOtp}
+        onVerify={handleVerifyOtp}
+        loading={otpLoading || submitting}
+        error={otpError}
+        onResend={handleResendOtp}
+        resendLoading={resendLoading}
+        resendSuccess={resendSuccess}
+        timer={timer}
+      />
     </div>
   );
 }

@@ -1,8 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FileText, MessageCircle, Phone, X, Send } from "lucide-react";
+import { FileText, MessageCircle, Phone, X, Send, Loader2 } from "lucide-react";
 import axios from "axios";
+
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
+import { sendOtpApi, verifyOtpApi } from "../../utils/otpService";
+import OtpModal from "./OtpModal";
+
+const ENQUIRY_API = "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
 
 function FloatingWidgets() {
   const [formOpen, setFormOpen] = useState(false);
@@ -14,23 +22,46 @@ function FloatingWidgets() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    countryCode: "+91",
+    contact: "",
     phone: "",
     message: ""
   });
 
-  const ENQUIRY_API =
-    "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
+  // OTP Modal & verification state
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpLoading, setOtpLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState("");
+  const [otpError, setOtpError] = useState("");
+  const [timer, setTimer] = useState(0);
 
-  // Auto-show enquiry modal once after 35% scroll or 8 seconds if not already shown in session
+  const isIndian =
+    formData.countryCode === "+91" ||
+    (formData.contact ? formData.contact.startsWith("+91") || formData.contact.startsWith("91") : true);
+
+  // Countdown timer for OTP resend
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
+
+  // Auto-show enquiry modal once after scroll or timer if not already shown in session
   useEffect(() => {
     try {
       const shown = sessionStorage.getItem("fs-enquiry-autoshown");
       if (!shown) {
-        const timer = setTimeout(() => {
+        const t = setTimeout(() => {
           setFormOpen(true);
           sessionStorage.setItem("fs-enquiry-autoshown", "1");
         }, 12000);
-        return () => clearTimeout(timer);
+        return () => clearTimeout(t);
       }
     } catch (e) {
       // ignore storage restriction
@@ -43,17 +74,32 @@ function FloatingWidgets() {
       ...prev,
       [name]: value
     }));
+    setError("");
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email) {
-      setError("Please add your full name and email.");
-      return;
-    }
+  const handlePhoneChange = (value, country) => {
+    const dialCode = country?.dialCode || "91";
+    const cleanDigits = (value || "").replace(/\D/g, "");
+    const phone = cleanDigits.startsWith(dialCode) ? cleanDigits.slice(dialCode.length) : cleanDigits;
+    const formattedContact = value ? (value.startsWith("+") ? value : `+${value}`) : "";
+    const countryCode = `+${dialCode}`;
 
+    setError("");
+    setFormData((prev) => ({
+      ...prev,
+      contact: formattedContact,
+      countryCode: countryCode,
+      phone: phone,
+      phoneNumber: phone
+    }));
+  };
+
+  const executeFormSubmit = async () => {
     setIsSubmitting(true);
     setError("");
+
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullPhone = formData.contact || `${formData.countryCode} ${cleanPhone}`;
 
     try {
       await axios.post(
@@ -61,9 +107,11 @@ function FloatingWidgets() {
         {
           name: formData.name,
           email: formData.email,
-          phoneNumber: formData.phone,
-          contact: formData.phone,
-          message: formData.message,
+          phoneNumber: cleanPhone,
+          countryCode: formData.countryCode,
+          contact: fullPhone,
+          phone: fullPhone,
+          message: formData.message || "General investment enquiry via popup widget",
           agreeToContact: true
         },
         {
@@ -74,13 +122,105 @@ function FloatingWidgets() {
         }
       );
       setSent(true);
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", countryCode: "+91", contact: "", phone: "", message: "" });
+      setOtp("");
+      setShowOtpModal(false);
     } catch (err) {
       console.error("Enquiry submission error:", err);
-      // Even on API issue, show friendly confirmation for user experience
-      setSent(true);
+      setError(err.response?.data?.message || err.message || "Failed to submit enquiry. Please try again.");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setError("Please add your full name and email.");
+      return;
+    }
+
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    if (!cleanPhone) {
+      setError("Please add your phone number.");
+      return;
+    }
+
+    // For Indian numbers: trigger send OTP and open OTP modal
+    if (isIndian) {
+      if (cleanPhone.length !== 10) {
+        setError("Please enter a valid 10-digit Indian mobile number.");
+        return;
+      }
+
+      setOtpLoading(true);
+      setOtpError("");
+      setResendSuccess("");
+      setOtp("");
+
+      const fullContact = formData.contact || `+91${cleanPhone}`;
+      try {
+        await sendOtpApi(fullContact);
+        setTimer(30);
+        setShowOtpModal(true);
+      } catch (err) {
+        console.error("Send OTP error:", err);
+        setError(err.message || "Failed to send OTP. Please check your mobile number.");
+      } finally {
+        setOtpLoading(false);
+      }
+      return;
+    }
+
+    // International numbers: submit directly!
+    await executeFormSubmit();
+  };
+
+  const handleVerifyOtp = async () => {
+    const cleanOtp = otp.trim();
+    if (!cleanOtp || cleanOtp.length !== 6) {
+      setOtpError("Please enter a valid 6-digit OTP.");
+      return;
+    }
+
+    setOtpLoading(true);
+    setOtpError("");
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+
+    try {
+      const res = await verifyOtpApi(fullContact, cleanOtp);
+      if (res && res.success !== false) {
+        setShowOtpModal(false);
+        await executeFormSubmit();
+      } else {
+        setOtpError(res?.message || "Invalid OTP. Please try again.");
+      }
+    } catch (err) {
+      console.error("Verify OTP error:", err);
+      setOtpError(err.message || "Invalid OTP. Please try again.");
+    } finally {
+      setOtpLoading(false);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    setResendLoading(true);
+    setOtpError("");
+    setResendSuccess("");
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+    try {
+      await sendOtpApi(fullContact);
+      setResendSuccess("A new OTP has been sent to your phone number.");
+      setTimer(30);
+      setTimeout(() => setResendSuccess(""), 4000);
+    } catch (err) {
+      setOtpError(err.message || "Failed to resend OTP. Please try again.");
+    } finally {
+      setResendLoading(false);
     }
   };
 
@@ -256,19 +396,44 @@ function FloatingWidgets() {
                   />
                 </div>
 
-                <div>
+                <div className="space-y-2">
                   <label className="block text-[11px] font-bold text-[#4A5878] uppercase tracking-wider mb-1.5">
-                    Phone Number
+                    Phone Number *
                   </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    placeholder="+91 98765 43210"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full bg-[#F7F9FC] focus:bg-white border border-[#DDE4EF] focus:border-[#0B2452] rounded-xl px-4 py-3 text-sm text-[#14203A] outline-none transition"
-                  />
+                  <div className="relative">
+                    <PhoneInput
+                      country={"in"}
+                      value={formData.contact ? formData.contact.replace(/^\+/, "") : ""}
+                      onChange={handlePhoneChange}
+                      enableSearch={true}
+                      searchPlaceholder="Search country..."
+                      inputProps={{
+                        required: true,
+                        name: "phone"
+                      }}
+                      inputStyle={{
+                        width: "100%",
+                        height: "46px",
+                        fontSize: "0.875rem",
+                        backgroundColor: "#F7F9FC",
+                        borderColor: "#DDE4EF",
+                        borderRadius: "0.75rem",
+                        color: "#14203A",
+                        fontFamily: "inherit"
+                      }}
+                      buttonStyle={{
+                        backgroundColor: "#F7F9FC",
+                        borderColor: "#DDE4EF",
+                        borderTopLeftRadius: "0.75rem",
+                        borderBottomLeftRadius: "0.75rem"
+                      }}
+                      dropdownStyle={{
+                        borderRadius: "0.75rem",
+                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                        zIndex: 50
+                      }}
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -286,21 +451,46 @@ function FloatingWidgets() {
                 </div>
 
                 {error && (
-                  <p className="text-xs text-red-600 text-center">{error}</p>
+                  <p className="text-xs text-red-600 text-center font-medium">{error}</p>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#0B2452] hover:bg-[#16418C] text-white py-3.5 rounded-xl text-sm font-bold transition shadow-md disabled:opacity-60 cursor-pointer"
-                >
-                  {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-                </button>
+                <div className="pt-1">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || otpLoading}
+                    className="w-full py-3.5 rounded-xl text-sm font-bold transition shadow-md flex items-center justify-center gap-2 bg-[#0B2452] hover:bg-[#16418C] disabled:bg-gray-300 disabled:text-gray-500 text-white cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting || otpLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>{otpLoading ? "Sending OTP..." : "Submitting..."}</span>
+                      </>
+                    ) : (
+                      <span>Submit Enquiry</span>
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>
         </div>
       )}
+
+      {/* OTP Verification Modal */}
+      <OtpModal
+        isOpen={showOtpModal}
+        onClose={() => setShowOtpModal(false)}
+        phoneNumber={formData.contact || `${formData.countryCode} ${formData.phone}`}
+        otp={otp}
+        setOtp={setOtp}
+        onVerify={handleVerifyOtp}
+        loading={otpLoading || isSubmitting}
+        error={otpError}
+        onResend={handleResendOtp}
+        resendLoading={resendLoading}
+        resendSuccess={resendSuccess}
+        timer={timer}
+      />
     </>
   );
 }

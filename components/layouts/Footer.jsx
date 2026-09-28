@@ -16,7 +16,7 @@ function Footer() {
             <Image
               alt="Fracspace Logo"
               src={logo}
-              className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-13 sm:h-15 md:h-[58px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
           <p className="text-xs sm:text-sm leading-relaxed text-[#9FB2D6] max-w-sm">

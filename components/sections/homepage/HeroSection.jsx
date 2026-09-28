@@ -95,7 +95,7 @@ function HeroSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#071A38]/70 via-transparent to-transparent"></div>
             <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-xs text-white flex items-center justify-between">
-              <span className="font-jakarta font-semibold">Premium Managed Holiday Homes</span>
+              <span className="font-jakarta font-semibold">Premium Holiday Homes</span>
               <span className="font-mono-plex text-[#8FB4FF]">From ₹10L</span>
             </div>
           </div>

@@ -36,14 +36,14 @@ function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E7EBF2] font-manrope">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] flex items-center justify-between gap-4">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-[80px] sm:h-[86px] flex items-center justify-between gap-4">
           
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2.5 flex-none group">
+          <Link href="/" className="flex items-center gap-2.5 flex-none group py-1">
             <Image
               alt="Fracspace Logo"
               src={logo}
-              className="h-11 sm:h-12 w-auto object-contain cursor-pointer transition-transform duration-300 group-hover:scale-105"
+              className="h-13 sm:h-15 md:h-[62px] w-auto object-contain cursor-pointer transition-transform duration-300 group-hover:scale-105"
               priority
             />
           </Link>

@@ -15,7 +15,7 @@ function LayoutContent({ children }) {
   return (
     <>
       <Navbar />
-      <div className="pt-[74px] w-full min-h-screen flex flex-col">{children}</div>
+      <div className="pt-[80px] sm:pt-[86px] w-full min-h-screen flex flex-col">{children}</div>
 
       {isOpen && <FracspaceAppModal />}
 

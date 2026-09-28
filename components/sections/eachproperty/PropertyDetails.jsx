@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import {
   Car,
   Flame,
@@ -7,12 +9,219 @@ import {
   UtensilsCrossed,
   Trees,
   ChevronDown,
-  Phone
+  Phone,
+  CheckCircle2,
+  Loader2
 } from "lucide-react";
 import Image from "next/image";
+import axios from "axios";
 import hilltopImg from "../../../assets/hilltopImg.webp";
 
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
+import { sendOtpApi, verifyOtpApi } from "../../../utils/otpService";
+import OtpModal from "../../ui/OtpModal";
+
+const ENQUIRY_API = "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
+
 function PropertyDetails() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    countryCode: "+91",
+    contact: "",
+    phone: "",
+    budget: ""
+  });
+
+  // OTP Modal & verification state
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpLoading, setOtpLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState("");
+  const [otpError, setOtpError] = useState("");
+  const [timer, setTimer] = useState(0);
+
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+
+  const isIndian =
+    formData.countryCode === "+91" ||
+    (formData.contact ? formData.contact.startsWith("+91") || formData.contact.startsWith("91") : true);
+
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
+  };
+
+  const handlePhoneChange = (value, country) => {
+    const dialCode = country?.dialCode || "91";
+    const cleanDigits = (value || "").replace(/\D/g, "");
+    const phone = cleanDigits.startsWith(dialCode) ? cleanDigits.slice(dialCode.length) : cleanDigits;
+    const formattedContact = value ? (value.startsWith("+") ? value : `+${value}`) : "";
+    const countryCode = `+${dialCode}`;
+
+    setError("");
+    setFormData((prev) => ({
+      ...prev,
+      contact: formattedContact,
+      countryCode: countryCode,
+      phone: phone,
+      phoneNumber: phone
+    }));
+  };
+
+  const executeFormSubmit = async () => {
+    setSubmitting(true);
+    setError("");
+
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `${formData.countryCode} ${cleanPhone}`;
+
+    try {
+      await axios.post(
+        ENQUIRY_API,
+        {
+          name: formData.name,
+          email: formData.email,
+          phoneNumber: cleanPhone,
+          countryCode: formData.countryCode,
+          contact: fullContact,
+          phone: fullContact,
+          budget: formData.budget,
+          agreeToContact: true
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "Fracspace@2024"
+          }
+        }
+      );
+      setSent(true);
+      setFormData({
+        name: "",
+        email: "",
+        countryCode: "+91",
+        contact: "",
+        phone: "",
+        budget: ""
+      });
+      setOtp("");
+      setShowOtpModal(false);
+    } catch (err) {
+      console.error("Enquiry form error:", err);
+      setError(err.response?.data?.message || err.message || "Failed to submit enquiry. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setError("Please provide your name and email.");
+      return;
+    }
+
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    if (!cleanPhone) {
+      setError("Please provide your phone number.");
+      return;
+    }
+
+    // For Indian numbers: trigger send OTP and show OTP popup
+    if (isIndian) {
+      if (cleanPhone.length !== 10) {
+        setError("Please enter a valid 10-digit Indian mobile number.");
+        return;
+      }
+
+      setOtpLoading(true);
+      setOtpError("");
+      setResendSuccess("");
+      setOtp("");
+
+      const fullContact = formData.contact || `+91${cleanPhone}`;
+      try {
+        await sendOtpApi(fullContact);
+        setTimer(30);
+        setShowOtpModal(true);
+      } catch (err) {
+        console.error("Send OTP error:", err);
+        setError(err.message || "Failed to send OTP. Please check your mobile number.");
+      } finally {
+        setOtpLoading(false);
+      }
+      return;
+    }
+
+    // For international numbers: submit directly!
+    await executeFormSubmit();
+  };
+
+  const handleVerifyOtp = async () => {
+    const cleanOtp = otp.trim();
+    if (!cleanOtp || cleanOtp.length !== 6) {
+      setOtpError("Please enter a valid 6-digit OTP.");
+      return;
+    }
+
+    setOtpLoading(true);
+    setOtpError("");
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+
+    try {
+      const res = await verifyOtpApi(fullContact, cleanOtp);
+      if (res && res.success !== false) {
+        setShowOtpModal(false);
+        await executeFormSubmit();
+      } else {
+        setOtpError(res?.message || "Invalid OTP. Please try again.");
+      }
+    } catch (err) {
+      console.error("Verify OTP error:", err);
+      setOtpError(err.message || "Invalid OTP. Please try again.");
+    } finally {
+      setOtpLoading(false);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    setResendLoading(true);
+    setOtpError("");
+    setResendSuccess("");
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+    try {
+      await sendOtpApi(fullContact);
+      setResendSuccess("A new OTP has been sent to your phone number.");
+      setTimer(30);
+      setTimeout(() => setResendSuccess(""), 4000);
+    } catch (err) {
+      setOtpError(err.message || "Failed to resend OTP. Please try again.");
+    } finally {
+      setResendLoading(false);
+    }
+  };
+
   const amenities = [
     { icon: Car, label: "Parking" },
     { icon: Flame, label: "Bonfire" },
@@ -97,48 +306,117 @@ function PropertyDetails() {
           {/* Right Side */}
           <div className="space-y-4">
             {/* Enquiry Form */}
-            <div className="bg-white p-5 rounded shadow-sm border border-gray-100">
+            <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="text-center font-medium text-gray-700 mb-5 font-jakarta text-xl">
                 Enquiry form
               </h3>
 
-              <form className="space-y-3">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full font-dm h-9 px-3 border border-gray-300 text-sm outline-none focus:border-blue-700"
-                />
+              {sent ? (
+                <div className="p-4 bg-emerald-50 text-emerald-800 rounded-xl text-xs text-center space-y-2 border border-emerald-100">
+                  <CheckCircle2 className="w-6 h-6 mx-auto text-emerald-600" />
+                  <p className="font-semibold">We have received your enquiry and will get back to you shortly!</p>
+                  <button
+                    onClick={() => setSent(false)}
+                    className="text-xs text-[#081C7B] font-bold hover:underline cursor-pointer"
+                  >
+                    Submit another enquiry
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-3">
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full font-dm h-9 px-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-700"
+                  />
 
-                <input
-                  type="email"
-                  placeholder="Email ID"
-                  className="w-full font-dm h-9 px-3 border border-gray-300 text-sm outline-none focus:border-blue-700"
-                />
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Email ID"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full font-dm h-9 px-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-700"
+                  />
 
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  className="w-full font-dm h-9 px-3 border border-gray-300 text-sm outline-none focus:border-blue-700"
-                />
+                  <div className="space-y-1">
+                    <div className="relative">
+                      <PhoneInput
+                        country={"in"}
+                        value={formData.contact ? formData.contact.replace(/^\+/, "") : ""}
+                        onChange={handlePhoneChange}
+                        enableSearch={true}
+                        searchPlaceholder="Search country..."
+                        inputProps={{
+                          required: true,
+                          name: "phone"
+                        }}
+                        inputStyle={{
+                          width: "100%",
+                          height: "38px",
+                          fontSize: "0.875rem",
+                          backgroundColor: "#FFFFFF",
+                          borderColor: "#D1D5DB",
+                          borderRadius: "0.5rem",
+                          color: "#1F2937",
+                          fontFamily: "inherit"
+                        }}
+                        buttonStyle={{
+                          backgroundColor: "#FFFFFF",
+                          borderColor: "#D1D5DB",
+                          borderTopLeftRadius: "0.5rem",
+                          borderBottomLeftRadius: "0.5rem"
+                        }}
+                        dropdownStyle={{
+                          borderRadius: "0.5rem",
+                          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                          zIndex: 50
+                        }}
+                      />
+                    </div>
+                  </div>
 
-                <select className="w-full font-dm h-9 px-3 border border-gray-300 text-sm text-gray-500 outline-none focus:border-blue-700">
-                  <option>Select Your Budget</option>
-                  <option>₹10 Lakh - ₹25 Lakh</option>
-                  <option>₹25 Lakh - ₹50 Lakh</option>
-                  <option>₹50 Lakh+</option>
-                </select>
+                  <select
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleInputChange}
+                    className="w-full font-dm h-9 px-3 border border-gray-300 rounded-lg text-sm text-gray-500 outline-none focus:border-blue-700"
+                  >
+                    <option value="">Select Your Budget</option>
+                    <option value="₹10 Lakh - ₹25 Lakh">₹10 Lakh - ₹25 Lakh</option>
+                    <option value="₹25 Lakh - ₹50 Lakh">₹25 Lakh - ₹50 Lakh</option>
+                    <option value="₹50 Lakh+">₹50 Lakh+</option>
+                  </select>
 
-                <button
-                  type="submit"
-                  className="w-24 font-dm h-8 mx-auto block bg-[#081C7B] text-white text-sm font-medium hover:bg-[#061660] cursor-pointer rounded-lg"
-                >
-                  Submit
-                </button>
-              </form>
+                  {error && <p className="text-xs text-red-600">{error}</p>}
+
+                  <div className="pt-1">
+                    <button
+                      type="submit"
+                      disabled={submitting || otpLoading}
+                      className="w-full font-dm h-9 mx-auto flex items-center justify-center text-sm font-medium rounded-lg transition shadow-sm bg-[#081C7B] hover:bg-[#061660] disabled:bg-gray-300 disabled:text-gray-500 text-white cursor-pointer disabled:cursor-not-allowed"
+                    >
+                      {submitting || otpLoading ? (
+                        <div className="flex items-center gap-1.5">
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>{otpLoading ? "Sending OTP..." : "Submitting..."}</span>
+                        </div>
+                      ) : (
+                        "Submit"
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
 
             {/* Guidance Card */}
-            <div className="bg-[#081C7B] text-white p-5 rounded">
+            <div className="bg-[#081C7B] text-white p-5 rounded-2xl">
               <h3 className="font-semibold text-xl mb-2 font-jakarta">
                 Need Guidance?
               </h3>
@@ -152,7 +430,7 @@ function PropertyDetails() {
 
               <a
                 href="tel:+919880626111"
-                className="mt-4 bg-white rounded flex items-center justify-center gap-2 h-9 hover:bg-white/90 transition text-decoration-none"
+                className="mt-4 bg-white rounded-xl flex items-center justify-center gap-2 h-9 hover:bg-white/90 transition text-decoration-none"
               >
                 <Phone size={14} className="text-[#081C7B]" />
                 <span className="text-[#081C7B] text-base sm:text-lg font-medium font-dm">
@@ -163,8 +441,25 @@ function PropertyDetails() {
           </div>
         </div>
       </div>
+
+      {/* OTP Verification Modal */}
+      <OtpModal
+        isOpen={showOtpModal}
+        onClose={() => setShowOtpModal(false)}
+        phoneNumber={formData.contact || `${formData.countryCode} ${formData.phone}`}
+        otp={otp}
+        setOtp={setOtp}
+        onVerify={handleVerifyOtp}
+        loading={otpLoading || submitting}
+        error={otpError}
+        onResend={handleResendOtp}
+        resendLoading={resendLoading}
+        resendSuccess={resendSuccess}
+        timer={timer}
+      />
     </section>
   );
 }
 
 export default PropertyDetails;
+

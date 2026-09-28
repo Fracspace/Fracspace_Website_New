@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import qrScannerImg from "../../../assets/appModal/qr.png";
+import qrScannerImg from "../../../assets/fracspace-app-qr.png";
 import phoneImg from "../../../assets/appModal/iphone.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
 
@@ -41,18 +41,22 @@ function BottomBanner() {
           </div>
 
           <div className="flex flex-wrap gap-3.5 pt-3">
-            <button
-              onClick={openDownloadModal}
-              className="bg-white hover:bg-[#DCE7FF] text-[#0B2452] px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition shadow-md cursor-pointer"
+            <a
+              href="https://apps.apple.com/in/app/fracspace/id6498551006"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white hover:bg-[#DCE7FF] text-[#0B2452] px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition shadow-md cursor-pointer"
             >
               App Store
-            </button>
-            <button
-              onClick={openDownloadModal}
-              className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition shadow-md cursor-pointer"
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.fracspace"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white/10 hover:bg-white/20 border border-white/30 text-white px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition shadow-md cursor-pointer"
             >
               Google Play
-            </button>
+            </a>
           </div>
         </div>
 

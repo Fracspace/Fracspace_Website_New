@@ -1,38 +1,86 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { CheckCircle2, ShieldCheck, Loader2, RefreshCw, AlertCircle } from "lucide-react";
+
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
+import { sendOtpApi, verifyOtpApi } from "../../../utils/otpService";
+import OtpModal from "../../ui/OtpModal";
+
+const ENQUIRY_API = "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    countryCode: "+91",
+    contact: "",
     phone: "",
     topic: "I want to invest in a fraction",
     message: ""
   });
+
+  // OTP Modal & verification state
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpLoading, setOtpLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState("");
+  const [otpError, setOtpError] = useState("");
+  const [timer, setTimer] = useState(0);
+
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
   const [openFaq, setOpenFaq] = useState(0);
 
-  const ENQUIRY_API =
-    "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
+  const isIndian =
+    formData.countryCode === "+91" ||
+    (formData.contact ? formData.contact.startsWith("+91") || formData.contact.startsWith("91") : true);
+
+  // Countdown timer for OTP resend
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email) {
-      setError("Please provide your full name and email.");
-      return;
-    }
+  const handlePhoneChange = (value, country) => {
+    const dialCode = country?.dialCode || "91";
+    const cleanDigits = (value || "").replace(/\D/g, "");
+    const phone = cleanDigits.startsWith(dialCode) ? cleanDigits.slice(dialCode.length) : cleanDigits;
+    const formattedContact = value ? (value.startsWith("+") ? value : `+${value}`) : "";
+    const countryCode = `+${dialCode}`;
 
+    setError("");
+    setFormData((prev) => ({
+      ...prev,
+      contact: formattedContact,
+      countryCode: countryCode,
+      phone: phone,
+      phoneNumber: phone
+    }));
+  };
+
+  const executeFormSubmit = async () => {
     setSubmitting(true);
     setError("");
+
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `${formData.countryCode} ${cleanPhone}`;
 
     try {
       await axios.post(
@@ -40,8 +88,10 @@ function ContactForm() {
         {
           name: formData.name,
           email: formData.email,
-          phoneNumber: formData.phone,
-          contact: formData.phone,
+          phoneNumber: cleanPhone,
+          countryCode: formData.countryCode,
+          contact: fullContact,
+          phone: fullContact,
           message: `[Topic: ${formData.topic}] ${formData.message}`,
           agreeToContact: true
         },
@@ -56,16 +106,110 @@ function ContactForm() {
       setFormData({
         name: "",
         email: "",
+        countryCode: "+91",
+        contact: "",
         phone: "",
         topic: "I want to invest in a fraction",
         message: ""
       });
+      setOtp("");
+      setShowOtpModal(false);
     } catch (err) {
       console.error("Form error:", err);
-      // Graceful fallback display
-      setSent(true);
+      setError(err.response?.data?.message || err.message || "Failed to submit enquiry. Please try again.");
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setError("Please provide your full name and email.");
+      return;
+    }
+
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    if (!cleanPhone) {
+      setError("Please provide your phone number.");
+      return;
+    }
+
+    // For Indian numbers: trigger send OTP and show OTP popup
+    if (isIndian) {
+      if (cleanPhone.length !== 10) {
+        setError("Please enter a valid 10-digit Indian mobile number.");
+        return;
+      }
+
+      setOtpLoading(true);
+      setOtpError("");
+      setResendSuccess("");
+      setOtp("");
+
+      const fullContact = formData.contact || `+91${cleanPhone}`;
+      try {
+        await sendOtpApi(fullContact);
+        setTimer(30);
+        setShowOtpModal(true);
+      } catch (err) {
+        console.error("Send OTP error:", err);
+        setError(err.message || "Failed to send OTP. Please check your mobile number.");
+      } finally {
+        setOtpLoading(false);
+      }
+      return;
+    }
+
+    // For international numbers: submit directly!
+    await executeFormSubmit();
+  };
+
+  const handleVerifyOtp = async () => {
+    const cleanOtp = otp.trim();
+    if (!cleanOtp || cleanOtp.length !== 6) {
+      setOtpError("Please enter a valid 6-digit OTP.");
+      return;
+    }
+
+    setOtpLoading(true);
+    setOtpError("");
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+
+    try {
+      const res = await verifyOtpApi(fullContact, cleanOtp);
+      if (res && res.success !== false) {
+        setShowOtpModal(false);
+        await executeFormSubmit();
+      } else {
+        setOtpError(res?.message || "Invalid OTP. Please try again.");
+      }
+    } catch (err) {
+      console.error("Verify OTP error:", err);
+      setOtpError(err.message || "Invalid OTP. Please try again.");
+    } finally {
+      setOtpLoading(false);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    setResendLoading(true);
+    setOtpError("");
+    setResendSuccess("");
+    const cleanPhone = (formData.phone || "").replace(/\D/g, "");
+    const fullContact = formData.contact || `+91${cleanPhone}`;
+    try {
+      await sendOtpApi(fullContact);
+      setResendSuccess("A new OTP has been sent to your phone number.");
+      setTimer(30);
+      setTimeout(() => setResendSuccess(""), 4000);
+    } catch (err) {
+      setOtpError(err.message || "Failed to resend OTP. Please try again.");
+    } finally {
+      setResendLoading(false);
     }
   };
 
@@ -114,7 +258,7 @@ function ContactForm() {
                 </p>
                 <button
                   onClick={() => setSent(false)}
-                  className="mt-4 bg-[#0B2452] hover:bg-[#16418C] text-white px-7 py-2.5 rounded-full text-xs font-bold transition"
+                  className="mt-4 bg-[#0B2452] hover:bg-[#16418C] text-white px-7 py-2.5 rounded-full text-xs font-bold transition cursor-pointer"
                 >
                   Send another message
                 </button>
@@ -153,38 +297,62 @@ function ContactForm() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[11px] font-bold text-[#4A5878] uppercase tracking-wider mb-1.5">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="+91 98765 43210"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full bg-[#F7F9FC] focus:bg-white border border-[#DDE4EF] focus:border-[#0B2452] rounded-xl px-4 py-3 text-sm text-[#14203A] outline-none transition"
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-bold text-[#4A5878] uppercase tracking-wider mb-1.5">
+                    Phone Number *
+                  </label>
+                  <div className="relative">
+                    <PhoneInput
+                      country={"in"}
+                      value={formData.contact ? formData.contact.replace(/^\+/, "") : ""}
+                      onChange={handlePhoneChange}
+                      enableSearch={true}
+                      searchPlaceholder="Search country..."
+                      inputProps={{
+                        required: true,
+                        name: "phone"
+                      }}
+                      inputStyle={{
+                        width: "100%",
+                        height: "46px",
+                        fontSize: "0.875rem",
+                        backgroundColor: "#F7F9FC",
+                        borderColor: "#DDE4EF",
+                        borderRadius: "0.75rem",
+                        color: "#14203A",
+                        fontFamily: "inherit"
+                      }}
+                      buttonStyle={{
+                        backgroundColor: "#F7F9FC",
+                        borderColor: "#DDE4EF",
+                        borderTopLeftRadius: "0.75rem",
+                        borderBottomLeftRadius: "0.75rem"
+                      }}
+                      dropdownStyle={{
+                        borderRadius: "0.75rem",
+                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                        zIndex: 50
+                      }}
                     />
                   </div>
+                </div>
 
-                  <div>
-                    <label className="block text-[11px] font-bold text-[#4A5878] uppercase tracking-wider mb-1.5">
-                      Topic
-                    </label>
-                    <select
-                      name="topic"
-                      value={formData.topic}
-                      onChange={handleInputChange}
-                      className="w-full bg-[#F7F9FC] focus:bg-white border border-[#DDE4EF] focus:border-[#0B2452] rounded-xl px-4 py-3 text-sm text-[#14203A] outline-none transition cursor-pointer"
-                    >
-                      <option value="I want to invest in a fraction">I want to invest in a fraction</option>
-                      <option value="I want to list a property">I want to list a property</option>
-                      <option value="Partnership / Corporate">Partnership / Corporate</option>
-                      <option value="General enquiry">General enquiry</option>
-                      <option value="Press & Media">Press &amp; Media</option>
-                    </select>
-                  </div>
+                <div>
+                  <label className="block text-[11px] font-bold text-[#4A5878] uppercase tracking-wider mb-1.5">
+                    Topic
+                  </label>
+                  <select
+                    name="topic"
+                    value={formData.topic}
+                    onChange={handleInputChange}
+                    className="w-full bg-[#F7F9FC] focus:bg-white border border-[#DDE4EF] focus:border-[#0B2452] rounded-xl px-4 py-3 text-sm text-[#14203A] outline-none transition cursor-pointer"
+                  >
+                    <option value="I want to invest in a fraction">I want to invest in a fraction</option>
+                    <option value="I want to list a property">I want to list a property</option>
+                    <option value="Partnership / Corporate">Partnership / Corporate</option>
+                    <option value="General enquiry">General enquiry</option>
+                    <option value="Press & Media">Press &amp; Media</option>
+                  </select>
                 </div>
 
                 <div>
@@ -202,16 +370,25 @@ function ContactForm() {
                 </div>
 
                 {error && (
-                  <p className="text-xs text-red-600">{error}</p>
+                  <p className="text-xs text-red-600 font-medium">{error}</p>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="bg-[#0B2452] hover:bg-[#16418C] text-white px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold transition shadow-md disabled:opacity-60 cursor-pointer"
-                >
-                  {submitting ? "Sending message..." : "Send message →"}
-                </button>
+                <div className="pt-1">
+                  <button
+                    type="submit"
+                    disabled={submitting || otpLoading}
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold transition shadow-md flex items-center justify-center gap-2 bg-[#0B2452] hover:bg-[#16418C] disabled:bg-gray-300 disabled:text-gray-500 text-white cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    {submitting || otpLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>{otpLoading ? "Sending OTP..." : "Sending message..."}</span>
+                      </>
+                    ) : (
+                      <span>Send message →</span>
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>
@@ -297,8 +474,24 @@ function ContactForm() {
         </div>
       </section>
 
+      {/* OTP Verification Modal */}
+      <OtpModal
+        isOpen={showOtpModal}
+        onClose={() => setShowOtpModal(false)}
+        phoneNumber={formData.contact || `${formData.countryCode} ${formData.phone}`}
+        otp={otp}
+        setOtp={setOtp}
+        onVerify={handleVerifyOtp}
+        loading={otpLoading || submitting}
+        error={otpError}
+        onResend={handleResendOtp}
+        resendLoading={resendLoading}
+        resendSuccess={resendSuccess}
+        timer={timer}
+      />
     </div>
   );
 }
 
 export default ContactForm;
+

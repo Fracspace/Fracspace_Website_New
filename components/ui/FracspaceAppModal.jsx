@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import appStoreImg from "../../assets/appModal/appStore.png";
 import playStoreImg from "../../assets/appModal/playstore.png";
-import qrScannerImg from "../../assets/appModal/qr.png";
+import qrScannerImg from "../../assets/fracspace-app-qr.png";
 import phoneImg from "../../assets/appModal/iphone.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
 
@@ -63,7 +63,7 @@ function FracspaceAppModal() {
                 </p>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 pt-1">
                   <a
-                    href="https://apps.apple.com"
+                    href="https://apps.apple.com/in/app/fracspace/id6498551006"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#0B1526] hover:bg-[#16418C] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm"
@@ -71,7 +71,7 @@ function FracspaceAppModal() {
                     App Store
                   </a>
                   <a
-                    href="https://play.google.com"
+                    href="https://play.google.com/store/apps/details?id=com.fracspace"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#0B1526] hover:bg-[#16418C] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm"
