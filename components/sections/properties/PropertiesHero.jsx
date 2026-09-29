@@ -5,7 +5,7 @@ import Image from "next/image";
 import heroImg from "../../../assets/herobg.webp";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
-function PropertiesHero({ totalCount = "9" }) {
+function PropertiesHero({ totalCount = "10" }) {
   return (
     <section className="relative bg-gradient-to-r from-[#071A38] via-[#0B2452] to-[#16418C] text-white overflow-hidden py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 font-manrope">
       <div
@@ -33,7 +33,7 @@ function PropertiesHero({ totalCount = "9" }) {
           <div className="pt-4 grid grid-cols-3 gap-6 max-w-md">
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                <AnimatedCounter target={Number(totalCount) || 9} suffix="+" delay={100} duration={1400} />
+                <AnimatedCounter target={Number(totalCount) || 10} suffix="+" delay={100} duration={1400} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
                 Live listings
@@ -49,10 +49,10 @@ function PropertiesHero({ totalCount = "9" }) {
             </div>
             <div>
               <div className="font-jakarta text-2xl sm:text-3xl font-extrabold text-white">
-                <AnimatedCounter range={[8, 12]} suffix="%" separator="–" delay={300} duration={1500} />
+                <AnimatedCounter target={8} suffix="%" delay={300} duration={1500} />
               </div>
               <div className="text-xs text-[#93A8CE] mt-1 font-medium">
-                Target ROI
+                Minimum returns
               </div>
             </div>
           </div>

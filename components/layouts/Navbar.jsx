@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import logo from "../../assets/logo.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
-import { Download } from "lucide-react";
+import { Download, ArrowUpRight } from "lucide-react";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,7 +49,7 @@ function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-semibold">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -66,6 +66,22 @@ function Navbar() {
                 </Link>
               );
             })}
+
+            {/* Altaira Highlighted Button */}
+            <a
+              href="https://www.altaira.lk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-gradient-to-r from-[#C69214] via-[#F3CE5A] to-[#A3740D] text-[#0A1626] shadow-sm hover:shadow-md hover:shadow-[#F3CE5A]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 border border-[#FFE885]/80 group cursor-pointer"
+              title="Visit Altaira"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0A1626] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A1626]"></span>
+              </span>
+              <span className="tracking-wide font-jakarta">Altaira</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#0A1626] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
 
             {/* Redesigned Download App Button */}
             <button
@@ -148,6 +164,24 @@ function Navbar() {
               </Link>
             );
           })}
+
+          {/* Altaira Highlighted Link in Mobile Menu */}
+          <a
+            href="https://www.altaira.lk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="my-3 flex items-center justify-between px-4 py-3 rounded-2xl bg-gradient-to-r from-[#C69214] via-[#F3CE5A] to-[#A3740D] text-[#0A1626] font-jakarta font-bold text-sm shadow-md transition-all active:scale-95 border border-[#FFE885]/80"
+          >
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0A1626] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A1626]"></span>
+              </span>
+              <span className="tracking-wide">Altaira</span>
+            </div>
+            <ArrowUpRight className="w-4 h-4 text-[#0A1626]" />
+          </a>
         </nav>
 
         <div className="mt-auto p-6 flex flex-col gap-3.5 border-t border-white/10">
