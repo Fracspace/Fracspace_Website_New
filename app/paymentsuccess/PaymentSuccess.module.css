@@ -1,0 +1,250 @@
+.container {
+  width: 100%;
+  min-height: calc(100vh - 180px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background: #f7f9fc;
+}
+
+.card {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #16a34a;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+  font-family: "Poppins";
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #6b7280;
+  max-width: 550px;
+  margin: 0 auto;
+  font-family: "Poppins";
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 35px 0;
+}
+
+.subHeading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #111827;
+  font-family: "Poppins";
+}
+
+.appDescription {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #6b7280;
+  max-width: 550px;
+  margin: 0 auto 25px;
+  font-family: "Poppins";
+}
+
+.qrContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.qrCode {
+  width: 250px;
+  height: 250px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  object-fit: contain;
+}
+
+.qrText {
+  margin-top: 15px;
+  color: #6b7280;
+  font-size: 14px;
+  font-family: "Poppins";
+}
+
+.storeButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.storeBadge {
+  height: 56px;
+  width: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.storeBadge:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- INVALID PAYMENT ---------- */
+
+.invalidPaymentContainer {
+  width: 100%;
+}
+
+.invalidIconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.invalidIcon {
+  width: 80px;
+  height: 80px;
+  color: #dc2626;
+}
+
+.invalidHeading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 16px;
+}
+
+.invalidDescription {
+  max-width: 550px;
+  margin: 0 auto 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.supportText {
+  max-width: 550px;
+  margin: auto;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #6b7280;
+}
+
+.redirectText {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 14px 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.storeButtons img {
+  width: 12vw;
+}
+
+.nameHighlight {
+  font-weight: bold;
+  color: black;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 15px;
+  }
+
+  .card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .subHeading {
+    font-size: 1.5rem;
+  }
+
+  .qrCode {
+    width: 200px;
+    height: 200px;
+  }
+
+  .invalidHeading {
+    font-size: 1.8rem;
+  }
+
+  .storeButtons img {
+    width: 30vw;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 12px;
+  }
+
+  .card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .heading {
+    font-size: 1.7rem;
+  }
+
+  .subHeading {
+    font-size: 1.3rem;
+  }
+
+  .description,
+  .appDescription,
+  .invalidDescription,
+  .supportText {
+    font-size: 0.92rem;
+  }
+
+  .qrCode {
+    width: 170px;
+    height: 170px;
+  }
+
+  .storeBadge {
+    height: 46px;
+  }
+
+  .invalidIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .invalidHeading {
+    font-size: 1.5rem;
+  }
+}

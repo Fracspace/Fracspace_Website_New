@@ -5,6 +5,7 @@ import HeroSection from "../components/sections/homepage/HeroSection";
 import InTheNews from "../components/sections/homepage/InTheNews";
 import CoownSection from "../components/sections/homepage/CoownSection";
 import HowFsWorks from "../components/sections/homepage/HowFsWorks";
+import ReligiousIndiaConcert from "../components/sections/homepage/ReligiousIndiaConcert";
 import FeaturedProperties from "../components/sections/homepage/FeaturedProperties";
 import WhyInvestWithFs from "../components/sections/homepage/WhyInvestWithFs";
 import HowToInvest from "../components/sections/homepage/HowToInvest";
@@ -21,6 +22,7 @@ export default function Home() {
       <InTheNews />
       <CoownSection />
       <HowFsWorks />
+      <ReligiousIndiaConcert />
       <FeaturedProperties />
       <WhyInvestWithFs />
       <HowToInvest />

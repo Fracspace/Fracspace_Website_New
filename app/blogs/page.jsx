@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { blogsData } from "@/data/blogsData";
+import React from "react";
 
 function BlogsPage() {
+<<<<<<< HEAD
   const [selectedTopic, setSelectedTopic] = useState("All topics");
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
@@ -227,6 +225,9 @@ function BlogsPage() {
 
     </main>
   );
+=======
+  return null;
+>>>>>>> 9598787eb933b3f031d1668beabac87decf620e3
 }
 
 export default BlogsPage;
