@@ -7,8 +7,9 @@ import { usePathname, useRouter } from "next/navigation";
 import logo from "../../assets/logo.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
 import { Download } from "lucide-react";
+import TopAnnouncementBar from "./TopAnnouncementBar";
 
-function Navbar() {
+function Navbar({ onOpenConcertModal }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -16,8 +17,10 @@ function Navbar() {
 
   // Close mobile drawer on route change
   useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+    if (menuOpen) {
+      setMenuOpen(false);
+    }
+  }, [pathname, menuOpen]);
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -35,8 +38,10 @@ function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E7EBF2] font-manrope">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] flex items-center justify-between gap-4">
+      <header className="fixed top-0 left-0 right-0 z-50 font-manrope shadow-xs">
+        <TopAnnouncementBar onOpenModal={onOpenConcertModal} />
+        <div className="bg-white/95 backdrop-blur-md border-b border-[#E7EBF2]">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] flex items-center justify-between gap-4">
           
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 flex-none group">
@@ -102,7 +107,8 @@ function Navbar() {
             ></span>
           </button>
         </div>
-      </header>
+      </div>
+    </header>
 
       {/* Mobile Drawer Backdrop */}
       {menuOpen && (

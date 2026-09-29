@@ -1,3 +1,4 @@
+import "react-phone-input-2/lib/style.css";
 import { Plus_Jakarta_Sans, DM_Sans, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutClient from "./LayoutClient";
@@ -47,4 +48,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
