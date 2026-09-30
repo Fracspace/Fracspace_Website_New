@@ -1,5 +1,6 @@
 import "react-phone-input-2/lib/style.css";
 import { Plus_Jakarta_Sans, DM_Sans, Manrope, IBM_Plex_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import LayoutClient from "./LayoutClient";
 
@@ -50,8 +51,27 @@ export default function RootLayout({ children }) {
           href="/bandPosterMobile.webp"
           type="image/webp"
         />
+        {/* Google Tag Manager Script */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5TBXBVDB');
+          `}
+        </Script>
       </head>
       <body suppressHydrationWarning className="min-h-full flex flex-col font-manrope text-[#14203A] bg-white">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5TBXBVDB"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

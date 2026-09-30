@@ -17,7 +17,7 @@ export const initGTM = () => {
     j.async = true;
     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
     f.parentNode.insertBefore(j, f);
-  })(window, document, "script", "dataLayer", "GTM-N7T7HR3B");
+  })(window, document, "script", "dataLayer", "GTM-5TBXBVDB");
 };
 
 export const initGtag = () => {
