@@ -287,7 +287,7 @@ function FloatingWidgets() {
                   Enquiry Received
                 </h3>
                 <p className="text-sm text-[#3D6B52] leading-relaxed">
-                  A Fracspace specialist will call you within one business day.
+                  Our team will contact you within one business day.
                 </p>
                 <button
                   onClick={() => {

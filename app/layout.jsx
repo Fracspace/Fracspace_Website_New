@@ -43,6 +43,14 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${jakarta.variable} ${dmsans.variable} ${manrope.variable} ${monoPlex.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/bandPosterMobile.webp"
+          type="image/webp"
+        />
+      </head>
       <body suppressHydrationWarning className="min-h-full flex flex-col font-manrope text-[#14203A] bg-white">
         <LayoutClient>{children}</LayoutClient>
       </body>

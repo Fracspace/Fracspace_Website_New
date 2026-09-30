@@ -1,13 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { X, Sparkles } from "lucide-react";
+import { X, Sparkles, Loader2 } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 
 export default function ConcertModal({ isOpen, onClose }) {
   const router = useRouter();
   const pathname = usePathname();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   if (!isOpen) return null;
 
@@ -58,15 +59,25 @@ export default function ConcertModal({ isOpen, onClose }) {
         {/* Fixed Poster Image Container (Clickable -> Redirects to #concert) */}
         <div
           onClick={scrollToConcertSection}
-          className="relative w-full overflow-hidden select-none cursor-pointer group/poster flex-1 min-h-0"
+          className="relative w-full overflow-hidden select-none cursor-pointer group/poster flex-1 min-h-[320px] sm:min-h-[380px] flex items-center justify-center bg-[#1F0703]"
         >
+          {!imageLoaded && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[#1A0603] text-[#E5B869] animate-pulse">
+              <Loader2 className="w-6 h-6 animate-spin text-[#FCE079]" />
+              <span className="text-[10px] font-bold tracking-wider uppercase">Loading Poster...</span>
+            </div>
+          )}
+
           <Image
             src="/bandPosterMobile.webp"
             alt="Fracspace Presents Religious India Harish Sagane & Band Live in Concert"
             width={800}
             height={1100}
-            className="w-full h-auto max-h-[min(64vh,420px)] object-contain block rounded-t-2xl group-hover/poster:scale-105 transition-transform duration-500"
             priority
+            onLoad={() => setImageLoaded(true)}
+            className={`w-full h-auto max-h-[min(64vh,420px)] object-contain block rounded-t-2xl group-hover/poster:scale-105 transition-all duration-500 ${
+              imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
           />
         </div>
 

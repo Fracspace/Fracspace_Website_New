@@ -6,6 +6,7 @@ import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import FracspaceAppModal from "../components/ui/FracspaceAppModal";
 import ConcertModal from "../components/ui/ConcertModal";
+import CookieConsent from "../components/ui/CookieConsent";
 
 import { DownloadAppProvider } from "../context/DownloadAppContext";
 import { useDownloadApp } from "../context/DownloadAppContext";
@@ -23,11 +24,35 @@ function LayoutContent({ children }) {
       return;
     }
 
-    const timer = setTimeout(() => {
-      setIsConcertModalOpen(true);
-    }, 1200); // 1.2s delay after initial load
+    // Check if user already gave or rejected cookie consent
+    let consent = null;
+    try {
+      consent = localStorage.getItem("cookieConsent");
+    } catch (e) {}
 
-    return () => clearTimeout(timer);
+    let timer = null;
+    if (consent) {
+      // Consent was already resolved in a previous session: show concert modal after short delay
+      timer = setTimeout(() => {
+        setIsConcertModalOpen(true);
+      }, 1000);
+    }
+
+    // Listen for cookie consent selection (fires when user clicks Accept or Reject)
+    const handleConsentChange = () => {
+      if (pathname === "/") {
+        setTimeout(() => {
+          setIsConcertModalOpen(true);
+        }, 600);
+      }
+    };
+
+    window.addEventListener("cookie-consent-change", handleConsentChange);
+
+    return () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener("cookie-consent-change", handleConsentChange);
+    };
   }, [pathname]);
 
   return (
@@ -43,6 +68,8 @@ function LayoutContent({ children }) {
       {isOpen && <FracspaceAppModal />}
 
       <FloatingWidgets />
+
+      <CookieConsent />
 
       <Footer />
     </>

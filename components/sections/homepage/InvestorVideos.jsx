@@ -10,15 +10,18 @@ function InvestorVideos() {
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const videoList = [
-    { id: 1, src: "/videos/AbdulBasith.mp4", position: "center" },
-    { id: 2, src: "/videos/PrashantGudipudi.mp4", position: "center" },
-    { id: 3, src: "/videos/Srivivasbonnam.mp4", position: "center" },
-    { id: 4, src: "/videos/test4.mp4", position: "center" },
-    { id: 5, src: "/videos/test5.mp4", position: "center" },
+    { id: 1, src: "/videos/test4.mp4", position: "center" },
+    { id: 2, src: "/videos/test5.mp4", position: "center" },
+
+    { id: 3, src: "/videos/test7.mp4", position: "center 30%" },
+    { id: 4, src: "/videos/test8.mp4", position: "center 30%" },
+    { id: 5, src: "/videos/test9.mp4", position: "center 30%" },
     { id: 6, src: "/videos/test6.mp4", position: "center" },
-    { id: 7, src: "/videos/test7.mp4", position: "center 30%" },
-    { id: 8, src: "/videos/test8.mp4", position: "center 30%" },
-    { id: 9, src: "/videos/test9.mp4", position: "center 30%" }
+    { id: 7, src: "/videos/AbdulBasith.mp4", position: "center" },
+    { id: 8, src: "/videos/PrashantGudipudi.mp4", position: "center" },
+    { id: 9, src: "/videos/Srivivasbonnam.mp4", position: "center" },
+
+
   ];
 
   const checkScroll = () => {
@@ -70,7 +73,7 @@ function InvestorVideos() {
   return (
     <section className="bg-gradient-to-r from-[#071A38] via-[#0B2452] to-[#12306B] text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 font-manrope overflow-hidden">
       <div className="max-w-[1240px] mx-auto">
-        
+
         {/* Header with Navigation Controls */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <div>
@@ -88,11 +91,10 @@ function InvestorVideos() {
               onClick={() => handleScroll("left")}
               disabled={!canScrollLeft}
               aria-label="Previous videos"
-              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${
-                canScrollLeft
-                  ? "bg-white/10 border-white/20 text-white hover:bg-white hover:text-[#0B2452] hover:scale-105"
-                  : "bg-white/5 border-white/10 text-white/30 cursor-not-allowed opacity-40"
-              }`}
+              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${canScrollLeft
+                ? "bg-white/10 border-white/20 text-white hover:bg-white hover:text-[#0B2452] hover:scale-105"
+                : "bg-white/5 border-white/10 text-white/30 cursor-not-allowed opacity-40"
+                }`}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -100,11 +102,10 @@ function InvestorVideos() {
               onClick={() => handleScroll("right")}
               disabled={!canScrollRight}
               aria-label="Next videos"
-              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${
-                canScrollRight
-                  ? "bg-white/10 border-white/20 text-white hover:bg-white hover:text-[#0B2452] hover:scale-105"
-                  : "bg-white/5 border-white/10 text-white/30 cursor-not-allowed opacity-40"
-              }`}
+              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${canScrollRight
+                ? "bg-white/10 border-white/20 text-white hover:bg-white hover:text-[#0B2452] hover:scale-105"
+                : "bg-white/5 border-white/10 text-white/30 cursor-not-allowed opacity-40"
+                }`}
             >
               <ChevronRight className="w-5 h-5" />
             </button>

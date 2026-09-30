@@ -254,7 +254,7 @@ function ContactForm() {
                   Message received!
                 </h3>
                 <p className="text-sm text-[#3D6B52] leading-relaxed max-w-md mx-auto">
-                  Thank you for reaching out. A Fracspace specialist will get in touch with you shortly.
+                  Thank you for reaching out. Our team will contact you shortly.
                 </p>
                 <button
                   onClick={() => setSent(false)}
