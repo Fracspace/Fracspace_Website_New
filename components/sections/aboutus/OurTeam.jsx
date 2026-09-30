@@ -49,7 +49,7 @@ function OurTeam() {
         { name: "Abhisheik", role: "Pre-sales Executive", image: abhisheikImg },
         { name: "Charith", role: "Pre-sales Executive", image: charithImg },
         { name: "Gitansh", role: "Pre-sales Executive", image: gitanshImg },
-        { name: "Harshath", role: "Pre-sales Executive", image: harshathImg },
+        // { name: "Harshath", role: "Pre-sales Executive", image: harshathImg },
         { name: "Likitha", role: "Pre-sales Executive", image: likithaImg },
         { name: "Nithya", role: "Pre-sales Executive", image: nithyaImg }
       ]
@@ -86,7 +86,7 @@ function OurTeam() {
       people: [
         { name: "Shiva", role: "House Team", image: shivaImg },
         { name: "Ranjith", role: "House Team", image: ranjithImg },
-        { name: "Srinivas", role: "House Team", image: srinivasImg }
+        // { name: "Srinivas", role: "House Team", image: srinivasImg }
       ]
     }
   ];
@@ -100,11 +100,11 @@ function OurTeam() {
 
   return (
     <div className="w-full font-manrope">
-      
+
       {/* Founder / Visionary in Chief Section */}
       <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-[1140px] mx-auto bg-[#F1F5FB] border border-[#E2E9F4] rounded-3xl p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
+
           <div className="lg:col-span-4 flex justify-center">
             <div className="relative w-56 sm:w-64 aspect-[4/4.4] rounded-2xl overflow-hidden shadow-xl border border-white">
               <Image
@@ -154,7 +154,7 @@ function OurTeam() {
       {/* Our Team Section */}
       <section id="team" className="pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-[1140px] mx-auto">
-          
+
           <div className="mb-8 max-w-xl">
             <h2 className="font-jakarta text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#14203A] mb-3">
               Our team
@@ -172,11 +172,10 @@ function OurTeam() {
                 <button
                   key={t}
                   onClick={() => setSelectedTeam(t)}
-                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
-                    active
+                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${active
                       ? "bg-[#16418C] text-white border border-[#16418C] shadow-sm"
                       : "bg-white text-[#4A5878] border border-[#DDE4EF] hover:border-[#16418C]"
-                  }`}
+                    }`}
                 >
                   {t}
                 </button>
