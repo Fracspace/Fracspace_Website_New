@@ -100,3 +100,43 @@
 .gold-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(252, 224, 121, 0.8);
 }
+
+/* Floating Action Button Animations */
+@keyframes whatsappPulseBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 16px 32px rgba(37, 211, 102, 0.65);
+  }
+}
+
+@keyframes formPulseBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 22px rgba(11, 36, 82, 0.35);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 16px 30px rgba(22, 65, 140, 0.55);
+  }
+}
+
+.animate-floating-form {
+  animation: formPulseBounce 3s ease-in-out infinite;
+}
+
+.animate-floating-form:hover {
+  animation-play-state: paused;
+}
+
+.animate-floating-whatsapp {
+  animation: whatsappPulseBounce 2.5s ease-in-out infinite;
+  animation-delay: 0.35s;
+}
+
+.animate-floating-whatsapp:hover {
+  animation-play-state: paused;
+}

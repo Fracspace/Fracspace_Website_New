@@ -21,10 +21,6 @@ function HomeFaqSection() {
     {
       q: "Can I visit or stay at my property?",
       a: "Yes. Co-owners receive annual stay nights proportionate to their holding, bookable through the app subject to availability."
-    },
-    {
-      q: "How do I exit my investment?",
-      a: "Shares can be listed on the Fracspace resale window after the initial lock-in, or transferred privately to another verified investor."
     }
   ];
 

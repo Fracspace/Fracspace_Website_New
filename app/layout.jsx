@@ -40,9 +40,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${jakarta.variable} ${dmsans.variable} ${manrope.variable} ${monoPlex.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-manrope text-[#14203A] bg-white">
+      <body suppressHydrationWarning className="min-h-full flex flex-col font-manrope text-[#14203A] bg-white">
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

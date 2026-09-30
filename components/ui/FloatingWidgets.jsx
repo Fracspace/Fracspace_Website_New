@@ -232,7 +232,7 @@ function FloatingWidgets() {
           onClick={() => setFormOpen(true)}
           title="Investment enquiry"
           aria-label="Investment enquiry"
-          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#0B2452] hover:bg-[#16418C] text-white flex items-center justify-center shadow-2xl transition duration-300 transform hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+          className="animate-floating-form w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#0B2452] hover:bg-[#16418C] text-white flex items-center justify-center shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 cursor-pointer border border-white/10"
         >
           <FileText className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.8} />
         </button>
@@ -244,7 +244,7 @@ function FloatingWidgets() {
           rel="noopener noreferrer"
           title="Chat on WhatsApp (+91 98806 26111)"
           aria-label="Chat on WhatsApp (+91 98806 26111)"
-          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(37,211,102,0.4)] transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
+          className="animate-floating-whatsapp w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(37,211,102,0.4)] transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
         >
           <svg
             className="w-6 h-6 sm:w-7 sm:h-7 fill-current"

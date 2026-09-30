@@ -17,10 +17,20 @@ function Navbar({ onOpenConcertModal }) {
 
   // Close mobile drawer on route change
   useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
     if (menuOpen) {
-      setMenuOpen(false);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
-  }, [pathname, menuOpen]);
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -101,9 +111,11 @@ function Navbar({ onOpenConcertModal }) {
 
             {/* Mobile Hamburger Button */}
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle navigation menu"
-              className="md:hidden w-11 h-11 rounded-xl border border-[#DDE4EF] bg-white flex flex-col items-center justify-center gap-1.5 cursor-pointer p-0 shadow-xs"
+              type="button"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={menuOpen}
+              className="md:hidden w-11 h-11 rounded-xl border border-[#DDE4EF] bg-white flex flex-col items-center justify-center gap-1.5 cursor-pointer p-0 shadow-xs relative z-10"
             >
               <span
                 className={`w-5 h-0.5 bg-[#0B2452] rounded transition-transform duration-200 ${menuOpen ? "translate-y-[6px] rotate-45" : ""
@@ -126,14 +138,15 @@ function Navbar({ onOpenConcertModal }) {
       {menuOpen && (
         <div
           onClick={() => setMenuOpen(false)}
-          className="fixed inset-0 z-[60] bg-[#07142C]/50 backdrop-blur-xs md:hidden transition-opacity"
+          className="fixed inset-0 z-[90] bg-[#07142C]/60 backdrop-blur-xs md:hidden transition-opacity"
         />
       )}
 
       {/* Mobile Drawer Aside */}
       <aside
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-[min(320px,84vw)] flex flex-col bg-gradient-to-br from-[#071A38] to-[#123068] text-white font-manrope shadow-2xl transition-transform duration-300 ease-out md:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 bottom-0 z-[100] w-[min(320px,84vw)] flex flex-col bg-gradient-to-br from-[#071A38] to-[#123068] text-white font-manrope shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
           <span className="font-jakarta font-extrabold tracking-wider text-sm text-white">

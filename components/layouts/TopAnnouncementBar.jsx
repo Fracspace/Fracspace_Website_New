@@ -35,32 +35,53 @@ export default function TopAnnouncementBar({ onOpenModal }) {
   return (
     <div
       onClick={handleScrollToConcert}
-      className="w-full bg-gradient-to-r from-[#170603] via-[#2A0C04] to-[#170603] hover:from-[#250904] hover:via-[#3B1106] hover:to-[#250904] text-white py-2.5 px-3 sm:px-6 border-b border-[#E5B869]/30 font-manrope z-50 cursor-pointer transition-all duration-300 group select-none shadow-xs"
+      className="w-full bg-gradient-to-r from-[#170603] via-[#2A0C04] to-[#170603] hover:from-[#250904] hover:via-[#3B1106] hover:to-[#250904] text-white py-2 sm:py-2.5 px-3 sm:px-6 border-b border-[#E5B869]/30 font-manrope z-50 cursor-pointer transition-all duration-300 group select-none shadow-xs"
     >
-      <div className="max-w-[1240px] mx-auto flex items-center justify-center gap-2 sm:gap-3 text-center text-xs sm:text-sm flex-wrap sm:flex-nowrap">
-        {/* Brand prefix with icon */}
-        <div className="flex items-center gap-1.5 shrink-0">
-          <Sparkles className="w-4 h-4 text-[#FCE079] animate-pulse group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" />
-          <span className="font-extrabold tracking-wider text-[#E5B869] uppercase text-[11px] sm:text-xs">
-            FRACSPACE PRESENTS
+      <div className="max-w-[1240px] mx-auto flex items-center justify-center text-center text-xs sm:text-sm">
+        
+        {/* Mobile View: Compact single line with "Religious India Band" and "Know More" */}
+        <div className="flex sm:hidden items-center justify-center gap-2.5 w-full">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <Sparkles className="w-3.5 h-3.5 text-[#FCE079] animate-pulse" />
+            <span className="font-extrabold text-[#FCE079] tracking-tight text-xs">
+              Religious India Band
+            </span>
+          </div>
+          <div
+            className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full border border-[#E5B869]/70 bg-[#E5B869]/15 text-[#FCE079] text-[11px] font-bold tracking-wide transition-all shadow-xs shrink-0"
+          >
+            <span>Know More</span>
+            <ArrowRight className="w-3 h-3 text-[#FCE079]" />
+          </div>
+        </div>
+
+        {/* Desktop View: Full Announcement */}
+        <div className="hidden sm:flex items-center justify-center gap-2 sm:gap-3 text-center flex-nowrap">
+          {/* Brand prefix with icon */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <Sparkles className="w-4 h-4 text-[#FCE079] animate-pulse group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" />
+            <span className="font-extrabold tracking-wider text-[#E5B869] uppercase text-xs">
+              FRACSPACE PRESENTS
+            </span>
+          </div>
+
+          {/* Separator Bullet */}
+          <span className="text-[#E5B869]/70 font-bold">·</span>
+
+          {/* Event Name */}
+          <span className="font-extrabold text-[#FCE079] tracking-wide text-xs uppercase transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(252,224,121,0.8)]">
+            RELIGIOUS INDIA <strong>&mdash;</strong> LIVE IN CONCERT
           </span>
+
+          {/* Action Button */}
+          <div
+            className="inline-flex items-center gap-1.5 ml-2.5 px-3 py-1 rounded-full border border-[#E5B869]/70 bg-[#E5B869]/15 text-[#FCE079] text-xs font-bold tracking-wide transition-all duration-300 group-hover:border-[#FCE079] group-hover:bg-[#E5B869]/30 group-hover:shadow-[0_0_16px_rgba(252,224,121,0.6)] group-hover:scale-105 active:scale-95 whitespace-nowrap shadow-xs"
+          >
+            <span>Know More</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#FCE079] group-hover:translate-x-1 transition-all duration-300" />
+          </div>
         </div>
 
-        {/* Separator Bullet */}
-        <span className="text-[#E5B869]/70 hidden xs:inline font-bold">?</span>
-
-        {/* Event Name */}
-        <span className="font-extrabold text-[#FCE079] tracking-wide text-[11px] sm:text-xs uppercase transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(252,224,121,0.8)]">
-          RELIGIOUS INDIA <strong>&mdash;</strong> LIVE IN CONCERT
-        </span>
-
-        {/* Action Button */}
-        <div
-          className="inline-flex items-center gap-1.5 ml-1 sm:ml-2.5 px-3 py-1 rounded-full border border-[#E5B869]/70 bg-[#E5B869]/15 text-[#FCE079] text-[11px] sm:text-xs font-bold tracking-wide transition-all duration-300 group-hover:border-[#FCE079] group-hover:bg-[#E5B869]/30 group-hover:shadow-[0_0_16px_rgba(252,224,121,0.6)] group-hover:scale-105 active:scale-95 whitespace-nowrap shadow-xs"
-        >
-          <span>Know More</span>
-          <ArrowRight className="w-3.5 h-3.5 text-[#FCE079] group-hover:translate-x-1 transition-all duration-300" />
-        </div>
       </div>
     </div>
   );

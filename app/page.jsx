@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import HeroSection from "../components/sections/homepage/HeroSection";
 import InTheNews from "../components/sections/homepage/InTheNews";
@@ -14,6 +12,16 @@ import InvestorVideos from "../components/sections/homepage/InvestorVideos";
 import HomeBlogSection from "../components/sections/homepage/HomeBlogSection";
 import HomeFaqSection from "../components/sections/homepage/HomeFaqSection";
 import BottomBanner from "../components/sections/homepage/BottomBanner";
+
+export const metadata = {
+  title: "Home | Fracspace",
+  description:
+    "Discover fractional ownership in luxury real estate with Fracspace. Invest in high-end properties, enjoy premium vacations, and earn rental income with projected yields of 8% annually.",
+  robots: {
+    index: true,
+    follow: true
+  }
+};
 
 export default function Home() {
   return (

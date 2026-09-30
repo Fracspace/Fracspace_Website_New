@@ -138,7 +138,7 @@ function OurTeam() {
             </p>
             <div className="pt-2">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/unnath-reddy-7b4614188/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-[#0B2452] hover:bg-[#16418C] text-white px-7 py-3 rounded-full text-xs sm:text-sm font-bold transition shadow-md"
@@ -213,19 +213,9 @@ function OurTeam() {
                         />
                       </div>
                       <div className="p-3.5 sm:p-4 flex flex-col flex-1">
-                        <div className="flex items-center justify-between gap-1 mb-1">
-                          <span className="font-jakarta text-xs sm:text-sm font-bold text-[#14203A] truncate">
-                            {p.name}
-                          </span>
-                          <a
-                            href="https://linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[10px] font-bold text-[#16418C] border border-[#DDE4EF] hover:bg-[#16418C] hover:text-white rounded px-1.5 py-0.5 transition shrink-0"
-                          >
-                            in
-                          </a>
-                        </div>
+                        <span className="font-jakarta text-xs sm:text-sm font-bold text-[#14203A] truncate mb-0.5">
+                          {p.name}
+                        </span>
                         <div className="text-[11px] text-[#7B8AA8] leading-snug">
                           {p.role}
                         </div>

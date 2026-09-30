@@ -1,9 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { blogsData } from "@/data/blogsData";
 
 function BlogsPage() {
-<<<<<<< HEAD
   const [selectedTopic, setSelectedTopic] = useState("All topics");
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
@@ -35,7 +37,7 @@ function BlogsPage() {
 
   return (
     <main className="w-full font-manrope">
-      
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#071A38] via-[#0B2452] to-[#16418C] text-white overflow-hidden py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div
@@ -65,11 +67,10 @@ function BlogsPage() {
                 <button
                   key={t}
                   onClick={() => setSelectedTopic(t)}
-                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
-                    active
-                      ? "bg-white text-[#0B2452] shadow-md"
-                      : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
-                  }`}
+                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${active
+                    ? "bg-white text-[#0B2452] shadow-md"
+                    : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
+                    }`}
                 >
                   {t}
                 </button>
@@ -225,9 +226,6 @@ function BlogsPage() {
 
     </main>
   );
-=======
-  return null;
->>>>>>> 9598787eb933b3f031d1668beabac87decf620e3
 }
 
 export default BlogsPage;
