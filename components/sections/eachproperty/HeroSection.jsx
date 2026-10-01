@@ -11,7 +11,9 @@ function HeroSection() {
       <Image
         src={bg1}
         alt="Luxury Property"
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        priority
+        className="object-cover"
       />
 
       {/* Overlay */}
@@ -46,6 +48,7 @@ function HeroSection() {
                 src={bg1}
                 alt="Hilltop Property"
                 fill
+                priority
                 className="object-cover"
               />
             </div>

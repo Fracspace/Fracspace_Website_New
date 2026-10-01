@@ -20,8 +20,6 @@ function InvestorVideos() {
     { id: 7, src: "/videos/AbdulBasith.mp4", position: "center" },
     { id: 8, src: "/videos/PrashantGudipudi.mp4", position: "center" },
     { id: 9, src: "/videos/Srivivasbonnam.mp4", position: "center" },
-
-
   ];
 
   const checkScroll = () => {

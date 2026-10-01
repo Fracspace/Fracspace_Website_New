@@ -2,15 +2,24 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
-import FracspaceAppModal from "../components/ui/FracspaceAppModal";
-import ConcertModal from "../components/ui/ConcertModal";
-import CookieConsent from "../components/ui/CookieConsent";
+import { DownloadAppProvider, useDownloadApp } from "../context/DownloadAppContext";
 
-import { DownloadAppProvider } from "../context/DownloadAppContext";
-import { useDownloadApp } from "../context/DownloadAppContext";
-import FloatingWidgets from "../components/ui/FloatingWidgets";
+// Defer heavy client-side hydration out of the initial critical render path
+const FracspaceAppModal = dynamic(() => import("../components/ui/FracspaceAppModal"), {
+  ssr: false
+});
+const ConcertModal = dynamic(() => import("../components/ui/ConcertModal"), {
+  ssr: false
+});
+const CookieConsent = dynamic(() => import("../components/ui/CookieConsent"), {
+  ssr: false
+});
+const FloatingWidgets = dynamic(() => import("../components/ui/FloatingWidgets"), {
+  ssr: false
+});
 
 function LayoutContent({ children }) {
   const { isOpen } = useDownloadApp();

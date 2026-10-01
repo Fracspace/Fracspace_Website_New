@@ -7,8 +7,11 @@ import axios from "axios";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
+import dynamic from "next/dynamic";
+
 import { sendOtpApi, verifyOtpApi } from "../../utils/otpService";
-import OtpModal from "./OtpModal";
+
+const OtpModal = dynamic(() => import("./OtpModal"), { ssr: false });
 
 const ENQUIRY_API = "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRegardingCoownership";
 

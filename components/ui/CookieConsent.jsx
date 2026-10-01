@@ -4,38 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Style from "./CookieConsent.module.css";
 
-// Helper functions to initialize cookies/scripts dynamically
-export const initGTM = () => {
-  if (typeof window === "undefined" || window.gtmInitialized) return;
-  window.gtmInitialized = true;
-  (function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l != "dataLayer" ? "&l=" + l : "";
-    j.async = true;
-    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-    f.parentNode.insertBefore(j, f);
-  })(window, document, "script", "dataLayer", "GTM-5TBXBVDB");
-};
-
-export const initGtag = () => {
-  if (typeof window === "undefined" || window.gtagInitialized) return;
-  window.gtagInitialized = true;
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = "https://www.googletagmanager.com/gtag/js?id=AW-17631871581";
-  document.head.appendChild(script);
-
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () {
-    window.dataLayer.push(arguments);
-  };
-  window.gtag("js", new Date());
-  window.gtag("config", "AW-17631871581");
-};
-
+// Helper function for Facebook Pixel
 export const initFBPixel = () => {
   if (typeof window === "undefined" || window.fbInitialized) return;
   window.fbInitialized = true;
@@ -70,22 +39,29 @@ function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Check if consent has been given
+    let timer = null;
     try {
       const consent = localStorage.getItem("cookieConsent");
       if (!consent) {
-        // Not decided yet, show banner
-        setVisible(true);
+        // Defer appearance slightly after initial paint to prevent mobile LCP occlusion
+        timer = setTimeout(() => {
+          setVisible(true);
+        }, 1000);
       } else if (consent === "accept") {
-        // User accepted before, enable cookies
-        initGTM();
-        initGtag();
         initFBPixel();
+        if (typeof window !== "undefined" && window.dataLayer) {
+          window.dataLayer.push({ event: "cookie_consent_accepted" });
+        }
       }
     } catch (e) {
-      // In case localStorage is disabled/restricted
-      setVisible(true);
+      timer = setTimeout(() => {
+        setVisible(true);
+      }, 1000);
     }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
@@ -107,10 +83,11 @@ function CookieConsent() {
     // Dispatch event so other components can update
     window.dispatchEvent(new Event("cookie-consent-change"));
     
-    // Initialize scripts immediately
-    initGTM();
-    initGtag();
+    // Initialize tracking
     initFBPixel();
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({ event: "cookie_consent_accepted" });
+    }
     
     setVisible(false);
   };
@@ -129,14 +106,14 @@ function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div className={Style.banner}>
+    <aside aria-label="Cookie consent banner" className={Style.banner}>
       <div className={Style.content}>
         <h4 className={Style.title}>
-          <span>🍪</span>
+          <span aria-hidden="true">🍪</span>
           <span>We value your privacy</span>
         </h4>
         <p className={Style.description}>
-          Fracspace uses cookies and similar technologies to ensure that the website functions properly, improve your browsing experience, analyze website traffic and, where applicable, support our marketing activities. Some cookies are strictly necessary for the operation of the website, while others help us understand website usage, enhance functionality and personalize content. By clicking &ldquo;Accept All Cookies&rdquo;, you consent to the use of all cookies. By clicking &ldquo;Reject Non-Essential Cookies&rdquo;, only strictly necessary cookies will be used. For more information on how we use cookies and process your Personal Data, please review our{" "}
+          Fracspace uses cookies to optimize your browsing experience, analyze traffic and assist marketing efforts. By clicking &ldquo;Accept All Cookies&rdquo;, you consent to the storage of cookies on your device. Review our{" "}
           <Link href="/privacypolicy" className={Style.link}>
             Privacy Policy
           </Link>
@@ -149,7 +126,7 @@ function CookieConsent() {
           className={Style.rejectBtn}
           onClick={handleRejectAll}
         >
-          Reject Non-Essential Cookies
+          Reject Non-Essential
         </button>
         <button
           type="button"
@@ -159,7 +136,7 @@ function CookieConsent() {
           Accept All Cookies
         </button>
       </div>
-    </div>
+    </aside>
   );
 }
 
