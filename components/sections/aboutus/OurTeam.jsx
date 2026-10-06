@@ -29,6 +29,14 @@ import mithunImg from "../../../assets/TeamMates/marketing/mithun.jpg";
 import nikithaImg from "../../../assets/TeamMates/marketing/nikitha.jpg";
 import gopichandImg from "../../../assets/TeamMates/marketing/gopichand.jpg";
 
+// Construction Team Images
+import tarunImg from "../../../assets/TeamMates/construction/tarun.webp";
+import madhuImg from "../../../assets/TeamMates/construction/madhu1.webp";
+
+// Accounts Team Images
+import tejaswiniAccImg from "../../../assets/TeamMates/hrAccounts/tejaswini.jpg";
+import faizhanImg from "../../../assets/TeamMates/hrAccounts/faizhan.jpg";
+
 // Hospitality Team Images
 import deepakImg from "../../../assets/TeamMates/hospitality/deepak.webp";
 import mansoorImg from "../../../assets/TeamMates/hospitality/mansoor.webp";
@@ -72,6 +80,20 @@ function OurTeam() {
         { name: "Krishna", role: "Junior Software Developer", image: krishnaImg },
         { name: "Tejaswini", role: "UI/UX Designer", image: tejaswiniImg },
         { name: "Shashidhar", role: "IT Admin", image: shashidharImg }
+      ]
+    },
+    {
+      name: "Construction",
+      people: [
+        { name: "Tarun", role: "Project Commandar", image: tarunImg },
+        { name: "Madhu", role: "Site Engineer", image: madhuImg },
+      ]
+    },
+    {
+      name: "Accounts",
+      people: [
+        { name: "Tejaswini", role: "Accountant", image: tejaswiniAccImg },
+        { name: "Faizhan", role: "Junior Accountant", image: faizhanImg },
       ]
     },
     {
@@ -173,8 +195,8 @@ function OurTeam() {
                   key={t}
                   onClick={() => setSelectedTeam(t)}
                   className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${active
-                      ? "bg-[#16418C] text-white border border-[#16418C] shadow-sm"
-                      : "bg-white text-[#4A5878] border border-[#DDE4EF] hover:border-[#16418C]"
+                    ? "bg-[#16418C] text-white border border-[#16418C] shadow-sm"
+                    : "bg-white text-[#4A5878] border border-[#DDE4EF] hover:border-[#16418C]"
                     }`}
                 >
                   {t}

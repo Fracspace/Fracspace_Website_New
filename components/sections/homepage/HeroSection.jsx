@@ -25,7 +25,7 @@ function HeroSection() {
       ></div>
 
       <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-        
+
         {/* Left Content Column */}
         <div className="lg:col-span-7 space-y-6">
           <h1 className="font-jakarta text-3xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.1] text-balance">
