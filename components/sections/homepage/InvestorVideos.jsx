@@ -79,7 +79,7 @@ function InvestorVideos() {
               Investor Experiences
             </span>
             <h2 className="font-jakarta text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mt-2">
-              Why our investors chose Fracspace
+              Why Our Investors Chose Fracspace
             </h2>
           </div>
 
