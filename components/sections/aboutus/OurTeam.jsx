@@ -11,7 +11,7 @@ import divyaImg from "../../../assets/TeamMates/sales/divya.webp";
 import dnsImg from "../../../assets/TeamMates/sales/dns1.webp";
 import charithImg from "../../../assets/TeamMates/sales/charith.jpg";
 import gitanshImg from "../../../assets/TeamMates/sales/gitansh.jpg";
-import harshathImg from "../../../assets/TeamMates/sales/harshath.jpg";
+import siriImg from '../../../assets/TeamMates/sales/siri.jpg';
 import likithaImg from "../../../assets/TeamMates/sales/likitha.jpg";
 import nithyaImg from "../../../assets/TeamMates/sales/nithya.jpg";
 
@@ -21,6 +21,7 @@ import shashidharImg from "../../../assets/TeamMates/tech/shashidhar.jpg";
 import rakeshImg from "../../../assets/TeamMates/tech/rakesh1.webp";
 import tejaswiniImg from "../../../assets/TeamMates/tech/tejaswini.webp";
 import vishnuImg from "../../../assets/TeamMates/tech/vishnu.webp";
+import saicharanImg from "../../../assets/TeamMates/tech/saicharan.jpg";
 
 // Marketing Team Images
 import hruthikImg from "../../../assets/TeamMates/marketing/hruthik.webp";
@@ -28,6 +29,7 @@ import vivekanandaImg from "../../../assets/TeamMates/marketing/vivekananda.webp
 import mithunImg from "../../../assets/TeamMates/marketing/mithun.jpg";
 import nikithaImg from "../../../assets/TeamMates/marketing/nikitha.jpg";
 import gopichandImg from "../../../assets/TeamMates/marketing/gopichand.jpg";
+import sudheerImg from "../../../assets/TeamMates/marketing/sudheer.jpg";
 
 // Construction Team Images
 import tarunImg from "../../../assets/TeamMates/construction/tarun.webp";
@@ -57,7 +59,7 @@ function OurTeam() {
         { name: "Abhisheik", role: "Pre-sales Executive", image: abhisheikImg },
         { name: "Charith", role: "Pre-sales Executive", image: charithImg },
         { name: "Gitansh", role: "Pre-sales Executive", image: gitanshImg },
-        // { name: "Harshath", role: "Pre-sales Executive", image: harshathImg },
+        { name: "Siri", role: "Pre-sales Executive", image: siriImg },
         { name: "Likitha", role: "Pre-sales Executive", image: likithaImg },
         { name: "Nithya", role: "Pre-sales Executive", image: nithyaImg }
       ]
@@ -65,35 +67,57 @@ function OurTeam() {
     {
       name: "Marketing",
       people: [
-        { name: "Vivekananda", role: "Digital Marketing Specialist", image: vivekanandaImg },
+        {
+          name: "Vivekananda",
+          role: "Digital Marketing Specialist",
+          image: vivekanandaImg
+        },
         { name: "Hruthik", role: "Video Editor", image: hruthikImg },
         { name: "Mithun", role: "Graphic Designer", image: mithunImg },
         { name: "Nikitha", role: "PR & Media Manager", image: nikithaImg },
-        { name: "Gopichand", role: "Video Editor", image: gopichandImg }
+        { name: "Gopichand", role: "Video Editor", image: gopichandImg },
+        { name: "Sudheer", role: "Senior Graphic Designer", image: sudheerImg }
       ]
     },
     {
       name: "Tech",
       people: [
-        { name: "Rakesh", role: "Second Engineer in Command (SDE-2)", image: rakeshImg },
-        { name: "Vishnuteja", role: "Senior Fullstack Developer", image: vishnuImg },
-        { name: "Krishna", role: "Junior Software Developer", image: krishnaImg },
+        {
+          name: "Rakesh",
+          role: "Second Engineer in Command (SDE-2)",
+          image: rakeshImg
+        },
+        {
+          name: "Vishnuteja",
+          role: "Senior Fullstack Developer",
+          image: vishnuImg
+        },
+        {
+          name: "Krishna",
+          role: "Junior Software Developer",
+          image: krishnaImg
+        },
         { name: "Tejaswini", role: "UI/UX Designer", image: tejaswiniImg },
-        { name: "Shashidhar", role: "IT Admin", image: shashidharImg }
+        { name: "Shashidhar", role: "IT Admin", image: shashidharImg },
+        {
+          name: "Saicharan",
+          role: "Junior Software Developer",
+          image: saicharanImg
+        }
       ]
     },
     {
       name: "Construction",
       people: [
         { name: "Tarun", role: "Project Commandar", image: tarunImg },
-        { name: "Madhu", role: "Site Engineer", image: madhuImg },
+        { name: "Madhu", role: "Site Engineer", image: madhuImg }
       ]
     },
     {
       name: "Accounts",
       people: [
         { name: "Tejaswini", role: "Accountant", image: tejaswiniAccImg },
-        { name: "Faizhan", role: "Junior Accountant", image: faizhanImg },
+        { name: "Faizhan", role: "Junior Accountant", image: faizhanImg }
       ]
     },
     {
@@ -107,7 +131,7 @@ function OurTeam() {
       name: "House",
       people: [
         { name: "Shiva", role: "House Team", image: shivaImg },
-        { name: "Ranjith", role: "House Team", image: ranjithImg },
+        { name: "Ranjith", role: "House Team", image: ranjithImg }
         // { name: "Srinivas", role: "House Team", image: srinivasImg }
       ]
     }
@@ -122,11 +146,9 @@ function OurTeam() {
 
   return (
     <div className="w-full font-manrope">
-
       {/* Founder / Visionary in Chief Section */}
       <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-[1140px] mx-auto bg-[#F1F5FB] border border-[#E2E9F4] rounded-3xl p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-
           <div className="lg:col-span-4 flex justify-center">
             <div className="relative w-56 sm:w-64 aspect-[4/4.4] rounded-2xl overflow-hidden shadow-xl border border-white">
               <Image
@@ -150,13 +172,19 @@ function OurTeam() {
               Founder, Fracspace
             </div>
             <p className="text-sm sm:text-base leading-relaxed text-[#33415F]">
-              Unnath Reddy is an entrepreneur and the founder of Fracspace, a real estate technology platform transforming how people invest in structured property assets.
+              Unnath Reddy is an entrepreneur and the founder of Fracspace, a
+              real estate technology platform transforming how people invest in
+              structured property assets.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-[#5C6B8A]">
-              After years in corporate real estate and entrepreneurship, he identified the need for accessible and transparent property ownership models.
+              After years in corporate real estate and entrepreneurship, he
+              identified the need for accessible and transparent property
+              ownership models.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-[#5C6B8A]">
-              Today he leads Fracspace's mission to democratise real estate investing and provide secure access to modern real-estate backed opportunities.
+              Today he leads Fracspace's mission to democratise real estate
+              investing and provide secure access to modern real-estate backed
+              opportunities.
             </p>
             <div className="pt-2">
               <a
@@ -169,20 +197,23 @@ function OurTeam() {
               </a>
             </div>
           </div>
-
         </div>
       </section>
 
       {/* Our Team Section */}
-      <section id="team" className="pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section
+        id="team"
+        className="pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-white"
+      >
         <div className="max-w-[1140px] mx-auto">
-
           <div className="mb-8 max-w-xl">
             <h2 className="font-jakarta text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#14203A] mb-3">
               Our team
             </h2>
             <p className="text-sm sm:text-base text-[#5C6B8A] leading-relaxed">
-              Professionals with experience across real estate, finance, technology and entrepreneurship — building structured ownership for modern investors.
+              Professionals with experience across real estate, finance,
+              technology and entrepreneurship — building structured ownership
+              for modern investors.
             </p>
           </div>
 
@@ -195,8 +226,8 @@ function OurTeam() {
                   key={t}
                   onClick={() => setSelectedTeam(t)}
                   className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${active
-                    ? "bg-[#16418C] text-white border border-[#16418C] shadow-sm"
-                    : "bg-white text-[#4A5878] border border-[#DDE4EF] hover:border-[#16418C]"
+                      ? "bg-[#16418C] text-white border border-[#16418C] shadow-sm"
+                      : "bg-white text-[#4A5878] border border-[#DDE4EF] hover:border-[#16418C]"
                     }`}
                 >
                   {t}
@@ -247,7 +278,6 @@ function OurTeam() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -259,7 +289,8 @@ function OurTeam() {
               See how Fracspace works
             </h2>
             <p className="text-sm sm:text-base text-[#B7C6E4] max-w-xl leading-relaxed">
-              Explore verified co-ownership opportunities, track performance and invest with confidence — all from one app.
+              Explore verified co-ownership opportunities, track performance and
+              invest with confidence — all from one app.
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3.5 justify-start lg:justify-end">
@@ -282,7 +313,6 @@ function OurTeam() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

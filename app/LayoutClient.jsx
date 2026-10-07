@@ -5,21 +5,30 @@ import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
-import { DownloadAppProvider, useDownloadApp } from "../context/DownloadAppContext";
+import {
+  DownloadAppProvider,
+  useDownloadApp
+} from "../context/DownloadAppContext";
 
 // Defer heavy client-side hydration out of the initial critical render path
-const FracspaceAppModal = dynamic(() => import("../components/ui/FracspaceAppModal"), {
-  ssr: false
-});
+const FracspaceAppModal = dynamic(
+  () => import("../components/ui/FracspaceAppModal"),
+  {
+    ssr: false
+  }
+);
 const ConcertModal = dynamic(() => import("../components/ui/ConcertModal"), {
   ssr: false
 });
 const CookieConsent = dynamic(() => import("../components/ui/CookieConsent"), {
   ssr: false
 });
-const FloatingWidgets = dynamic(() => import("../components/ui/FloatingWidgets"), {
-  ssr: false
-});
+const FloatingWidgets = dynamic(
+  () => import("../components/ui/FloatingWidgets"),
+  {
+    ssr: false
+  }
+);
 
 function LayoutContent({ children }) {
   const { isOpen } = useDownloadApp();
@@ -67,7 +76,9 @@ function LayoutContent({ children }) {
   return (
     <>
       <Navbar onOpenConcertModal={() => setIsConcertModalOpen(true)} />
-      <div className="pt-[110px] sm:pt-[114px] w-full min-h-screen flex flex-col">{children}</div>
+      <div className="pt-[110px] sm:pt-[114px] w-full min-h-screen flex flex-col">
+        {children}
+      </div>
 
       <ConcertModal
         isOpen={isConcertModalOpen}

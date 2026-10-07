@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { X, Sparkles, Loader2 } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+import concertBanner from "../../assets/concert/concertBanner.webp";
 
 export default function ConcertModal({ isOpen, onClose }) {
   const router = useRouter();
@@ -69,10 +70,8 @@ export default function ConcertModal({ isOpen, onClose }) {
           )}
 
           <Image
-            src="/bandPosterMobile.webp"
+            src={concertBanner}
             alt="Fracspace Presents Religious India Harish Sagane & Band Live in Concert"
-            width={800}
-            height={1100}
             priority
             onLoad={() => setImageLoaded(true)}
             className={`w-full h-auto max-h-[min(64vh,420px)] object-contain block rounded-t-2xl group-hover/poster:scale-105 transition-all duration-500 ${
