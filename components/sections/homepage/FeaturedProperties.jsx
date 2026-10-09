@@ -153,6 +153,8 @@ function FeaturedProperties() {
       .then((res) => {
         const raw = (res?.data?.properties || []).filter(
           (p) =>
+            p?._id !== "65ba3687d41d5864da96629f" &&
+            !p?.name?.replace(/\s+/g, " ")?.toUpperCase()?.includes("WATERFRONT ECHOS") &&
             p?.name?.toUpperCase() !== "LAKEVIEW BY FRACSPACE CEYLON" &&
             p?.PropertyType !== "forKiosk" &&
             (p?.PropertyType === "Domastic" || p?.PropertyType?.toLowerCase() === "domestic")
