@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { X } from "lucide-react";
+import { X, Lock } from "lucide-react";
 import Image from "next/image";
 import appStoreImg from "../../assets/appModal/appStore.png";
 import playStoreImg from "../../assets/appModal/playstore.png";
@@ -10,7 +10,7 @@ import phoneImg from "../../assets/appModal/iphone.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
 
 function FracspaceAppModal() {
-  const { closeDownloadModal } = useDownloadApp();
+  const { closeDownloadModal, targetProperty } = useDownloadApp();
 
   return (
     <div
@@ -33,7 +33,7 @@ function FracspaceAppModal() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* Left Text & Actions */}
-          <div className="lg:col-span-7 space-y-5">
+          <div className="lg:col-span-7 space-y-4">
             <span className="font-mono-plex text-xs uppercase tracking-widest text-[#16418C] font-semibold">
               Fracspace Mobile
             </span>
@@ -43,6 +43,23 @@ function FracspaceAppModal() {
             <p className="text-sm sm:text-base text-[#5C6B8A] leading-relaxed">
               Explore properties, invest in fractions, and track your portfolio — all in the Fracspace app.
             </p>
+
+            {/* Animated App Unlock Highlight Pill */}
+            <div className="relative overflow-hidden flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#EFF6FF] via-[#E2EFFF] to-[#EFF6FF] border border-[#BFDBFE] rounded-2xl text-xs sm:text-sm font-semibold text-[#021265] shadow-sm animate-glow-pill">
+              {/* Continuous subtle shimmer light sweep */}
+              <div className="absolute inset-0 -translate-x-full animate-pill-shimmer bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+
+              {/* Pulsing Lock Icon Badge */}
+              <div className="relative flex items-center justify-center shrink-0 w-7 h-7 rounded-full bg-[#16418C] text-white shadow-xs">
+                <span className="absolute inset-0 rounded-full bg-[#16418C] animate-ping opacity-35" />
+                <Lock className="w-3.5 h-3.5 relative z-10" />
+              </div>
+
+              {/* Highlighted text */}
+              <span className="relative z-10 font-medium sm:font-semibold leading-snug">
+                Download our app to explore frac prices and complete details of all our properties
+              </span>
+            </div>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-6">
               {/* QR Box */}

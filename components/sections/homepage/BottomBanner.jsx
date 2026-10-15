@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { Lock } from "lucide-react";
 import qrScannerImg from "../../../assets/fracspace-app-qr.png";
 import phoneImg from "../../../assets/appModal/iphone.png";
 import { useDownloadApp } from "@/context/DownloadAppContext";
@@ -10,7 +11,8 @@ function BottomBanner() {
   const { openDownloadModal } = useDownloadApp();
 
   const appPoints = [
-    "Verified listings with full documentation",
+    "Download our app to view frac price and full details of properties",
+    "Verified listings with full legal documentation",
     "Invest and sign digitally in minutes",
     "Track rentals and appreciation live"
   ];
@@ -30,6 +32,22 @@ function BottomBanner() {
           <p className="text-sm sm:text-base text-[#B7C6E4] leading-relaxed max-w-lg">
             Browse verified co-ownership opportunities, complete your investment and track returns directly from your smartphone.
           </p>
+
+          {/* Animated App Unlock Highlight Badge */}
+          <div className="relative overflow-hidden flex items-center gap-3 px-4 py-3 bg-white/10 border border-white/20 rounded-2xl text-xs sm:text-sm font-semibold text-[#DCE7FF] max-w-lg shadow-sm">
+            {/* Continuous subtle shimmer light sweep */}
+            <div className="absolute inset-0 -translate-x-full animate-pill-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+
+            {/* Pulsing Lock Icon Badge */}
+            <div className="relative flex items-center justify-center shrink-0 w-7 h-7 rounded-full bg-[#6E9BFF]/30 text-white shadow-xs border border-white/30">
+              <span className="absolute inset-0 rounded-full bg-[#6E9BFF] animate-ping opacity-35" />
+              <Lock className="w-3.5 h-3.5 relative z-10 text-white" />
+            </div>
+
+            <span className="relative z-10">
+              Download our app to explore frac prices and complete details of all our properties
+            </span>
+          </div>
 
           <div className="space-y-2.5 pt-2">
             {appPoints.map((pt, idx) => (

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { MapPin, Flame, Ban, ChevronRight } from "lucide-react";
+import { MapPin, Flame, Ban, ChevronRight, Lock, ArrowRight } from "lucide-react";
 import imgFallback from "../../../assets/herobg.webp";
 import { useDownloadApp } from "@/context/DownloadAppContext";
 
@@ -467,26 +467,52 @@ function PropertiesGrid() {
                         {specsLine}
                       </div>
 
-                      {/* Price and Action Row */}
-                      <div className="flex items-end justify-between mt-auto pt-2">
-                        <div>
+                      {/* App Unlock & Action Block */}
+                      <div className="mt-auto pt-2 flex flex-col gap-3">
+                        {/* Frac Price Lock Card */}
+                        <div
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openDownloadModal(pr?.name);
+                          }}
+                          className="p-3 sm:p-3.5 rounded-2xl bg-gray-50/70 border border-gray-100 hover:border-blue-100 hover:bg-blue-50/20 transition-all cursor-pointer group/lock"
+                        >
                           <p className="font-dm text-[10px] text-[#9AA9C4] uppercase tracking-widest font-bold">
                             FRAC PRICE
                           </p>
-                          <p className="font-jakarta text-xl sm:text-2xl font-bold text-[#021265] mt-0.5 tracking-tight">
-                            {formatPrice(pr?.FC_Price)}
-                          </p>
+                          <div className="flex items-center justify-between gap-2 mt-1">
+                            <span className="font-jakarta text-[13px] sm:text-sm font-bold text-[#021265] leading-snug group-hover/lock:text-blue-700 transition-colors">
+                              Shared on the Fracspace app
+                            </span>
+                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-100/60 flex items-center justify-center text-[#021265] shrink-0 group-hover/lock:bg-[#021265] group-hover/lock:text-white transition-colors">
+                              <Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                            </div>
+                          </div>
                         </div>
 
+                        {/* Primary CTA Button */}
                         <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openDownloadModal(pr?.name);
+                          }}
+                          className="cursor-pointer font-dm text-xs sm:text-[13px] text-white font-bold rounded-xl py-3 px-4 bg-[#021265] hover:bg-[#000833] transition-all duration-300 shadow-md shadow-[#021265]/15 flex items-center justify-center gap-2 group/btn w-full"
+                        >
+                          <span>Want to know more?</span>
+                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
+                        </button>
+
+                        {/* Secondary Link */}
+                        <button
+                          type="button"
                           onClick={(e) => {
                             e.stopPropagation();
                             router.push(`/eachproperty?id=${pr?._id}`);
                           }}
-                          className="cursor-pointer font-dm text-xs sm:text-[13px] text-white font-bold rounded-full px-5 py-2.5 bg-[#021265] hover:bg-[#000833] transition-all duration-300 shadow-md shadow-[#021265]/20 flex items-center gap-1"
+                          className="cursor-pointer font-dm text-xs sm:text-[13px] font-bold text-[#021265] hover:text-blue-700 hover:underline transition-colors text-center pb-1"
                         >
-                          <span>View Details</span>
-                          <ChevronRight className="w-3.5 h-3.5" />
+                          View property overview
                         </button>
                       </div>
 

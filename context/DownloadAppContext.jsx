@@ -6,14 +6,22 @@ const DownloadAppContext = createContext();
 
 export const DownloadAppProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [targetProperty, setTargetProperty] = useState("");
 
-  const openDownloadModal = () => setIsOpen(true);
-  const closeDownloadModal = () => setIsOpen(false);
+  const openDownloadModal = (propertyName = "") => {
+    setTargetProperty(typeof propertyName === "string" ? propertyName : "");
+    setIsOpen(true);
+  };
+  const closeDownloadModal = () => {
+    setIsOpen(false);
+    setTargetProperty("");
+  };
 
   return (
     <DownloadAppContext.Provider
       value={{
         isOpen,
+        targetProperty,
         openDownloadModal,
         closeDownloadModal
       }}

@@ -18,11 +18,14 @@ import {
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
-  RefreshCw
+  RefreshCw,
+  Lock,
+  ArrowRight
 } from "lucide-react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import imgFallback from "../../assets/herobg.webp";
+import { useDownloadApp } from "@/context/DownloadAppContext";
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -37,6 +40,7 @@ const ENQUIRY_API = "https://apitest.fracspace.com/api/v1/webApi/enquiryFormRega
 function PropertyDetailsContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
+  const { openDownloadModal } = useDownloadApp();
 
   const [propertyDetails, setPropertyDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -451,14 +455,64 @@ function PropertyDetailsContent() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50/50 border border-gray-100/50 sm:col-span-2">
-                  <div className="p-3 bg-blue-50 rounded-xl text-blue-900">
-                    <Tag className="w-5 h-5" />
-                  </div>
+                {/* Expected Returns (similar to left image) */}
+                <div
+                  onClick={() => openDownloadModal(propertyDetails?.name)}
+                  className="p-4 sm:p-5 rounded-2xl bg-gray-50/50 border border-gray-100/50 hover:bg-blue-50/20 hover:border-blue-100 transition-all flex flex-col justify-between cursor-pointer group"
+                >
                   <div>
-                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">Fraction Price</p>
-                    <p className="text-lg font-extrabold text-[#021265] mt-0.5">₹ {propertyDetails.FC_Price || "Request Pricing"}</p>
+                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider font-dm">
+                      Expected Returns
+                    </p>
+                    <div className="flex items-center gap-1.5 mt-2">
+                      <Lock className="w-4 h-4 text-[#021265] shrink-0" />
+                      <span className="font-jakarta text-sm sm:text-base font-bold text-[#021265] group-hover:text-blue-700 transition-colors">
+                        See in app
+                      </span>
+                    </div>
                   </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openDownloadModal(propertyDetails?.name);
+                    }}
+                    className="mt-4 w-full py-2.5 sm:py-3 px-4 rounded-xl bg-white hover:bg-blue-50/80 border border-gray-200/80 text-[#021265] text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer group-hover:border-blue-200"
+                  >
+                    <span>Download App</span>
+                    <ArrowRight className="w-4 h-4 text-[#021265] group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+                </div>
+
+                {/* Frac Price (similar to right image) */}
+                <div
+                  onClick={() => openDownloadModal(propertyDetails?.name)}
+                  className="p-4 sm:p-5 rounded-2xl bg-gray-50/50 border border-gray-100/50 hover:border-blue-100/80 transition-all flex flex-col justify-between cursor-pointer group"
+                >
+                  <div>
+                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider font-dm">
+                      Frac Price
+                    </p>
+                    <div className="flex items-center justify-between gap-2 mt-1.5">
+                      <span className="font-jakarta text-sm sm:text-base font-bold text-[#021265] leading-snug">
+                        Shared on the Fracspace app
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-blue-100/60 flex items-center justify-center text-[#021265] shrink-0 group-hover:bg-[#021265] group-hover:text-white transition-colors">
+                        <Lock className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openDownloadModal(propertyDetails?.name);
+                    }}
+                    className="mt-4 w-full py-2.5 sm:py-3 px-4 rounded-xl bg-[#021265] hover:bg-[#000833] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-[#021265]/15 transition-all cursor-pointer group/btn"
+                  >
+                    <span>Want to know more?</span>
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
+                  </button>
                 </div>
 
               </div>
