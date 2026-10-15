@@ -19,8 +19,8 @@ import {
   X
 } from "lucide-react";
 
-const bandPosterImg = "/religiousIndiaPoster.jpg";
-const religiousIndiaPoster = "/religiousIndiaPoster.jpg";
+const bandPosterImg = "/concertBanner.webp";
+const religiousIndiaPoster = "/concertBanner.webp";
 
 export default function ReligiousIndiaConcert({ concertId = "religious-india-2026" }) {
   const [concertData, setConcertData] = useState(null);
