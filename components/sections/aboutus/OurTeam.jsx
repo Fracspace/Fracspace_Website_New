@@ -9,11 +9,11 @@ import { useDownloadApp } from "@/context/DownloadAppContext";
 import abhisheikImg from "../../../assets/TeamMates/sales/abhishek.webp";
 import divyaImg from "../../../assets/TeamMates/sales/divya.webp";
 import dnsImg from "../../../assets/TeamMates/sales/dns1.webp";
-import charithImg from "../../../assets/TeamMates/sales/charith.jpg";
+// import charithImg from "../../../assets/TeamMates/sales/charith.jpg";
 import gitanshImg from "../../../assets/TeamMates/sales/gitansh.jpg";
 import siriImg from '../../../assets/TeamMates/sales/siri.jpg';
 import likithaImg from "../../../assets/TeamMates/sales/likitha.jpg";
-import nithyaImg from "../../../assets/TeamMates/sales/nithya.jpg";
+// import nithyaImg from "../../../assets/TeamMates/sales/nithya.jpg";
 
 // Tech Team Images
 import krishnaImg from "../../../assets/TeamMates/tech/krishna.webp";
@@ -25,7 +25,7 @@ import saicharanImg from "../../../assets/TeamMates/tech/saicharan.jpg";
 
 // Marketing Team Images
 import hruthikImg from "../../../assets/TeamMates/marketing/hruthik.webp";
-import vivekanandaImg from "../../../assets/TeamMates/marketing/vivekananda.webp";
+// import vivekanandaImg from "../../../assets/TeamMates/marketing/vivekananda.webp";
 import mithunImg from "../../../assets/TeamMates/marketing/mithun.jpg";
 import nikithaImg from "../../../assets/TeamMates/marketing/nikitha.jpg";
 import gopichandImg from "../../../assets/TeamMates/marketing/gopichand.jpg";
@@ -57,21 +57,21 @@ function OurTeam() {
         { name: "Divya", role: "Second in Command", image: divyaImg },
         { name: "Prasanth", role: "Special Projects Commander", image: dnsImg },
         { name: "Abhisheik", role: "Pre-sales Executive", image: abhisheikImg },
-        { name: "Charith", role: "Pre-sales Executive", image: charithImg },
+        // { name: "Charith", role: "Pre-sales Executive", image: charithImg },
         { name: "Gitansh", role: "Pre-sales Executive", image: gitanshImg },
         { name: "Siri", role: "Pre-sales Executive", image: siriImg },
         { name: "Likitha", role: "Pre-sales Executive", image: likithaImg },
-        { name: "Nithya", role: "Pre-sales Executive", image: nithyaImg }
+        // { name: "Nithya", role: "Pre-sales Executive", image: nithyaImg }
       ]
     },
     {
       name: "Marketing",
       people: [
-        {
-          name: "Vivekananda",
-          role: "Digital Marketing Specialist",
-          image: vivekanandaImg
-        },
+        // {
+        //   name: "Vivekananda",
+        //   role: "Digital Marketing Specialist",
+        //   image: vivekanandaImg
+        // },
         { name: "Hruthik", role: "Video Editor", image: hruthikImg },
         { name: "Mithun", role: "Graphic Designer", image: mithunImg },
         { name: "Nikitha", role: "PR & Media Manager", image: nikithaImg },
@@ -226,8 +226,8 @@ function OurTeam() {
                   key={t}
                   onClick={() => setSelectedTeam(t)}
                   className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${active
-                      ? "bg-[#16418C] text-white border border-[#16418C] shadow-sm"
-                      : "bg-white text-[#4A5878] border border-[#DDE4EF] hover:border-[#16418C]"
+                    ? "bg-[#16418C] text-white border border-[#16418C] shadow-sm"
+                    : "bg-white text-[#4A5878] border border-[#DDE4EF] hover:border-[#16418C]"
                     }`}
                 >
                   {t}
