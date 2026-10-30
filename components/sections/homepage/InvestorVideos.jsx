@@ -13,9 +13,10 @@ function InvestorVideos() {
     { id: 1, src: "/videos/test4.mp4", position: "center" },
     // { id: 2, src: "/videos/test5.mp4", position: "center" },
 
+
     { id: 3, src: "/videos/test7.mp4", position: "center 30%" },
-    { id: 4, src: "/videos/test8.mp4", position: "center 30%" },
     { id: 5, src: "/videos/test9.mp4", position: "center 30%" },
+    { id: 4, src: "/videos/test8.mp4", position: "center 30%" },
     { id: 6, src: "/videos/test6.mp4", position: "center" },
     { id: 7, src: "/videos/AbdulBasith.mp4", position: "center" },
     { id: 8, src: "/videos/PrashantGudipudi.mp4", position: "center" },
