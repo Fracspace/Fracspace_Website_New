@@ -25,7 +25,7 @@ import saicharanImg from "../../../assets/TeamMates/tech/saicharan.jpg";
 
 // Marketing Team Images
 import hruthikImg from "../../../assets/TeamMates/marketing/hruthik.webp";
-// import vivekanandaImg from "../../../assets/TeamMates/marketing/vivekananda.webp";
+import vivekanandaImg from "../../../assets/TeamMates/marketing/vivekananda.webp";
 import mithunImg from "../../../assets/TeamMates/marketing/mithun.jpg";
 import nikithaImg from "../../../assets/TeamMates/marketing/nikitha.jpg";
 import gopichandImg from "../../../assets/TeamMates/marketing/gopichand.jpg";
@@ -67,11 +67,11 @@ function OurTeam() {
     {
       name: "Marketing",
       people: [
-        // {
-        //   name: "Vivekananda",
-        //   role: "Digital Marketing Specialist",
-        //   image: vivekanandaImg
-        // },
+        {
+          name: "Vivekananda",
+          role: "Digital Marketing Specialist",
+          image: vivekanandaImg
+        },
         { name: "Hruthik", role: "Video Editor", image: hruthikImg },
         { name: "Mithun", role: "Graphic Designer", image: mithunImg },
         { name: "Nikitha", role: "PR & Media Manager", image: nikithaImg },
