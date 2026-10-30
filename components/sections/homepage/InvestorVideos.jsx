@@ -11,7 +11,7 @@ function InvestorVideos() {
 
   const videoList = [
     { id: 1, src: "/videos/test4.mp4", position: "center" },
-    { id: 2, src: "/videos/test5.mp4", position: "center" },
+    // { id: 2, src: "/videos/test5.mp4", position: "center" },
 
     { id: 3, src: "/videos/test7.mp4", position: "center 30%" },
     { id: 4, src: "/videos/test8.mp4", position: "center 30%" },
