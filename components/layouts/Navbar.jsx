@@ -35,7 +35,7 @@ function Navbar({ onOpenConcertModal }) {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Properties", href: "/properties" },
-    // { label: "Blog", href: "/blogs" },
+    { label: "Blog", href: "/blogs" },
     { label: "Contact", href: "/contact" },
     { label: "About Us", href: "/about" }
   ];

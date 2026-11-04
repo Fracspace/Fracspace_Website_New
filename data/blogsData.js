@@ -3,592 +3,455 @@ import hilltopImg from "../assets/hilltopImg.webp";
 import coOwnImg from "../assets/coOwnImg.webp";
 import mainImg from "../assets/mainImg.webp";
 import howFsWorksBg from "../assets/howFsWorksBg.webp";
+import guideHeroImg from "../assets/blogs/fractional-ownership-guide.jpg";
+import alleppeyImg from "../assets/blogs/alleppey-backwater-cottages.jpg";
+import manipalImg from "../assets/blogs/manipal-river-club.jpg";
 
 export const blogsData = [
   {
     id: "1",
-    slug: "what-is-fractional-real-estate-investment",
+    slug: "what-is-fractional-ownership-in-real-estate",
+    aliases: [
+      "what-is-fractional-real-estate-investment",
+      "what-is-fractional-ownership-in-real-estate-complete-guide"
+    ],
     tag: "Guides",
-    date: "March 20, 2026",
-    readTime: "8 min read",
-    author: {
-      name: "Unnath Reddy",
-      role: "Founder & CEO, Fracspace",
-      avatar: "/assets/unnathSir.jpeg"
-    },
-    title: "What is fractional real estate investment? A complete guide for Indian investors",
+    date: "November 02, 2026",
+    readTime: "10 min read",
+    title: "What Is Fractional Ownership in Real Estate? Complete Guide",
     excerpt:
-      "How fractional ownership divides high-value holiday homes and commercial assets into manageable units, the legal mechanics behind it, and why it is replacing traditional second-home purchases.",
-    image: heroImg,
-    secondaryImage: howFsWorksBg,
+      "Imagine owning a beautiful holiday home in Kerala, a private villa in Goa, or a peaceful riverside property without spending crores on the entire place. Here is everything you need to know before exploring this investment option.",
+    image: guideHeroImg,
+    secondaryImage: alleppeyImg,
     keyTakeaways: [
-      "Fractional ownership allows multiple investors to co-own luxury real estate with transparent legal titles.",
-      "Lower entry barriers: Start investing in ₹5 Cr+ properties from as low as ₹10 Lakhs.",
-      "Dual return profile: Enjoy predictable monthly/quarterly rental income plus long-term capital appreciation.",
-      "Fully managed hospitality operations ensure 100% passive ownership with zero maintenance hassle."
+      "Accessible High-Value Assets: Co-own luxury holiday homes, villas, and boutique resorts starting from ₹10–15 Lakhs without paying full purchase prices.",
+      "Legally Documented Co-ownership: Clear title deed verification and transparent ownership structures managed through compliant legal entities.",
+      "Hands-off Professional Management: On-ground operations teams handle guest bookings, housekeeping, repairs, taxes, and ongoing maintenance 365 days a year.",
+      "Proportional Rental Yields: Net earnings from paying guests and vacationers are distributed proportionally to co-investors.",
+      "Complimentary Lifestyle Stays: Enjoy personal stay privileges at your destination property without the burdens of sole ownership.",
+      "Structured Liquidity & Exit: Liquidity options include platform secondary marketplaces, private transfers, and whole-asset terminal exits."
     ],
     tableOfContents: [
-      { id: "introduction", label: "1. What is Fractional Ownership?" },
-      { id: "how-it-works", label: "2. How Does It Work in Practice?" },
-      { id: "legal-structure", label: "3. The Legal and Regulatory Framework" },
-      { id: "returns-yields", label: "4. Expected Returns and Yield Breakdown" },
-      { id: "stay-entitlements", label: "5. Complimentary Stay Entitlements" },
-      { id: "how-to-start", label: "6. Getting Started with Fracspace" }
+      { id: "introduction", label: "1. The Second-Home Dream in India" },
+      { id: "what-is-fractional-ownership", label: "2. What Is Fractional Ownership in Real Estate?" },
+      { id: "how-it-works", label: "3. How Does Fractional Ownership Work in India?" },
+      { id: "investment-example", label: "4. A Simple Example of Fractional Property Investment" },
+      { id: "why-buyers-exploring", label: "5. Why Are Indian Property Buyers Exploring Fractional Ownership?" },
+      { id: "benefits", label: "6. What Are the Benefits of Fractional Ownership?" },
+      { id: "fractional-vs-buying", label: "7. Fractional Ownership Compared with Buying a Property" },
+      { id: "fractional-vs-reit", label: "8. Is Fractional Ownership Better Than a REIT?" },
+      { id: "is-it-safe", label: "9. Is Fractional Ownership a Safe Investment in India?" },
+      { id: "fracspace-co-ownership", label: "10. Discover Premium Real Estate Co-Ownership with Fracspace" },
+      { id: "alleppey-cottages", label: "11. Alleppey Backwater Cottages: Kerala's Backwater Experience" },
+      { id: "manipal-river-club", label: "12. Manipal River Club: Riverside Property Ownership" },
+      { id: "convenience", label: "13. How Fracspace Makes Property Co-Ownership More Convenient" },
+      { id: "pre-purchase-checklist", label: "14. What Should You Check Before Buying a Fractional Property Share?" },
+      { id: "why-choose-fracspace", label: "15. Why Consider Fracspace for Fractional Real Estate?" },
+      { id: "explore-opportunities", label: "16. Explore Fractional Property Ownership Opportunities" },
+      { id: "faqs", label: "17. Frequently Asked Questions (FAQs)" }
     ],
     content: [
       {
         type: "paragraph",
-        text: "Real estate has historically been India's favorite asset class, but skyrocketing prices have kept premium vacation homes, luxury villas, and high-yield hospitality assets out of reach for most individual investors. Fractional real estate investment changes this paradigm entirely by democratizing ownership."
+        text: "Imagine owning a beautiful holiday home in Kerala, a private villa in Goa, or a peaceful riverside property without spending crores on the entire place. Sounds interesting, doesn't it? For many Indians, buying a second home has always been a dream, but the cost of purchasing and maintaining one can make it difficult. Even after buying a property, there are repairs, taxes, cleaning, and other expenses to manage. This is where fractional ownership offers a different way to look at real estate. Instead of buying a whole property, you can invest in a share of it alongside other owners. If you've been wondering What Is Fractional Ownership, this guide explains everything you need to know before exploring this investment option."
       },
       {
         type: "heading",
-        id: "introduction",
-        text: "1. What is Fractional Ownership?"
+        id: "what-is-fractional-ownership",
+        text: "What Is Fractional Ownership in Real Estate?"
       },
       {
         type: "paragraph",
-        text: "Fractional ownership is an investment model where multiple vetted investors pool their capital to jointly own high-value tangible assets—typically premium holiday villas, resorts, or commercial real estate. Unlike timeshares, where you only purchase the right to use the property for a few days a year without asset backing, fractional ownership grants you genuine equity ownership and title registration in the asset."
+        text: "What Is Fractional Ownership, and why are property buyers interested in it? In simple words, it means sharing the ownership of a property with other investors. Instead of paying the full price yourself, you contribute a portion of the property's value and receive an ownership interest based on the agreed terms. Think of a holiday villa worth ₹1 crore. If four people invest ₹25 lakh each, they could hold equal shares in the property under an appropriate legal structure. Each owner may also be entitled to a share of rental earnings and future appreciation, depending on the agreement. The idea is to make high-value real estate more accessible without requiring one person to bear the entire purchase cost."
       },
       {
         type: "quote",
-        text: "Fractional real estate is not a timeshare—it is real, registered ownership of a physical asset, engineered for yield and long-term appreciation.",
+        text: "Fractional ownership makes high-value real estate accessible without requiring a single investor to bear the entire purchase cost or maintenance burden.",
         author: "Fracspace Investment Committee"
       },
       {
         type: "heading",
         id: "how-it-works",
-        text: "2. How Does It Work in Practice?"
+        text: "How Does Fractional Ownership Work in India?"
       },
       {
         type: "paragraph",
-        text: "Each property sourced by Fracspace is placed into an asset-specific Special Purpose Vehicle (SPV), such as a registered Private Limited Company or LLP. Investors purchase fractional shares in this SPV corresponding to their invested capital. When the property earns rental income through verified hospitality operators, net profits are distributed directly into your bank account proportionally."
+        text: "Understanding What Is Fractional Ownership becomes much easier when you look at how the process works. First, investors choose a property that matches their budget, whether it is a holiday villa, resort cottage, or another real estate asset. They then review the investment amount, legal structure, ownership documents, and management arrangements. Once the transaction is completed, each investor holds the rights described in the agreement. In professionally managed properties, a dedicated team may handle guest bookings, cleaning, repairs, and day-to-day operations. If the property generates rental income, the net earnings can be shared among the owners according to their interests. The exact ownership process and available benefits will vary between properties and investment platforms."
       },
       {
         type: "statsGrid",
         stats: [
-          { value: "₹10L+", label: "Accessible Minimum Ticket Size" },
+          { value: "₹10L+", label: "Accessible Minimum Ticket" },
           { value: "8–12%", label: "Target Annual Rental Yield" },
-          { value: "100%", label: "Legally Registered Co-ownership" },
-          { value: "15–30 Days", label: "Annual Free Owner Stays" }
+          { value: "100%", label: "Legally Documented Co-ownership" },
+          { value: "365 Days", label: "Managed Hospitality & Care" }
         ]
       },
       {
         type: "heading",
-        id: "legal-structure",
-        text: "3. The Legal and Regulatory Framework"
+        id: "investment-example",
+        text: "A Simple Example of Fractional Property Investment"
       },
       {
         type: "paragraph",
-        text: "The legal foundation of fractional ownership in India is built upon solid corporate and property laws. Every asset undergoes extensive due diligence including 30-year title searches, local municipal compliance checks, and encumbrance verification by top-tier legal counsels before being listed on the platform."
+        text: "Let's say you find a resort property worth ₹2 crore, but you don't want to invest that amount on your own. Under a hypothetical fractional ownership arrangement, eight investors could contribute ₹25 lakh each, giving every investor an equal 12.5% interest before additional transaction costs. Now suppose the property earns ₹16 lakh in gross rental revenue during a year. After paying ₹6 lakh towards operating expenses, management, and other costs, ₹10 lakh remains as net income. An investor holding 12.5% would receive ₹1.25 lakh before personal taxes, assuming the agreement provides for proportional distribution. That is an illustrative 5% annual cash yield on the initial ₹25 lakh contribution. Actual income could be lower, higher, or zero, and this example is not a forecast for any Fracspace property."
       },
       {
-        type: "paragraph",
-        text: "All share allocations and co-ownership deeds are registered through the Ministry of Corporate Affairs (MCA) and Registrar of Companies (RoC), ensuring undisputed legal proof of ownership that can be held, gifted, or inherited."
+        type: "callout",
+        title: "Illustrative Cash Yield Breakdown (₹2 Cr Asset)",
+        text: "Here is how revenue, operational expenses, and net distributions flow proportionally in a hypothetical co-ownership model:",
+        details: [
+          { label: "Total Property Value", value: "₹2,00,00,000 (₹2 Cr)" },
+          { label: "Investor Share (1 of 8)", value: "₹25 Lakhs (12.5% Equity)" },
+          { label: "Gross Annual Revenue", value: "₹16,00,000" },
+          { label: "Operating & Maintenance", value: "₹6,00,000" },
+          { label: "Net Distributable Income", value: "₹10,00,000" },
+          { label: "Pro-Rata Annual Yield", value: "₹1,25,000 (5.0% Cash Yield)" }
+        ]
       },
       {
         type: "heading",
-        id: "returns-yields",
-        text: "4. Expected Returns and Yield Breakdown"
+        id: "why-buyers-exploring",
+        text: "Why Are Indian Property Buyers Exploring Fractional Ownership?"
       },
       {
         type: "paragraph",
-        text: "Investors in Fracspace assets benefit from two distinct revenue drivers:"
+        text: "For years, buying real estate in India has meant saving for a down payment, arranging a loan, and preparing for a long financial commitment. While this approach still works for many families, not everyone wants to spend most of their savings on a single property. Someone living in Bengaluru, for example, might love the idea of owning a holiday home in Kerala but may not want the responsibility of maintaining it throughout the year. This is one reason shared property ownership can be appealing. It allows people to explore real estate in locations they enjoy without necessarily purchasing the entire asset. For investors looking beyond conventional apartments and plots, fractional ownership offers another option to compare with their existing financial plans."
+      },
+      {
+        type: "heading",
+        id: "benefits",
+        text: "What Are the Benefits of Fractional Ownership?"
+      },
+      {
+        type: "paragraph",
+        text: "One of the main reasons people research What Is Fractional Ownership is to find out whether it offers practical benefits. The most obvious advantage is the lower initial investment compared with purchasing a complete property. It can also help investors spread their money across different assets instead of committing everything to one location. Professionally managed properties may reduce the time owners need to spend arranging bookings, maintenance, and repairs. Another possible benefit is earning a share of rental income when the property attracts paying guests. Some holiday-home ownership agreements also include personal stay privileges, allowing owners to enjoy the property themselves. However, every project has different terms, and no investment should be chosen based only on possible returns or lifestyle benefits."
       },
       {
         type: "list",
         items: [
-          "**Quarterly Rental Yields**: Driven by active hospitality management, leisure tourism demand, and high Average Daily Rates (ADR) across key tourist corridors like Goa, Munnar, Kabini, and Varanasi.",
-          "**Capital Appreciation**: High-growth leisure destinations have shown 8–15% compound annual capital appreciation over the past 5 years.",
-          "**Inflation Hedge**: Real estate inherently preserves purchasing power as room tariffs and real estate values adjust upward with inflation."
+          "**Lower Initial Investment**: Participate in high-value vacation real estate starting from approximately ₹10–15 Lakhs without bearing 100% of the cost.",
+          "**Portfolio Diversification**: Spread investments across multiple tourist corridors like Kerala, Goa, and Karnataka rather than sinking savings into one location.",
+          "**Professional Maintenance**: Free yourself from the day-to-day hassles of plumbing, housekeeping, security, local taxes, and property upkeep.",
+          "**Shared Rental Earnings**: Receive proportional income generated from verified guest bookings and leisure tourism demand.",
+          "**Personal Vacation Privileges**: Enjoy complimentary stays at your co-owned property to vacation with friends and family."
         ]
       },
       {
         type: "heading",
-        id: "stay-entitlements",
-        text: "5. Complimentary Stay Entitlements"
+        id: "fractional-vs-buying",
+        text: "What Is Fractional Ownership Compared with Buying a Property?"
       },
       {
         type: "paragraph",
-        text: "Beyond financial returns, fractional owners enjoy lifestyle benefits. Each fraction comes with an annual quota of complimentary stay days (typically 15 to 30 nights) at your property or across the Fracspace network of holiday resorts."
+        text: "When comparing What Is Fractional Ownership with traditional real estate investment, the biggest difference is how ownership costs and responsibilities are divided. If you buy an entire apartment or villa, you generally have greater control over how it is used, rented, or sold. You are also responsible for the full purchase price and ongoing expenses. With fractional ownership, several investors share the financial commitment, but individual decisions may be limited by the ownership agreement. You might not be able to use the property whenever you want, and selling your share could take longer than expected. Traditional ownership may suit someone who wants complete control, while shared ownership may appeal to someone who prefers a smaller investment in a managed property."
       },
       {
         type: "heading",
-        id: "how-to-start",
-        text: "6. Getting Started with Fracspace"
+        id: "fractional-vs-reit",
+        text: "Is Fractional Ownership Better Than a REIT?"
       },
       {
         type: "paragraph",
-        text: "Beginning your fractional investment journey takes less than 10 minutes through the Fracspace mobile app or website. Simply explore available properties, review audited financials and title documents, complete your digital KYC, and reserve your fraction online."
-      }
-    ]
-  },
-  {
-    id: "2",
-    slug: "benefits-of-co-ownership-in-property",
-    tag: "Co-ownership",
-    date: "March 18, 2026",
-    readTime: "6 min read",
-    author: {
-      name: "Fracspace Research Team",
-      role: "Market & Asset Intelligence",
-      avatar: "/assets/logo2.png"
-    },
-    title: "Benefits of co-ownership in property: Why luxury vacation homes are now accessible",
-    excerpt:
-      "Why pooling capital with co-owners is opening doors to high-yield holiday resorts previously accessible only to high-net-worth buyers.",
-    image: coOwnImg,
-    secondaryImage: mainImg,
-    keyTakeaways: [
-      "Avoid 100% of the cost and 100% of the maintenance headaches of owning an entire holiday villa.",
-      "Diversification: Invest across 4 different destination properties instead of sinking all your capital into one.",
-      "Professional property management keeps your holiday home in pristine 5-star condition 365 days a year.",
-      "Flexible resale and exit options with no lock-in hassles."
-    ],
-    tableOfContents: [
-      { id: "the-problem", label: "1. The Dilemma with Traditional Vacation Homes" },
-      { id: "key-benefits", label: "2. Key Benefits of Co-Ownership" },
-      { id: "diversification", label: "3. Strategic Portfolio Diversification" },
-      { id: "management", label: "4. Zero-Hassle Professional Management" },
-      { id: "conclusion", label: "5. Is Co-Ownership Right for You?" }
-    ],
-    content: [
+        text: "Both fractional property ownership and Real Estate Investment Trusts, or REITs, can provide exposure to real estate, but they are not the same thing. With fractional ownership, investors may acquire an interest linked to a specific property or a property-holding entity. A REIT, on the other hand, is a regulated investment vehicle that pools investors' money to hold real estate assets. Listed REIT units can generally be traded through stock exchanges, while selling an interest in a privately held fractional property may involve a separate resale process. India also has a regulatory framework for Small and Medium REITs. Investors should compare the legal structure, liquidity, fees, income potential, and risks before deciding which type of real estate investment suits them."
+      },
       {
-        type: "paragraph",
-        text: "Owning a picturesque second home in the serene hills of Munnar or near the sunny beaches of Revora, Goa is a dream for many. However, traditional second-home ownership often turns into a logistical and financial nightmare characterized by low utilization, constant repair expenses, and security worries."
+        type: "table",
+        headers: ["Comparison Factor", "Traditional Ownership", "Fractional Co-ownership", "REITs (Stock Exchange)"],
+        rows: [
+          ["Minimum Investment", "₹1 Cr – ₹5 Cr+", "₹10 Lakh – ₹25 Lakh", "₹300 – ₹50,000"],
+          ["Asset Specificity", "Single self-selected property", "Specific luxury vacation or commercial asset", "Pooled fund across commercial office parks"],
+          ["Physical Asset Rights", "Direct sole deed", "Legally documented SPV co-ownership equity", "Trust units (no direct property ownership)"],
+          ["Maintenance Burden", "100% self-managed by owner", "100% managed by professional team", "Managed entirely by trust manager"],
+          ["Personal Stay Rights", "Unlimited personal use", "Complimentary stay quota (15–30 days/yr)", "None (strictly financial investment)"],
+          ["Target Yield Profile", "2–3% (typical residential rental)", "8–12% (hospitality leisure rental)", "6–8% (corporate dividend distributions)"],
+          ["Liquidity & Exit", "Takes 6–18 months to sell full asset", "Platform secondary market or private transfer", "Traded on stock exchange daily"]
+        ]
       },
       {
         type: "heading",
-        id: "the-problem",
-        text: "1. The Dilemma with Traditional Vacation Homes"
+        id: "is-it-safe",
+        text: "Is Fractional Ownership a Safe Investment in India?"
       },
       {
         type: "paragraph",
-        text: "Research shows the average second-home owner utilizes their property for only 20 to 30 days per year. Yet, they pay 100% of the purchase price, property taxes, maintenance staff salaries, pool upkeep, and utility bills. This leads to substantial negative cash flow on an underutilized asset."
+        text: "Investing in property is a big decision, and it is natural to have questions about safety, ownership rights, and long-term returns. When exploring What Is Fractional Ownership, it is important to look beyond the property itself and understand how your investment will be managed. Like any real estate investment, fractional ownership comes with risks, such as changing property prices, lower rental demand, and unexpected maintenance costs. This is where platforms like Fracspace aim to make the process easier for investors. Based in Hyderabad, Fracspace offers co-ownership opportunities in carefully selected holiday homes, luxury villas, and resorts, with options starting from approximately ₹10 lakh. The company focuses on property verification, legally documented ownership arrangements, and professional management to help investors avoid the everyday responsibilities of maintaining a property. Through the Fracspace mobile app, investors can explore properties, access investment information, and keep track of reported rental earnings and property performance. While no real estate investment can promise guaranteed returns, having clear ownership documents, reliable management, and a well-defined exit process can help investors make more confident and informed decisions."
       },
       {
         type: "heading",
-        id: "key-benefits",
-        text: "2. Key Benefits of Co-Ownership"
+        id: "fracspace-co-ownership",
+        text: "Discover Premium Real Estate Co-Ownership with Fracspace"
+      },
+      {
+        type: "paragraph",
+        text: "Once you understand What Is Fractional Ownership, the next question is where to find opportunities that match your interests. This is where Fracspace enters the picture. Fracspace is an Indian fractional real estate platform focused on making premium holiday homes and other selected properties accessible through co-ownership. Instead of requiring buyers to purchase an entire property, the company offers smaller investment interests supported by documented ownership arrangements. Its approach brings together property selection, professional management, and technology-based investment tracking. For someone interested in owning a share of a holiday destination property, this provides an opportunity to explore options without personally handling every aspect of property operations. Investors can browse available projects and discuss the terms with the Fracspace team before making a decision."
+      },
+      {
+        type: "heading",
+        id: "alleppey-cottages",
+        text: "Alleppey Backwater Cottages: A Share in Kerala's Backwater Experience"
+      },
+      {
+        type: "paragraph",
+        text: "There is something special about Kerala's backwaters. The calm water, coconut trees, traditional homes, and quiet mornings make places like Alleppey popular with travellers looking for a peaceful break. Imagine being connected to a property in a destination like this rather than visiting only as a guest. Alleppey Backwater Cottages by Fracspace brings that possibility into focus through a planned hospitality property featuring four private yurt cottages and a traditional two-bedroom Kerala home. The concept combines the beauty of the backwaters with a shared property ownership opportunity. Fracspace has advertised participation starting from ₹10 lakh for this project, subject to current terms and availability. Interested buyers can explore its development status, management plans, ownership rights, and possible rental arrangements before investing."
+      },
+      {
+        type: "image",
+        src: alleppeyImg,
+        alt: "Alleppey Backwater Cottages Kerala by Fracspace",
+        caption: "Alleppey Backwater Cottages by Fracspace: Luxury yurt cottages and traditional Kerala home situated directly on the peaceful emerald backwaters.",
+        tag: "Kerala Asset",
+        propertyLink: "/properties?property=alleppey#property-alleppey"
+      },
+      {
+        type: "propertyCard",
+        name: "Alleppey Backwater Cottages",
+        location: "Alleppey, Kerala",
+        description: "Planned boutique hospitality retreat featuring 4 private yurt cottages plus a traditional 2BHK Kerala home on 70 cents of waterfront land.",
+        ticketSize: "₹10,00,000 (₹10 Lakhs)",
+        type: "4 Yurts + 2BHK Traditional Home",
+        yield: "8.4% Target Yield",
+        image: alleppeyImg,
+        propertyLink: "/properties?property=alleppey#property-alleppey"
+      },
+      {
+        type: "heading",
+        id: "manipal-river-club",
+        text: "Manipal River Club: Explore Riverside Property Ownership"
+      },
+      {
+        type: "paragraph",
+        text: "Not every holiday property needs to be located on a beach or in a hill station. Sometimes, the appeal is simply being close to nature, away from crowded streets and busy schedules. Manipal River Club by Fracspace is a riverside hospitality and recreational property concept in Karnataka's Udupi region. It brings together a scenic setting and the opportunity to participate in a shared real estate asset. For people who enjoy weekend escapes and destination experiences, the project offers a different type of property to explore. Fracspace has advertised investment participation starting from ₹15 lakh, with pricing subject to change. As with any fractional property opportunity, buyers should examine the project's legal documents, proposed operations, expenses, and resale terms rather than relying on location or projected income alone."
+      },
+      {
+        type: "image",
+        src: manipalImg,
+        alt: "Manipal River Club Udupi Karnataka by Fracspace",
+        caption: "Manipal River Club by Fracspace: Riverside hospitality and recreational club in Udupi, Karnataka, offering waterfront leisure and event amenities.",
+        tag: "Karnataka Asset",
+        propertyLink: "/properties?property=manipal#property-manipal"
+      },
+      {
+        type: "propertyCard",
+        name: "Manipal River Club (MRC)",
+        location: "Manipal, Udupi, Karnataka",
+        description: "A 2.88-acre riverfront recreational club and hospitality asset designed for leisure travelers, events, and weekend retreats.",
+        ticketSize: "₹15,00,000 (₹15 Lakhs)",
+        type: "Club / Recreational Asset",
+        yield: "9.2% Target Yield",
+        image: manipalImg,
+        propertyLink: "/properties?property=manipal#property-manipal"
+      },
+      {
+        type: "heading",
+        id: "convenience",
+        text: "How Fracspace Makes Property Co-Ownership More Convenient"
+      },
+      {
+        type: "paragraph",
+        text: "Buying real estate can involve a surprising amount of paperwork, especially when several people share ownership of the same asset. There are agreements to understand, documents to review, and ongoing responsibilities after the purchase. Fracspace aims to make this journey easier by bringing property discovery, investment consultation, documentation support, and management services into one process. Interested investors can explore properties through the company's website and mobile application before speaking with its team. Once a suitable opportunity is selected, the ownership process involves completing the required documentation. For managed assets, Fracspace also handles activities such as bookings, maintenance, and property operations. Its app-based investor dashboard provides access to reported investment and property performance information, helping owners stay informed without managing the property themselves."
+      },
+      {
+        type: "heading",
+        id: "pre-purchase-checklist",
+        text: "What Should You Check Before Buying a Fractional Property Share?"
+      },
+      {
+        type: "paragraph",
+        text: "A beautiful resort or a promising rental estimate can easily catch your attention, but the details behind an investment matter just as much. Before purchasing a fractional share, find out whether you are acquiring direct co-ownership rights or an interest through a separate legal entity. Ask how the property is valued, what expenses are deducted from rental income, and who is responsible for major repairs. You should also understand how personal stay privileges work, if they are included. Another important question is how you can exit the investment if your plans change. Some arrangements may include lock-in periods, resale restrictions, or transfer fees. Reading these terms carefully is one of the simplest ways to make a more informed property investment decision."
       },
       {
         type: "list",
         items: [
-          "**Pay Only for What You Use**: Match your financial commitment with your actual usage pattern.",
-          "**Fractional Capital Requirement**: Acquire a luxury villa share for ₹10–18 Lakhs instead of ₹3–5 Crores.",
-          "**Positive Cash Flow**: Unused nights are monetized through managed hospitality operations to generate recurring income.",
-          "**Institutional Due Diligence**: Every asset is thoroughly vetted for legal title, construction quality, and tourism demand."
+          "**Legal Ownership Structure**: Clarify direct co-ownership vs. SPV private limited company share allocation registered with the RoC/MCA.",
+          "**Fee & Expense Deductions**: Review what operational costs, marketing fees, insurance, and taxes are subtracted from gross revenues before investor payouts.",
+          "**Personal Stay Terms**: Confirm complimentary stay night limits, booking calendars, peak holiday blackouts, and guest pass rules.",
+          "**Exit Window & Resale Rules**: Check minimum holding periods, secondary platform resale guidelines, and transfer processing timelines."
         ]
       },
       {
-        type: "quote",
-        text: "Why bear 100% of the cost for a holiday home you only use 30 days a year? Co-ownership aligns your investment with real-world utility.",
-        author: "Fracspace Insights"
-      },
-      {
         type: "heading",
-        id: "diversification",
-        text: "3. Strategic Portfolio Diversification"
+        id: "why-choose-fracspace",
+        text: "Why Consider Fracspace for Fractional Real Estate Investment?"
       },
       {
         type: "paragraph",
-        text: "Instead of allocating ₹1 Crore into a single plot or flat in one city, fractional co-ownership enables you to spread that same ₹1 Crore across 5 different luxury properties in Goa, Munnar, Varanasi, Kabini, and Manipal. This geographic diversification hedges against regional demand fluctuations."
+        text: "For people exploring What Is Fractional Ownership, choosing the right property platform is an important part of the experience. Fracspace focuses on premium real estate opportunities that bring together investment access and destination-based hospitality. Its portfolio is designed for buyers who are interested in selected holiday homes, resorts, and other managed properties without committing to full ownership. The company also places emphasis on documented ownership arrangements, management support, and digital access to property information. These services may be particularly useful for people who live far from the property they invest in. However, a professionally managed investment still requires careful review of its costs, legal terms, and financial risks. Fracspace provides a starting point for exploring opportunities, while the final investment decision remains with the buyer."
       },
       {
         type: "heading",
-        id: "management",
-        text: "4. Zero-Hassle Professional Management"
+        id: "explore-opportunities",
+        text: "Explore Fractional Property Ownership Opportunities with Fracspace"
       },
       {
         type: "paragraph",
-        text: "Fracspace partners with seasoned hospitality operators who manage housekeeping, guest check-ins, dynamic room pricing, maintenance, and landscaping. As an investor, your experience is entirely passive—you simply track earnings and reserve your stays from the app."
-      },
-      {
-        type: "heading",
-        id: "conclusion",
-        text: "5. Is Co-Ownership Right for You?"
-      },
-      {
-        type: "paragraph",
-        text: "Whether you are a seasoned investor seeking reliable high-yield assets or a travel enthusiast desiring luxury holiday stays without the burdensome upkeep, fractional co-ownership provides the ideal blend of financial growth and lifestyle rewards."
+        text: "Owning real estate is a personal decision, and there is no single investment model that works for everyone. Some buyers prefer the complete control of owning a home, while others are interested in smaller investments across different properties. If your search for What Is Fractional Ownership has introduced you to a new way of thinking about real estate, the next step is to compare actual opportunities. Fracspace brings together selected properties, structured co-ownership arrangements, and professional management services for investors interested in premium real estate. Whether you are drawn to Kerala's backwaters or a peaceful riverside setting in Karnataka, take time to understand the ownership terms before committing. Visit fracspace.com to explore available properties, learn how shared ownership works, and connect with the team for more information."
       }
-    ]
-  },
-  {
-    id: "3",
-    slug: "how-to-calculate-rental-yield-on-holiday-homes",
-    tag: "Market trends",
-    date: "March 10, 2026",
-    readTime: "5 min read",
-    author: {
-      name: "Investment Advisory Desk",
-      role: "Fracspace Financial Analytics",
-      avatar: "/assets/logo2.png"
-    },
-    title: "How to calculate rental yield on holiday homes: Formulas, benchmarks & case studies",
-    excerpt:
-      "Gross vs. net yields, factoring in seasonality, management fees, and real-world occupancy benchmarks across popular leisure destinations.",
-    image: hilltopImg,
-    secondaryImage: heroImg,
-    keyTakeaways: [
-      "Gross Rental Yield = (Annual Gross Rental Revenue / Total Property Purchase Price) * 100.",
-      "Net Rental Yield accounts for operational costs, hospitality fees, property tax, and maintenance reserve.",
-      "Leisure hospitality assets in India routinely yield 8–12% net compared to 2–3% in urban residential apartments.",
-      "Seasonality modelling is essential when evaluating vacation home projections."
     ],
-    tableOfContents: [
-      { id: "yield-basics", label: "1. Gross vs Net Rental Yield" },
-      { id: "the-formula", label: "2. The Yield Calculation Formula" },
-      { id: "case-study", label: "3. Real-World Case Study (Goa Villa)" },
-      { id: "seasonality", label: "4. Factoring Seasonality & Occupancy" },
-      { id: "summary", label: "5. Key Takeaways for Investors" }
-    ],
-    content: [
+    faqs: [
       {
-        type: "paragraph",
-        text: "Rental yield is the most crucial financial metric for evaluating real estate investments. While urban residential rental yields in major Indian metros hover around 2% to 3.5%, managed holiday homes and boutique resorts in high-demand tourist corridors can generate net yields between 8% and 12% annually."
+        question: "1. Is Fractional Ownership of Property Legal in India?",
+        answer: "Yes, fractional ownership is legal in India when the investment follows the applicable property laws and has proper legal documentation. It allows people to own a share of a property without having to buy the entire asset. Platforms like Fracspace make this option more accessible by offering co-ownership opportunities in selected holiday homes, villas, and resorts. Fracspace focuses on verifying property details, providing documented ownership arrangements, and managing properties so investors do not have to handle everyday maintenance themselves. However, the legal structure and level of regulatory protection can vary from one investment to another. Before investing, it is always a good idea to understand your ownership rights, review the documents, and check the terms for selling your share in the future."
       },
       {
-        type: "heading",
-        id: "yield-basics",
-        text: "1. Gross vs Net Rental Yield"
+        question: "2. How much money do I need to invest in fractional ownership?",
+        answer: "The minimum amount depends on the property, location, and platform. Some shared property investments require a smaller commitment than buying an entire villa or apartment, but the amount can still be substantial. Fracspace advertises selected holiday property opportunities starting from ₹10 lakh. Investors should confirm current prices and additional costs, including taxes, transaction charges, and management fees, before purchasing."
       },
       {
-        type: "paragraph",
-        text: "Gross yield represents total revenue generated before any operational deductions. Net yield is the true metric that matters to an investor, as it accounts for hospitality management commissions, utilities, platform fees, property maintenance reserves, and local taxes."
+        question: "3. Can I earn monthly rental income through fractional ownership?",
+        answer: "Fractional ownership may provide a share of rental income when the property is rented to guests or tenants. The amount depends on occupancy, rental rates, operating expenses, and the ownership agreement. Some properties distribute earnings at regular intervals, while others may use different payment schedules. Rental income is not guaranteed, so it is important to review actual financial information rather than relying only on projections."
       },
       {
-        type: "statsGrid",
-        stats: [
-          { value: "2–3.5%", label: "Metro Residential Yield" },
-          { value: "8–12%", label: "Fracspace Curated Net Yield" },
-          { value: "65–78%", label: "Avg Annual Destination Occupancy" },
-          { value: "₹12K–₹25K", label: "Average Daily Rate (ADR)" }
-        ]
+        question: "4. What is the difference between fractional ownership and timeshare?",
+        answer: "Fractional ownership generally involves acquiring a legally documented interest in a property or property-holding structure. Timeshare arrangements usually focus on the right to use a property during certain periods and may not include ownership of the real estate itself. Fractional ownership can offer income or appreciation rights, depending on the agreement. Before choosing either model, compare usage rights, maintenance costs, resale conditions, and legal documentation."
       },
       {
-        type: "heading",
-        id: "the-formula",
-        text: "2. The Yield Calculation Formula"
-      },
-      {
-        type: "quote",
-        text: "Net Yield (%) = [(Total Annual Room Revenue - Operational & Management Costs) / Total Property Value] * 100",
-        author: "Financial Modeling Guidelines"
-      },
-      {
-        type: "heading",
-        id: "case-study",
-        text: "3. Real-World Case Study (Goa 4BHK Villa)"
-      },
-      {
-        type: "list",
-        items: [
-          "**Asset Value**: ₹2.5 Crores (divided into 25 fractions at ₹10 Lakhs each)",
-          "**Average Daily Rate (ADR)**: ₹18,000 / night",
-          "**Annual Occupancy**: 65% (237 nights booked per year)",
-          "**Gross Annual Revenue**: 237 * ₹18,000 = ₹42.66 Lakhs",
-          "**Operating & Hospitality Expenses (35%)**: ₹14.93 Lakhs",
-          "**Net Annual Cash Flow**: ₹27.73 Lakhs",
-          "**Net Yield to Investors**: 11.09% annual dividend yield"
-        ]
-      },
-      {
-        type: "heading",
-        id: "seasonality",
-        text: "4. Factoring Seasonality & Occupancy"
-      },
-      {
-        type: "paragraph",
-        text: "Tourist destinations in India experience distinct peak, shoulder, and monsoon cycles. Accurate yield modeling must incorporate dynamic pricing models where peak season tariffs compensate for monsoon slowdowns, maintaining consistent annualized payouts for investors."
-      },
-      {
-        type: "heading",
-        id: "summary",
-        text: "5. Key Takeaways for Investors"
-      },
-      {
-        type: "paragraph",
-        text: "Always scrutinize the operator's past occupancy history and conservative stress tests before committing capital. At Fracspace, every listed property is backtested against 3-year historical regional tourism data."
-      }
-    ]
-  },
-  {
-    id: "4",
-    slug: "legal-structures-behind-fractional-ownership-in-india",
-    tag: "Tax & Legal",
-    date: "February 27, 2026",
-    readTime: "7 min read",
-    author: {
-      name: "Fracspace Legal Counsel",
-      role: "Corporate & Real Estate Law Desk",
-      avatar: "/assets/logo2.png"
-    },
-    title: "Legal structures behind fractional ownership in India: Title deeds, SPVs & rights",
-    excerpt:
-      "Understanding SPVs, LLP frameworks, and how title deeds and ownership shares are legally registered and safeguarded for every investor.",
-    image: heroImg,
-    secondaryImage: howFsWorksBg,
-    keyTakeaways: [
-      "Properties are held in a ring-fenced Special Purpose Vehicle (SPV) with zero third-party encumbrances.",
-      "Investors hold registered equity shares / LLP partner shares corresponding directly to physical property equity.",
-      "Clear exit mechanisms are governed by the Articles of Association (AoA) and Shareholder Agreements.",
-      "Independent escrow accounts manage all investor deposits and dividend distributions."
-    ],
-    tableOfContents: [
-      { id: "the-spv-model", label: "1. The SPV (Special Purpose Vehicle) Structure" },
-      { id: "title-due-diligence", label: "2. Title Due Diligence & Encumbrance Checks" },
-      { id: "shareholder-rights", label: "3. Shareholder Agreements & Investor Protections" },
-      { id: "tax-implications", label: "4. Tax Implications on Yield and Capital Gains" },
-      { id: "regulatory-trends", label: "5. Evolving SEBI / SM REIT Frameworks" }
-    ],
-    content: [
-      {
-        type: "paragraph",
-        text: "When considering any fractional investment, legal security and title transparency are paramount. In India, fractional ownership operates through well-established corporate and property law mechanisms that ensure each investor's rights are legally enforceable and protected."
-      },
-      {
-        type: "heading",
-        id: "the-spv-model",
-        text: "1. The SPV (Special Purpose Vehicle) Structure"
-      },
-      {
-        type: "paragraph",
-        text: "To eliminate individual liability and facilitate seamless co-ownership, each property is acquired and owned 100% by an asset-specific Private Limited Company or LLP (the SPV). As an investor, you become a registered shareholder in this SPV with equity proportionate to your investment."
-      },
-      {
-        type: "quote",
-        text: "By ring-fencing each property inside a dedicated SPV, your investment is completely insulated from any liabilities of other properties or platform operations.",
-        author: "Fracspace Legal Compliance"
-      },
-      {
-        type: "heading",
-        id: "title-due-diligence",
-        text: "2. Title Due Diligence & Encumbrance Checks"
-      },
-      {
-        type: "paragraph",
-        text: "Before any property is onboarded to Fracspace, independent legal counsel conducts rigorous searches spanning minimum 30-year revenue records, land registry checks, local zoning sanctions, and environmental clearances to ensure an absolute clear, marketable title."
-      },
-      {
-        type: "heading",
-        id: "shareholder-rights",
-        text: "3. Shareholder Agreements & Investor Protections"
-      },
-      {
-        type: "list",
-        items: [
-          "**Right to Information**: Complete access to monthly P&L statements, audited balance sheets, and occupancy reports.",
-          "**Voting Rights on Capital Decisions**: Any major capital decisions (e.g. sale of the entire asset) require a supermajority shareholder approval.",
-          "**Transferability**: Free right to sell, transfer, or bequeath your shares according to the defined Articles of Association (AoA).",
-          "**Escrow Account Safety**: Investor funds are held in regulated bank escrow accounts until property conveyance is fully executed."
-        ]
-      },
-      {
-        type: "heading",
-        id: "tax-implications",
-        text: "4. Tax Implications on Yield and Capital Gains"
-      },
-      {
-        type: "paragraph",
-        text: "Returns are distributed as dividends or corporate profits, which are taxed according to standard income tax slabs. When selling your fraction, gains held for over 24 months qualify for Long-Term Capital Gains (LTCG) tax rates with indexation benefits."
-      },
-      {
-        type: "heading",
-        id: "regulatory-trends",
-        text: "5. Evolving SEBI / SM REIT Frameworks"
-      },
-      {
-        type: "paragraph",
-        text: "With SEBI introducing Small and Medium REIT (SM REIT) regulations in India, the fractional ownership sector is gaining formal regulatory backing, enhancing investor trust, transparency, and liquidity across the ecosystem."
-      }
-    ]
-  },
-  {
-    id: "5",
-    slug: "destination-spotlight-why-goa-and-munnar-lead-leisure-yields",
-    tag: "Destinations",
-    date: "February 15, 2026",
-    readTime: "5 min read",
-    author: {
-      name: "Fracspace Research Team",
-      role: "Hospitality & Leisure Analytics",
-      avatar: "/assets/logo2.png"
-    },
-    title: "Destination spotlight: Why Goa and Munnar lead leisure yields in India",
-    excerpt:
-      "A deep dive into tourism demand, room rates, and long-term appreciation across India's premier holiday-home and hospitality corridors.",
-    image: hilltopImg,
-    secondaryImage: mainImg,
-    keyTakeaways: [
-      "Goa continues to lead in luxury villa demand with year-round domestic and international tourist footfalls.",
-      "Munnar's eco-resorts and tea plantation retreats boast 70%+ occupancy backed by Southern domestic travel.",
-      "Infrastructure expansion (Mopa Airport, National Highway expansions) is fueling 12–15% annual capital growth.",
-      "Boutique villas command significant rate premiums over standard hotel rooms."
-    ],
-    tableOfContents: [
-      { id: "goa-market", label: "1. The Goa Leisure Real Estate Boom" },
-      { id: "munnar-growth", label: "2. Munnar's Year-Round Eco-Tourism" },
-      { id: "adr-comparison", label: "3. ADR and Yield Comparison" },
-      { id: "infrastructure", label: "4. Infrastructure Tailwinds" },
-      { id: "fracspace-portfolio", label: "5. Fracspace Assets in These Corridors" }
-    ],
-    content: [
-      {
-        type: "paragraph",
-        text: "Not all real estate locations are created equal. When evaluating fractional vacation homes, destination selection accounts for more than 70% of long-term investment performance. In India, Goa and Munnar stand out as premier corridors delivering the ideal combination of high occupancy and consistent capital growth."
-      },
-      {
-        type: "heading",
-        id: "goa-market",
-        text: "1. The Goa Leisure Real Estate Boom"
-      },
-      {
-        type: "paragraph",
-        text: "Goa has transformed from a seasonal winter getaway into a vibrant 365-day lifestyle and workation hub. The rise of private luxury pool villas in scenic locations like Revora, Assagao, and Siolim has captured affluent domestic travelers who prefer exclusive private stays over crowded hotels."
-      },
-      {
-        type: "heading",
-        id: "munnar-growth",
-        text: "2. Munnar's Year-Round Eco-Tourism"
-      },
-      {
-        type: "paragraph",
-        text: "Nestled in the Western Ghats of Kerala, Munnar benefits from continuous tourist inflow across Tamil Nadu, Karnataka, and Kerala seeking cool weather, tea plantations, and wellness escapes. Hilltop resorts and yurt cottages maintain strong weekend and holiday occupancies year-round."
-      },
-      {
-        type: "statsGrid",
-        stats: [
-          { value: "11.3%", label: "Goa Villa Net Target Yield" },
-          { value: "8.8%", label: "Munnar Eco-Resort Net Target Yield" },
-          { value: "40M+", label: "Annual Regional Tourist Inflow" },
-          { value: "14%", label: "Annual Historical Capital Appreciation" }
-        ]
-      },
-      {
-        type: "heading",
-        id: "adr-comparison",
-        text: "3. ADR and Yield Comparison"
-      },
-      {
-        type: "paragraph",
-        text: "A well-appointed 4BHK private pool villa in North/Central Goa commands between ₹20,000 to ₹45,000 per night during season, generating exceptional returns per fraction. Similarly, boutique plantation cottages in Munnar achieve steady ₹8,000 to ₹15,000 tariffs with high repeat guest rates."
-      },
-      {
-        type: "heading",
-        id: "infrastructure",
-        text: "4. Infrastructure Tailwinds"
-      },
-      {
-        type: "paragraph",
-        text: "The operationalization of Manohar International Airport (Mopa) in North Goa and upgraded highway connectivity in Kerala have significantly reduced travel times, directly driving property valuations upward."
-      },
-      {
-        type: "heading",
-        id: "fracspace-portfolio",
-        text: "5. Fracspace Assets in These Corridors"
-      },
-      {
-        type: "paragraph",
-        text: "Fracspace features curated properties in both destinations—including Stream by Indulge in Revora, Goa, and Hilltop by Fracspace in Munnar, Kerala. Both assets offer active fractional investment tranches."
-      }
-    ]
-  },
-  {
-    id: "6",
-    slug: "exit-strategies-how-and-when-can-you-sell-your-fraction",
-    tag: "Guides",
-    date: "February 04, 2026",
-    readTime: "6 min read",
-    author: {
-      name: "Investor Relations Team",
-      role: "Liquidity & Secondary Market Desk",
-      avatar: "/assets/logo2.png"
-    },
-    title: "Exit strategies: How and when can you sell your fractional property share?",
-    excerpt:
-      "Everything you need to know about secondary resale windows, lock-in periods, and private transfers on the Fracspace platform.",
-    image: coOwnImg,
-    secondaryImage: heroImg,
-    keyTakeaways: [
-      "Multiple exit paths: Fracspace Secondary Marketplace, Private Transfers, and Whole-Asset Sale.",
-      "Liquidity windows allow investors to list fractions for resale to other registered platform users.",
-      "Whole-asset terminal liquidation is executed at the end of the investment horizon (typically 5–7 years) to unlock full capital gains.",
-      "Zero hidden penalties for transfer of verified shares."
-    ],
-    tableOfContents: [
-      { id: "liquidity-myth", label: "1. The Liquidity Question in Real Estate" },
-      { id: "exit-routes", label: "2. The Three Primary Exit Routes" },
-      { id: "secondary-market", label: "3. Fracspace Resale Marketplace" },
-      { id: "whole-asset-sale", label: "4. Terminal Whole-Asset Sale" },
-      { id: "step-by-step", label: "5. How to Initiate a Sale" }
-    ],
-    content: [
-      {
-        type: "paragraph",
-        text: "One of the biggest historical criticisms of physical real estate has been its illiquidity—selling a whole villa or apartment can take anywhere from 6 to 18 months. Fractional ownership fundamentally improves liquidity by enabling owners to trade smaller, affordable fractional units."
-      },
-      {
-        type: "heading",
-        id: "liquidity-myth",
-        text: "1. The Liquidity Question in Real Estate"
-      },
-      {
-        type: "paragraph",
-        text: "Finding a buyer with ₹5 Crores for an entire luxury home takes significant time. In contrast, finding a buyer for a ₹10 Lakh fractional unit backed by verified cash flow and audited titles is substantially faster and more liquid."
-      },
-      {
-        type: "heading",
-        id: "exit-routes",
-        text: "2. The Three Primary Exit Routes"
-      },
-      {
-        type: "list",
-        items: [
-          "**Fracspace Secondary Marketplace**: List your fraction on the internal investor exchange after the minimum holding period.",
-          "**Private Transfer**: Sell or gift your shares to friends, family, or external third-party buyers with simple board transfer approval.",
-          "**Whole-Asset Exit**: At the conclusion of the 5–7 year target investment term, the property is marketed for institutional sale, and total sale proceeds are distributed to co-owners."
-        ]
-      },
-      {
-        type: "quote",
-        text: "Fractionalization turns illiquid physical real estate into bite-sized units that trade smoothly on transparent secondary marketplaces.",
-        author: "Fracspace Liquidity Desk"
-      },
-      {
-        type: "heading",
-        id: "secondary-market",
-        text: "3. Fracspace Resale Marketplace"
-      },
-      {
-        type: "paragraph",
-        text: "Fracspace maintains an active community of verified investors. When you wish to liquidate, your fraction can be listed on the platform alongside historical yield performance, making it attractive to new buyers seeking immediate yield."
-      },
-      {
-        type: "heading",
-        id: "whole-asset-sale",
-        text: "4. Terminal Whole-Asset Sale"
-      },
-      {
-        type: "paragraph",
-        text: "At the end of the predefined investment cycle, co-owners vote to sell the entire property to boutique hotel operators or luxury buyers. This allows all fractional shareholders to realize substantial accumulated capital gains."
-      },
-      {
-        type: "heading",
-        id: "step-by-step",
-        text: "5. How to Initiate a Sale"
-      },
-      {
-        type: "paragraph",
-        text: "Initiating a resale is as simple as clicking 'Request Liquidation' from your Fracspace portfolio dashboard. Our Investor Relations team handles valuation assessment, buyer matching, and share transfer documentation."
+        question: "5. Can I sell my fractional ownership share whenever I want?",
+        answer: "Whether you can sell your share depends on the terms of your ownership agreement. Some investments include lock-in periods, approved resale procedures, or other transfer restrictions. Even when resale is allowed, finding a buyer may take time, and the selling price is not guaranteed. Always ask about exit rules, potential charges, and resale assistance before making an investment."
       }
     ]
   }
 ];
 
+export const approvedBlog = blogsData[0];
+
+export const blogTopics = [
+  {
+    id: "what-is-fractional-ownership",
+    tag: "Core Concept",
+    category: "Basics",
+    title: "What Is Fractional Ownership in Real Estate?",
+    excerpt: "Sharing ownership of high-value villas and holiday homes with other vetted investors under a compliant legal framework.",
+    image: guideHeroImg,
+    readTime: "2 min read",
+    anchor: "#what-is-fractional-ownership"
+  },
+  {
+    id: "how-it-works",
+    tag: "Process & Operations",
+    category: "How It Works",
+    title: "How Does Fractional Ownership Work in India?",
+    excerpt: "Property selection, legal structuring, SPV equity documents, and 100% hands-off hospitality management.",
+    image: howFsWorksBg,
+    readTime: "2 min read",
+    anchor: "#how-it-works"
+  },
+  {
+    id: "investment-example",
+    tag: "Yields & ROI",
+    category: "Yields & Returns",
+    title: "A Simple Example of Fractional Property Investment",
+    excerpt: "A realistic breakdown of an illustrative ₹2 Crore resort property, 8 co-owners, operating costs, and proportional cash yields.",
+    image: coOwnImg,
+    readTime: "3 min read",
+    anchor: "#investment-example"
+  },
+  {
+    id: "why-buyers-exploring",
+    tag: "Market Trends",
+    category: "Market Trends",
+    title: "Why Are Indian Property Buyers Exploring Fractional Ownership?",
+    excerpt: "Why modern families prefer owning shares in lifestyle destinations over locking savings into a single urban property.",
+    image: mainImg,
+    readTime: "2 min read",
+    anchor: "#why-buyers-exploring"
+  },
+  {
+    id: "benefits",
+    tag: "Key Advantages",
+    category: "Benefits",
+    title: "What Are the Practical Benefits of Fractional Ownership?",
+    excerpt: "Lower capital requirements, asset diversification, professional maintenance, rental yields, and complimentary stays.",
+    image: hilltopImg,
+    readTime: "3 min read",
+    anchor: "#benefits"
+  },
+  {
+    id: "fractional-vs-buying",
+    tag: "Comparison",
+    category: "Comparisons",
+    title: "Fractional Ownership vs. Buying an Entire Property",
+    excerpt: "How divided costs and hands-off upkeep compare to full capital outlay and solo maintenance headaches.",
+    image: heroImg,
+    readTime: "2 min read",
+    anchor: "#fractional-vs-buying"
+  },
+  {
+    id: "fractional-vs-reit",
+    tag: "REITs vs Co-ownership",
+    category: "Comparisons",
+    title: "Is Fractional Ownership Better Than a REIT?",
+    excerpt: "Direct asset title ownership, personal stay rights, and hospitality yields compared with pooled stock exchange REIT units.",
+    image: guideHeroImg,
+    readTime: "3 min read",
+    anchor: "#fractional-vs-reit"
+  },
+  {
+    id: "is-it-safe",
+    tag: "Safety & Legal",
+    category: "Legal & Safety",
+    title: "Is Fractional Ownership a Safe Investment in India?",
+    excerpt: "Property verification, legally documented ownership arrangements, and mobile-enabled performance tracking.",
+    image: howFsWorksBg,
+    readTime: "2 min read",
+    anchor: "#is-it-safe"
+  },
+  {
+    id: "alleppey-cottages",
+    tag: "Kerala Asset",
+    category: "Destinations",
+    title: "Alleppey Backwater Cottages: Kerala's Backwater Experience",
+    excerpt: "Co-own 4 private yurt cottages and a traditional 2BHK Kerala home starting from ₹10 Lakh on the backwaters.",
+    image: alleppeyImg,
+    readTime: "2 min read",
+    anchor: "#alleppey-cottages"
+  },
+  {
+    id: "manipal-river-club",
+    tag: "Karnataka Asset",
+    category: "Destinations",
+    title: "Manipal River Club: Explore Riverside Property Ownership",
+    excerpt: "A 2.88-acre riverfront recreational and hospitality property concept in Udupi starting from ₹15 Lakh.",
+    image: manipalImg,
+    readTime: "2 min read",
+    anchor: "#manipal-river-club"
+  },
+  {
+    id: "pre-purchase-checklist",
+    tag: "Due Diligence",
+    category: "Checklist",
+    title: "What Should You Check Before Buying a Fractional Share?",
+    excerpt: "Vital checklist: legal entity titles, expense deductions, personal stay quotas, and exit rules.",
+    image: coOwnImg,
+    readTime: "2 min read",
+    anchor: "#pre-purchase-checklist"
+  },
+  {
+    id: "faqs",
+    tag: "Common Questions",
+    category: "Legal & Safety",
+    title: "Frequently Asked Questions (Legality, Income, Resale)",
+    excerpt: "Answers to legality in India, minimum investment amounts, monthly rental income, timeshare differences, and exit rules.",
+    image: mainImg,
+    readTime: "3 min read",
+    anchor: "#faqs"
+  }
+];
+
 export const getBlogBySlug = (slug) => {
-  return blogsData.find((b) => b.slug === slug) || null;
+  if (!slug) return null;
+  const decoded = decodeURIComponent(String(slug)).replace(/\/+$/, "").trim().toLowerCase();
+  return (
+    blogsData.find(
+      (b) =>
+        b.slug.toLowerCase() === decoded ||
+        (b.aliases &&
+          Array.isArray(b.aliases) &&
+          b.aliases.some((alias) => alias.toLowerCase() === decoded))
+    ) || null
+  );
 };
 
 export const getRelatedBlogs = (currentSlug, limit = 3) => {
-  return blogsData.filter((b) => b.slug !== currentSlug).slice(0, limit);
+  return blogTopics.slice(0, limit);
 };

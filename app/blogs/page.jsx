@@ -3,42 +3,34 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { blogsData } from "@/data/blogsData";
+import { approvedBlog, blogTopics } from "@/data/blogsData";
+import { ArrowRight, BookOpen } from "lucide-react";
+import BottomBanner from "@/components/sections/homepage/BottomBanner";
 
 function BlogsPage() {
-  const [selectedTopic, setSelectedTopic] = useState("All topics");
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All topics");
 
-  const topics = [
+  const categories = [
     "All topics",
-    "Guides",
-    "Co-ownership",
-    "Market trends",
-    "Tax & Legal",
-    "Destinations"
+    "Basics",
+    "How It Works",
+    "Yields & Returns",
+    "Comparisons",
+    "Destinations",
+    "Legal & Safety"
   ];
 
-  const featuredPost = blogsData[0];
-  const otherPosts = blogsData.slice(1);
+  const featuredPost = approvedBlog;
 
-  const filteredPosts =
-    selectedTopic === "All topics"
-      ? otherPosts
-      : otherPosts.filter((p) => p.tag === selectedTopic);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (newsletterEmail) {
-      setNewsletterSubscribed(true);
-      setNewsletterEmail("");
-    }
-  };
+  const filteredTopics =
+    selectedCategory === "All topics"
+      ? blogTopics
+      : blogTopics.filter((t) => t.category === selectedCategory);
 
   return (
     <main className="w-full font-manrope">
 
-      {/* Hero Section */}
+      {/* Hero Header Section */}
       <section className="relative bg-gradient-to-r from-[#071A38] via-[#0B2452] to-[#16418C] text-white overflow-hidden py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div
           className="absolute inset-0 opacity-25 pointer-events-none"
@@ -50,29 +42,30 @@ function BlogsPage() {
 
         <div className="relative max-w-[1180px] mx-auto text-center space-y-4">
           <span className="font-mono-plex text-xs uppercase tracking-widest text-[#8FADE2] font-semibold">
-            Fracspace insights
+            Fracspace Insights & Comprehensive Guides
           </span>
           <h1 className="font-jakarta text-3xl sm:text-5xl lg:text-[52px] font-bold tracking-tight text-white leading-tight">
             Ideas for smarter property ownership
           </h1>
           <p className="text-base sm:text-lg text-[#B7C6E4] max-w-2xl mx-auto leading-relaxed">
-            Guides, market analysis and frameworks for investors exploring fractional ownership and destination real estate in India.
+            Everything you need to know about fractional real estate, luxury vacation home co-ownership, yields, and legal safety in India.
           </p>
 
           {/* Topic Filter Tabs */}
           <div className="flex gap-2.5 justify-center flex-wrap pt-6">
-            {topics.map((t) => {
-              const active = selectedTopic === t;
+            {categories.map((c) => {
+              const active = selectedCategory === c;
               return (
                 <button
-                  key={t}
-                  onClick={() => setSelectedTopic(t)}
-                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${active
-                    ? "bg-white text-[#0B2452] shadow-md"
-                    : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
-                    }`}
+                  key={c}
+                  onClick={() => setSelectedCategory(c)}
+                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
+                    active
+                      ? "bg-white text-[#0B2452] shadow-md"
+                      : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
+                  }`}
                 >
-                  {t}
+                  {c}
                 </button>
               );
             })}
@@ -82,13 +75,22 @@ function BlogsPage() {
 
       {/* Featured Lead Article */}
       {featuredPost && (
-        <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-[#E7EBF2]">
           <div className="max-w-[1180px] mx-auto">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="p-1.5 rounded-lg bg-[#0B2452] text-white">
+                <BookOpen className="w-4 h-4" />
+              </span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#16418C] font-mono-plex">
+                Featured Complete Guide
+              </span>
+            </div>
+
             <Link
               href={`/blogs/${featuredPost.slug}`}
               className="block bg-[#F7F9FC] border border-[#E7EBF2] hover:border-[#16418C] rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 transition duration-300 hover:shadow-xl group cursor-pointer"
             >
-              <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto min-h-[280px] bg-[#EEF2F8] overflow-hidden">
+              <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto min-h-[300px] bg-[#EEF2F8] overflow-hidden">
                 <Image
                   src={featuredPost.image}
                   alt={featuredPost.title}
@@ -97,7 +99,7 @@ function BlogsPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-4 left-4 bg-[#0B2452] text-white text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-md">
-                  Featured Guide
+                  Featured Master Guide
                 </span>
               </div>
 
@@ -120,62 +122,75 @@ function BlogsPage() {
                   {featuredPost.excerpt}
                 </p>
 
-                <span className="text-sm font-bold text-[#16418C] group-hover:text-[#0B2452] flex items-center gap-1 mt-auto">
-                  Read complete guide →
-                </span>
+                <div className="flex items-center gap-2 text-sm font-bold text-[#16418C] group-hover:text-[#0B2452] mt-auto">
+                  <span>Read full guide from beginning</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
               </div>
             </Link>
           </div>
         </section>
       )}
 
-      {/* Articles Grid */}
-      <section className="pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* Guide Chapters & Topics Grid - Cards redirect to specific section in the blog */}
+      <section className="py-14 sm:py-18 px-4 sm:px-6 lg:px-8 bg-[#F8FAFC]">
         <div className="max-w-[1180px] mx-auto">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E7EBF2]">
-            <h3 className="font-jakarta text-xl font-bold text-[#14203A]">
-              {selectedTopic === "All topics" ? "All Articles" : selectedTopic}
-            </h3>
-            <span className="text-xs text-[#7B8AA8]">
-              {filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#E7EBF2] gap-2">
+            <div>
+              <span className="font-mono-plex text-xs uppercase tracking-widest text-[#16418C] font-semibold">
+                Chapters & Deep Dives
+              </span>
+              <h3 className="font-jakarta text-2xl font-bold text-[#14203A] mt-1">
+                {selectedCategory === "All topics" ? "All Guide Chapters & Topics" : `${selectedCategory} Chapters`}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+                Click any topic card to jump directly to that specific section in the complete guide.
+              </p>
+            </div>
+            <span className="text-xs font-semibold text-[#7B8AA8] bg-white px-3 py-1.5 rounded-full border border-[#E2E8F0]">
+              {filteredTopics.length} {filteredTopics.length === 1 ? "topic" : "topics"}
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post) => (
+            {filteredTopics.map((topic) => (
               <Link
-                key={post.id}
-                href={`/blogs/${post.slug}`}
-                className="border border-[#E7EBF2] hover:border-[#16418C] rounded-2xl overflow-hidden bg-white shadow-xs hover:shadow-xl transition duration-300 flex flex-col group cursor-pointer"
+                key={topic.id}
+                href={`/blogs/${featuredPost.slug}${topic.anchor}`}
+                className="border border-[#E2E8F0] hover:border-[#16418C] rounded-2xl overflow-hidden bg-white shadow-xs hover:shadow-xl transition duration-300 flex flex-col group cursor-pointer"
               >
                 <div className="relative aspect-[16/10] bg-[#EEF2F8] overflow-hidden">
                   <Image
-                    src={post.image}
-                    alt={post.title}
+                    src={topic.image}
+                    alt={topic.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-3 left-3 bg-[#0B2452]/90 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-xs">
-                    {post.tag}
+                    {topic.tag}
+                  </span>
+                  <span className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs text-[#0B2452] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs">
+                    {topic.readTime}
                   </span>
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="text-[11px] text-[#7B8AA8] mb-2 font-medium">
-                    {post.date} · {post.readTime}
+                  <div className="text-[11px] font-mono-plex uppercase tracking-wider text-[#16418C] mb-2 font-semibold">
+                    {topic.category}
                   </div>
 
                   <h4 className="font-jakarta text-base sm:text-lg font-bold text-[#14203A] mb-3 group-hover:text-[#16418C] transition leading-snug line-clamp-2">
-                    {post.title}
+                    {topic.title}
                   </h4>
 
                   <p className="text-xs sm:text-[13.5px] leading-relaxed text-[#5C6B8A] mb-4 line-clamp-2">
-                    {post.excerpt}
+                    {topic.excerpt}
                   </p>
 
-                  <span className="text-xs font-bold text-[#16418C] group-hover:text-[#0B2452] mt-auto pt-2 flex items-center gap-1">
-                    Read article →
-                  </span>
+                  <div className="text-xs font-bold text-[#16418C] group-hover:text-[#0B2452] mt-auto pt-2 flex items-center justify-between border-t border-[#F1F5F9]">
+                    <span>Jump to section</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -183,46 +198,8 @@ function BlogsPage() {
         </div>
       </section>
 
-      {/* Newsletter Subscription Banner */}
-      <section className="pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-[1180px] mx-auto bg-gradient-to-r from-[#0A1F42] via-[#0E2C68] to-[#14357A] rounded-3xl p-8 sm:p-12 lg:p-14 text-white text-center shadow-xl">
-          <span className="font-mono-plex text-xs uppercase tracking-widest text-[#8FADE2] font-semibold">
-            Stay informed
-          </span>
-          <h2 className="font-jakarta text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-2 mb-3">
-            Get market insights directly to your inbox
-          </h2>
-          <p className="text-sm sm:text-base text-[#B7C6E4] max-w-xl mx-auto mb-8 leading-relaxed">
-            Monthly analysis on destination real estate, regulatory updates and newly launched fractional assets. No spam, ever.
-          </p>
-
-          {newsletterSubscribed ? (
-            <div className="inline-block bg-white/10 border border-white/20 rounded-full px-6 py-3 text-sm font-semibold text-[#8FB4FF]">
-              ✓ You are subscribed to Fracspace Insights!
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubscribe}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                required
-                placeholder="Enter your email address"
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                className="flex-1 bg-white/10 focus:bg-white focus:text-[#14203A] border border-white/20 focus:border-white rounded-full px-5 py-3 text-sm text-white placeholder:text-[#A9BDE2] outline-none transition"
-              />
-              <button
-                type="submit"
-                className="bg-white hover:bg-[#DCE7FF] text-[#0B2452] font-bold px-7 py-3 rounded-full text-xs sm:text-sm transition shadow-md cursor-pointer shrink-0"
-              >
-                Subscribe
-              </button>
-            </form>
-          )}
-        </div>
-      </section>
+      {/* App Download Banner */}
+      <BottomBanner />
 
     </main>
   );

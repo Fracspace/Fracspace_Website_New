@@ -1,14 +1,19 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogsData, getBlogBySlug, getRelatedBlogs } from "@/data/blogsData";
 import EachBlogClient from "./EachBlogClient";
 
 export async function generateStaticParams() {
-  return blogsData.map((post) => ({
-    slug: post.slug
-  }));
+  const params = [];
+  blogsData.forEach((post) => {
+    params.push({ slug: post.slug });
+    if (post.aliases && Array.isArray(post.aliases)) {
+      post.aliases.forEach((alias) => {
+        params.push({ slug: alias });
+      });
+    }
+  });
+  return params;
 }
 
 export async function generateMetadata({ params }) {
@@ -16,13 +21,57 @@ export async function generateMetadata({ params }) {
   const post = getBlogBySlug(resolvedParams?.slug);
   if (!post) {
     return {
-      title: "Blog Not Found | Fracspace"
+      title: "Article Not Found | Fracspace Insights"
     };
   }
 
+  const siteUrl = "https://fracspace.com";
+  const canonicalUrl = `${siteUrl}/blogs/${post.slug}`;
+  const ogImageUrl = `${siteUrl}/blogs/fractional-ownership-guide.jpg`;
+
   return {
-    title: `${post.title} | Fracspace Insights`,
-    description: post.excerpt
+    title: `${post.title} | Fracspace`,
+    description: post.excerpt,
+    keywords: [
+      post.tag,
+      "Fractional Ownership India",
+      "Real Estate Co-ownership",
+      "Holiday Home Investment",
+      "Fracspace Guide",
+      "Real Estate Yields India"
+    ],
+    alternates: {
+      canonical: canonicalUrl
+    },
+    openGraph: {
+      title: `${post.title} | Fracspace`,
+      description: post.excerpt,
+      url: canonicalUrl,
+      siteName: "Fracspace",
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Fracspace"],
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 675,
+          alt: post.title
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImageUrl]
+    },
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
   };
 }
 
@@ -35,6 +84,96 @@ export default async function BlogDetailPage({ params }) {
   }
 
   const related = getRelatedBlogs(post.slug, 3);
+  const siteUrl = "https://fracspace.com";
 
-  return <EachBlogClient post={post} relatedPosts={related} />;
+  // Article Structured Data
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/blogs/${post.slug}`
+    },
+    author: {
+      "@type": "Organization",
+      name: "Fracspace",
+      url: siteUrl
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Fracspace",
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/assets/logo.png`
+      }
+    },
+    image: `${siteUrl}/blogs/fractional-ownership-guide.jpg`
+  };
+
+  // Breadcrumb Structured Data
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteUrl
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blogs",
+        item: `${siteUrl}/blogs`
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `${siteUrl}/blogs/${post.slug}`
+      }
+    ]
+  };
+
+  // FAQ Schema if FAQs exist
+  let faqSchema = null;
+  if (post.faqs && post.faqs.length > 0) {
+    faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer
+        }
+      }))
+    };
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      <EachBlogClient post={post} relatedPosts={related} />
+    </>
+  );
 }

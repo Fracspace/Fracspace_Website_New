@@ -8,6 +8,7 @@ import FeaturedProperties from "../components/sections/homepage/FeaturedProperti
 import WhyInvestWithFs from "../components/sections/homepage/WhyInvestWithFs";
 import HowToInvest from "../components/sections/homepage/HowToInvest";
 import DynamicInvestorVideos from "../components/sections/homepage/DynamicInvestorVideos";
+import HomeBlogSection from "../components/sections/homepage/HomeBlogSection";
 import HomeFaqSection from "../components/sections/homepage/HomeFaqSection";
 import BottomBanner from "../components/sections/homepage/BottomBanner";
 
@@ -32,6 +33,7 @@ export default function Home() {
       <WhyInvestWithFs />
       <HowToInvest />
       <DynamicInvestorVideos />
+      <HomeBlogSection />
       <HomeFaqSection />
       <BottomBanner />
     </main>

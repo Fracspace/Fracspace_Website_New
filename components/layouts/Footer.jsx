@@ -108,11 +108,11 @@ function Footer() {
                 Properties
               </Link>
             </li>
-            {/* <li>
+            <li>
               <Link href="/blogs" className="hover:text-white transition">
                 Blog
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link href="/contact" className="hover:text-white transition">
                 Contact us

@@ -21,6 +21,7 @@ function PropertiesGrid() {
   const [karnatakaProperties, setKarnatakaProperties] = useState([]);
   const [varanasiProperties, setVaranasiProperties] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [highlightedPropertyId, setHighlightedPropertyId] = useState(null);
 
   const fallbackList = [
     {
@@ -222,6 +223,57 @@ function PropertiesGrid() {
       });
   }, []);
 
+  useEffect(() => {
+    if (loading) return;
+
+    const handleScrollToTarget = () => {
+      if (typeof window === "undefined") return;
+
+      const hash = window.location.hash ? window.location.hash.replace("#", "").toLowerCase().trim() : "";
+      const params = new URLSearchParams(window.location.search);
+      const queryProp = (params.get("property") || params.get("id") || "").toLowerCase().trim();
+      const target = hash || queryProp;
+
+      if (!target) return;
+
+      let targetId = target;
+      if (target.includes("alleppey")) {
+        targetId = "property-alleppey";
+      } else if (target.includes("manipal")) {
+        targetId = "property-manipal";
+      } else if (target.includes("munnar") || target.includes("hilltop")) {
+        targetId = "property-munnar";
+      } else if (target.includes("goa") || target.includes("stream") || target.includes("revora")) {
+        targetId = "property-goa";
+      } else if (target.includes("hyderabad") || target.includes("banjara")) {
+        targetId = "property-hyderabad";
+      } else if (target.includes("kabini") || target.includes("coorg")) {
+        targetId = "property-kabini";
+      } else if (target.includes("varanasi") || target.includes("ghat")) {
+        targetId = "property-varanasi";
+      } else if (!targetId.startsWith("property-")) {
+        targetId = "property-" + targetId;
+      }
+
+      setSelectedRegion("View All");
+
+      setTimeout(() => {
+        const el = document.getElementById(targetId) || document.getElementById(target);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          setHighlightedPropertyId(targetId);
+          setTimeout(() => {
+            setHighlightedPropertyId(null);
+          }, 3500);
+        }
+      }, 300);
+    };
+
+    handleScrollToTarget();
+    window.addEventListener("hashchange", handleScrollToTarget);
+    return () => window.removeEventListener("hashchange", handleScrollToTarget);
+  }, [loading]);
+
   const regions = ["View All", "Kerala", "Karnataka", "Varanasi", "Hyderabad", "Goa"];
 
   const getRegionList = (r) => {
@@ -403,11 +455,40 @@ function PropertiesGrid() {
                     ? `${pr?.Type} | ${pr?.area}`
                     : pr?.area || pr?.Type || "Premium Hospitality Asset";
 
+                const cityLower = pr?.city?.toLowerCase() || "";
+                const nameLower = pr?.name?.toLowerCase() || "";
+                let cardId = `property-${pr?._id || idx}`;
+                if (cityLower === "alleppey" || nameLower.includes("alleppey")) {
+                  cardId = "property-alleppey";
+                } else if (cityLower === "manipal" || nameLower.includes("manipal")) {
+                  cardId = "property-manipal";
+                } else if (cityLower === "munnar" || nameLower.includes("hilltop")) {
+                  cardId = "property-munnar";
+                } else if (cityLower === "goa" || nameLower.includes("revora") || nameLower.includes("stream")) {
+                  cardId = "property-goa";
+                } else if (cityLower === "hyderabad" || nameLower.includes("banjara")) {
+                  cardId = "property-hyderabad";
+                } else if (cityLower === "kabini" || nameLower.includes("coorg")) {
+                  cardId = "property-kabini";
+                } else if (cityLower === "varanasi" || nameLower.includes("ghat")) {
+                  cardId = "property-varanasi";
+                }
+
+                const isHighlighted =
+                  highlightedPropertyId === cardId ||
+                  highlightedPropertyId === `property-${pr?._id}` ||
+                  highlightedPropertyId === pr?._id;
+
                 return (
                   <article
+                    id={cardId}
                     key={pr?._id || idx}
                     onClick={() => router.push(`/eachproperty?id=${pr?._id}`)}
-                    className="bg-white rounded-[26px] overflow-hidden border border-[#E7EBF2] hover:border-[#16418C] shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col h-full group"
+                    className={`bg-white rounded-[26px] overflow-hidden border transition-all duration-500 cursor-pointer flex flex-col h-full group scroll-mt-32 ${
+                      isHighlighted
+                        ? "border-[#16418C] ring-4 ring-[#16418C]/40 shadow-2xl scale-[1.02]"
+                        : "border-[#E7EBF2] hover:border-[#16418C] shadow-sm hover:shadow-2xl hover:-translate-y-1.5"
+                    }`}
                   >
                     {/* Card Image */}
                     <div className="relative h-[250px] w-full bg-[#EEF2F8] overflow-hidden">
