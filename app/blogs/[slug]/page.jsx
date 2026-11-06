@@ -27,25 +27,29 @@ export async function generateMetadata({ params }) {
 
   const siteUrl = "https://fracspace.com";
   const canonicalUrl = `${siteUrl}/blogs/${post.slug}`;
-  const ogImageUrl = `${siteUrl}/blogs/fractional-ownership-guide.jpg`;
+  const ogImageUrl = `${siteUrl}/blogs/${post.slug === "fractional-ownership-vs-buying-a-property" ? "fractional-ownership-vs-buying.webp" : "fractional-ownership-guide.jpg"}`;
+  const titleText = post.metaTitle || `${post.title} | Fracspace`;
+  const descriptionText = post.metaDescription || post.excerpt;
 
   return {
-    title: `${post.title} | Fracspace`,
-    description: post.excerpt,
+    title: titleText,
+    description: descriptionText,
     keywords: [
+      post.focusKeyword,
+      ...(post.secondaryKeywords || []),
       post.tag,
       "Fractional Ownership India",
       "Real Estate Co-ownership",
       "Holiday Home Investment",
       "Fracspace Guide",
       "Real Estate Yields India"
-    ],
+    ].filter(Boolean),
     alternates: {
       canonical: canonicalUrl
     },
     openGraph: {
-      title: `${post.title} | Fracspace`,
-      description: post.excerpt,
+      title: titleText,
+      description: descriptionText,
       url: canonicalUrl,
       siteName: "Fracspace",
       type: "article",
@@ -62,8 +66,8 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title: titleText,
+      description: descriptionText,
       images: [ogImageUrl]
     },
     robots: {
@@ -87,11 +91,17 @@ export default async function BlogDetailPage({ params }) {
   const siteUrl = "https://fracspace.com";
 
   // Article Structured Data
+  const allKeywords = [
+    post.focusKeyword,
+    ...(post.secondaryKeywords || [])
+  ].filter(Boolean);
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
-    description: post.excerpt,
+    description: post.metaDescription || post.excerpt,
+    keywords: allKeywords.join(", "),
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: {
@@ -111,7 +121,7 @@ export default async function BlogDetailPage({ params }) {
         url: `${siteUrl}/assets/logo.png`
       }
     },
-    image: `${siteUrl}/blogs/fractional-ownership-guide.jpg`
+    image: `${siteUrl}/blogs/${post.slug === "fractional-ownership-vs-buying-a-property" ? "fractional-ownership-vs-buying.webp" : "fractional-ownership-guide.jpg"}`
   };
 
   // Breadcrumb Structured Data

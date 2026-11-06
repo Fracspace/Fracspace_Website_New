@@ -17,7 +17,8 @@ import {
   MessageCircle,
   HelpCircle,
   ChevronDown,
-  ArrowRight
+  ArrowRight,
+  List
 } from "lucide-react";
 import { useDownloadApp } from "@/context/DownloadAppContext";
 import { blogTopics } from "@/data/blogsData";
@@ -203,6 +204,36 @@ export default function EachBlogClient({ post, relatedPosts }) {
                   ))}
                 </ul>
               </section>
+            )}
+
+            {/* Mobile Table of Contents (Shown before article body on mobile, hidden on desktop) */}
+            {post.tableOfContents && post.tableOfContents.length > 0 && (
+              <details
+                className="block lg:hidden bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-5 shadow-xs group"
+                open
+              >
+                <summary className="flex items-center justify-between cursor-pointer font-jakarta text-sm font-bold text-[#0B2452] uppercase tracking-wider list-none select-none">
+                  <div className="flex items-center gap-2">
+                    <List className="w-4 h-4 text-[#16418C]" />
+                    <span>Table of Contents</span>
+                    <span className="text-[11px] font-normal normal-case text-[#64748B] font-manrope">
+                      ({post.tableOfContents.length} sections)
+                    </span>
+                  </div>
+                  <ChevronDown className="w-4 h-4 transition-transform duration-200 group-open:rotate-180 text-[#16418C]" />
+                </summary>
+                <nav className="mt-4 pt-3 border-t border-[#E2E8F0] space-y-2 max-h-[50vh] overflow-y-auto pr-1">
+                  {post.tableOfContents.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={`#${item.id}`}
+                      className="block text-xs text-[#475569] hover:text-[#16418C] hover:font-semibold transition-colors py-1.5 leading-snug"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </nav>
+              </details>
             )}
 
             {/* Dynamic Body Content Blocks */}
@@ -567,9 +598,9 @@ export default function EachBlogClient({ post, relatedPosts }) {
           {/* Sticky Sidebar (4 Columns) */}
           <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-28">
             
-            {/* Table of Contents Widget */}
+            {/* Desktop Table of Contents Widget (Hidden on mobile) */}
             {post.tableOfContents && post.tableOfContents.length > 0 && (
-              <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-6 shadow-xs max-h-[70vh] overflow-y-auto">
+              <div className="hidden lg:block bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-6 shadow-xs max-h-[70vh] overflow-y-auto">
                 <h3 className="font-jakarta text-sm font-bold text-[#0B2452] uppercase tracking-wider mb-4 pb-2 border-b border-[#E2E8F0]">
                   Table of Contents
                 </h3>
@@ -623,6 +654,70 @@ export default function EachBlogClient({ post, relatedPosts }) {
 
       </main>
 
+      {/* Related Full Articles Section */}
+      {relatedPosts && relatedPosts.length > 0 && (
+        <section className="bg-white border-t border-[#E2E8F0] py-14 sm:py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+              <div>
+                <span className="font-mono-plex text-xs uppercase tracking-widest text-[#16418C] font-semibold">
+                  Comprehensive Publications
+                </span>
+                <h2 className="font-jakarta text-2xl sm:text-3xl font-bold text-[#14203A] mt-1">
+                  More Research Guides & Articles
+                </h2>
+              </div>
+              <Link
+                href="/blogs"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#16418C] hover:text-[#0B2452] transition self-start sm:self-auto"
+              >
+                <span>View all articles</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relatedPosts.map((rel) => (
+                <Link
+                  key={rel.id}
+                  href={`/blogs/${rel.slug}`}
+                  className="bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#16418C] rounded-2xl overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group cursor-pointer"
+                >
+                  <div className="relative aspect-[16/9] bg-[#EEF2F8] overflow-hidden">
+                    <Image
+                      src={rel.image}
+                      alt={rel.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-3 left-3 bg-[#0B2452] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs">
+                      {rel.tag}
+                    </span>
+                    <span className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs text-[#0B2452] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      {rel.readTime}
+                    </span>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="text-[11px] text-[#7B8AA8] mb-2">
+                      {rel.date}
+                    </div>
+                    <h3 className="font-jakarta text-lg font-bold text-[#14203A] group-hover:text-[#16418C] transition leading-snug line-clamp-2 mb-2">
+                      {rel.title}
+                    </h3>
+                    <p className="text-xs text-[#5C6B8A] line-clamp-2 leading-relaxed mb-4">
+                      {rel.excerpt}
+                    </p>
+                    <span className="text-xs font-bold text-[#16418C] group-hover:text-[#0B2452] mt-auto flex items-center gap-1">
+                      Read complete article →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Guide Chapters & Deep Dives Bottom Grid */}
       {blogTopics && blogTopics.length > 0 && (
         <section className="bg-[#F8FAFC] border-t border-[#E2E8F0] py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
@@ -633,55 +728,61 @@ export default function EachBlogClient({ post, relatedPosts }) {
                   Guide Chapters & Deep Dives
                 </span>
                 <h2 className="font-jakarta text-2xl sm:text-3xl font-bold text-[#14203A] mt-1">
-                  Explore Topics in this Guide
+                  Explore Topics Across Guides
                 </h2>
               </div>
               <Link
-                href="/blogs"
+                href="/blogs#jump-to-sections"
                 className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-[#16418C] hover:text-[#0B2452] transition self-start sm:self-auto"
               >
-                <span>View all topics</span>
+                <span>View all topic chapters</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {blogTopics.slice(0, 6).map((topic, idx) => (
-                <a
-                  key={idx}
-                  href={topic.anchor}
-                  className="group bg-white border border-[#E2E8F0] hover:border-[#16418C] rounded-2xl overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
-                >
-                  <div className="relative aspect-[16/10] bg-[#EEF2F8] overflow-hidden">
-                    <Image
-                      src={topic.image}
-                      alt={topic.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-3 left-3 bg-[#0B2452]/90 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                      {topic.tag}
-                    </span>
-                    <span className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs text-[#0B2452] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                      {topic.readTime}
-                    </span>
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <div className="text-[10px] font-mono-plex uppercase tracking-wider text-[#16418C] mb-2 font-semibold">
-                      {topic.category}
+              {blogTopics.slice(0, 6).map((topic, idx) => {
+                const targetUrl =
+                  topic.blogSlug === post.slug
+                    ? topic.anchor
+                    : `/blogs/${topic.blogSlug || "what-is-fractional-ownership-in-real-estate"}${topic.anchor}`;
+                return (
+                  <Link
+                    key={idx}
+                    href={targetUrl}
+                    className="group bg-white border border-[#E2E8F0] hover:border-[#16418C] rounded-2xl overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
+                  >
+                    <div className="relative aspect-[16/10] bg-[#EEF2F8] overflow-hidden">
+                      <Image
+                        src={topic.image}
+                        alt={topic.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <span className="absolute top-3 left-3 bg-[#0B2452]/90 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                        {topic.tag}
+                      </span>
+                      <span className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs text-[#0B2452] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        {topic.readTime}
+                      </span>
                     </div>
-                    <h3 className="font-jakarta text-base font-bold text-[#14203A] group-hover:text-[#16418C] transition leading-snug line-clamp-2 mb-3">
-                      {topic.title}
-                    </h3>
-                    <p className="text-xs text-[#64748B] line-clamp-2 leading-relaxed mb-4">
-                      {topic.excerpt}
-                    </p>
-                    <span className="text-xs font-bold text-[#16418C] group-hover:text-[#0B2452] mt-auto flex items-center gap-1">
-                      Jump to section →
-                    </span>
-                  </div>
-                </a>
-              ))}
+                    <div className="p-5 flex flex-col flex-1">
+                      <div className="text-[10px] font-mono-plex uppercase tracking-wider text-[#16418C] mb-2 font-semibold">
+                        {topic.category}
+                      </div>
+                      <h3 className="font-jakarta text-base font-bold text-[#14203A] group-hover:text-[#16418C] transition leading-snug line-clamp-2 mb-3">
+                        {topic.title}
+                      </h3>
+                      <p className="text-xs text-[#64748B] line-clamp-2 leading-relaxed mb-4">
+                        {topic.excerpt}
+                      </p>
+                      <span className="text-xs font-bold text-[#16418C] group-hover:text-[#0B2452] mt-auto flex items-center gap-1">
+                        Jump to section →
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
