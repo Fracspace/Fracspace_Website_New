@@ -75,7 +75,7 @@ function BlogsPage() {
       ========================================================================== */}
       <section id="all-blogs" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-[#E7EBF2] scroll-mt-12">
         <div className="max-w-[1180px] mx-auto">
-          
+
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 pb-4 border-b border-[#E7EBF2] gap-3">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#16418C] font-mono-plex mb-1">
@@ -160,7 +160,7 @@ function BlogsPage() {
       ========================================================================== */}
       <section id="jump-to-sections" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#F8FAFC] scroll-mt-12">
         <div className="max-w-[1180px] mx-auto">
-          
+
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#E7EBF2] gap-3">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#16418C] font-mono-plex mb-1">
@@ -187,11 +187,10 @@ function BlogsPage() {
                 <button
                   key={c}
                   onClick={() => setSelectedCategory(c)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold transition cursor-pointer ${
-                    active
+                  className={`px-4 py-2 rounded-full text-xs font-semibold transition cursor-pointer ${active
                       ? "bg-[#0B2452] text-white shadow-xs"
                       : "bg-white text-[#5C6B8A] border border-[#E2E8F0] hover:border-[#0B2452] hover:text-[#0B2452]"
-                  }`}
+                    }`}
                 >
                   {c}
                 </button>

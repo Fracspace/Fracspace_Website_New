@@ -153,7 +153,7 @@ export default function TermsOfUse() {
               10. Lock-in Period, Transfers and Exit
             </h2>
             <p>
-              Where a property or investment opportunity is subject to a lock-in period, the applicable duration and conditions shall be specified in the relevant transaction documents. In the event of any name transfers or gift, it may take up to 7 working days to transfer to be reflected. The users may choose to exit the relevant agreement at any time with a 60-day notice period. Any deductions, cancellation charges or exit fees shall be determined in accordance with the applicable commercial terms communicated to the user.
+              Where a property or investment opportunity is subject to a lock-in period, the applicable duration and conditions shall be specified in the relevant transaction documents. In the event of any name transfer or gift, it may take up to 7 working days for the transfer to be reflected. The users may choose to exit the relevant agreement at any time, subject to a notice period of 90 business days. Upon receipt of a formal exit request, the calculation and accrual of any further returns on the investment shall cease from the date of receipt of such request. Any deductions, cancellation charges or exit fees shall be determined in accordance with the applicable commercial terms communicated to the user.
             </p>
           </div>
 
