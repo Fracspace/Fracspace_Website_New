@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { blogsData, blogTopics } from "@/data/blogsData";
-import { ArrowRight, BookOpen, Compass, Layers, ExternalLink } from "lucide-react";
+import { ArrowRight, BookOpen, Compass } from "lucide-react";
 import BottomBanner from "@/components/sections/homepage/BottomBanner";
 
 function BlogsPage() {
