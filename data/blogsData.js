@@ -7,8 +7,323 @@ import guideHeroImg from "../assets/blogs/fractional-ownership-guide.jpg";
 import alleppeyImg from "../assets/blogs/alleppey-backwater-cottages.jpg";
 import manipalImg from "../assets/blogs/manipal-river-club.jpg";
 import vsBuyingHeroImg from "../assets/blogs/fractional-ownership-vs-buying.webp";
+import under10LakhHeroImg from "../assets/blogs/real-estate-investment-under-10-lakh.webp";
 
 export const blogsData = [
+  {
+    id: "3",
+    slug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    aliases: [
+      "real-estate-investment-under-10-lakh",
+      "smart-ways-to-invest-in-india-under-10-lakh",
+      "real-estate-under-10-lakh-in-india",
+      "real-estate-investment-under-10-lakh-fractional-ownership"
+    ],
+    metaTitle: "Real Estate Investment Under ₹10 Lakh: Smart Ways to Invest in India",
+    title: "Real Estate Investment Under ₹10 Lakh: Smart Ways to Invest in India - Fractional Ownership",
+    metaDescription:
+      "Can you invest in real estate under ₹10 Lakh in India? Explore smart ways to invest in property including REITs, residential plots, and luxury fractional ownership with Fracspace.",
+    focusKeyword: "Real Estate Investment Under ₹10 Lakh",
+    secondaryKeywords: [
+      "Smart Ways to Invest in India",
+      "Real Estate Under 10 Lakh",
+      "Fractional Ownership in India",
+      "REITs in India",
+      "Fractional Property Investment",
+      "Property Investment Under 10 Lakh",
+      "Alleppey Backwater Cottages",
+      "Real Estate Co-Ownership",
+      "Low Budget Real Estate India",
+      "Fracspace"
+    ],
+    tag: "Investment",
+    category: "Yields & Returns",
+    date: "November 12, 2026",
+    readTime: "8 min read",
+    excerpt:
+      "Can you invest in real estate with under ₹10 Lakh in India? Explore smart ways to invest in property including REITs, residential plots, and luxury fractional ownership starting from ₹10 Lakh with Fracspace.",
+    image: under10LakhHeroImg,
+    secondaryImage: alleppeyImg,
+    keyTakeaways: [
+      "Accessible Entry Points: A ₹10 Lakh budget unlocks listed REITs, smaller suburban plots, and luxury fractional property co-ownership in India.",
+      "REITs vs Physical Plots: Listed REITs offer passive dividend yields with high liquidity, while physical land provides direct title without regular rental returns.",
+      "Premium Co-Ownership from ₹10 Lakh: Fracspace allows investors to co-own high-yield vacation assets like Alleppey Backwater Cottages without paying crores.",
+      "Passive Rental Income: Managed hospitality properties distribute proportional rental yields without individual vacancy stress or tenant issues.",
+      "Complete Cost Accounting: Always calculate stamp duty, registration charges, legal checks, and ongoing maintenance beyond sticker prices.",
+      "Due Diligence First: Prioritize verified titles, clear legal entity documentation (SPV), and transparent resale exit windows before committing funds."
+    ],
+    tableOfContents: [
+      { id: "introduction", label: "1. The ₹10 Lakh Real Estate Dilemma" },
+      { id: "smart-ways-budget", label: "2. Smart Ways to Invest in India Without a Big Budget" },
+      { id: "is-10-lakh-enough", label: "3. Is ₹10 Lakh Enough to Start Investing in Real Estate?" },
+      { id: "reits-simple-way", label: "4. REITs: A Simple Way to Explore Real Estate Investment" },
+      { id: "small-plot-investment", label: "5. Can Buying a Small Plot Be a Good Investment?" },
+      { id: "actual-cost-matters", label: "6. Why Actual Investment Cost Matters More Than Advertised Price" },
+      { id: "comparison-table", label: "7. Budget Property Investment Comparison Table" },
+      { id: "fractional-ownership-way", label: "8. Fractional Ownership: Explore Premium Property from ₹10 Lakh" },
+      { id: "rental-income-small", label: "9. Can You Earn Rental Income from a Smaller Property Investment?" },
+      { id: "first-time-checklist", label: "10. What Should First-Time Investors Check Before Buying Property?" },
+      { id: "explore-fracspace", label: "11. Explore Smart Ways to Invest in India with Fracspace" },
+      { id: "alleppey-cottages", label: "12. Alleppey Backwater Cottages: Property Co-Ownership in Kerala" },
+      { id: "fracspace-management", label: "13. How Fracspace Helps Make Property Ownership Easier" },
+      { id: "accessible-real-estate", label: "14. Why Fracspace Is Making Premium Real Estate More Accessible" },
+      { id: "matching-future-plans", label: "15. Choosing an Investment That Matches Your Future Plans" },
+      { id: "begin-journey", label: "16. Begin Your Real Estate Investment Journey with Fracspace" },
+      { id: "faqs", label: "17. Frequently Asked Questions (FAQs)" }
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "You have been saving money for a few years, and now you have a reasonable amount set aside. Naturally, you start thinking about what to do with it. Should you buy a small plot, invest in property, or continue saving until you can afford a house? For many people in India, real estate feels like a familiar and reliable investment option. But when you look at apartment prices in cities like Bengaluru, Hyderabad, or Chennai, buying an entire property may seem difficult with a budget of ₹10 lakh. The good news is that you do not always need to purchase a complete house to get started in real estate. There are different investment options available for people with smaller budgets. Understanding Smart Ways to Invest in India can help you choose an option that suits your savings and long-term plans."
+      },
+      {
+        type: "heading",
+        id: "smart-ways-budget",
+        text: "Smart Ways to Invest in India Without a Big Budget"
+      },
+      {
+        type: "paragraph",
+        text: "When someone talks about investing in real estate, the first thing that comes to mind is usually buying an apartment, house, or piece of land. While these are common choices, they are not the only ways to invest in property. Today, investors can explore options such as Real Estate Investment Trusts, affordable residential plots, and fractional ownership. Each option works differently and requires a different amount of money. Some may provide income, while others depend mainly on an increase in property value over time. If you are looking for Smart Ways to Invest in India, begin by understanding what you want your money to achieve. A person hoping to earn regular income may prefer a different investment from someone planning to buy property for future use. Knowing your goal can make the decision much easier."
+      },
+      {
+        type: "quote",
+        text: "Smart real estate investment does not require crores in capital. With ₹10 Lakh, modern investors can explore REITs, affordable land, and luxury fractional co-ownership.",
+        author: "Fracspace Investment Committee"
+      },
+      {
+        type: "heading",
+        id: "is-10-lakh-enough",
+        text: "Is ₹10 Lakh Enough to Start Investing in Real Estate?"
+      },
+      {
+        type: "paragraph",
+        text: "Saving ₹10 lakh is a meaningful achievement, especially when you have other expenses and family responsibilities to manage. You may have saved this money for years and want to make sure it is used wisely. While ₹10 lakh may not be enough to purchase a ready-to-move apartment in most major Indian cities, it can still provide access to other real estate investments. Listed REITs allow investors to begin with relatively small amounts, while residential plots may be available in selected towns and developing locations. Some shared property ownership opportunities may also become accessible when your budget reaches ₹10 lakh or more. Exploring Smart Ways to Invest in India means looking beyond the idea that property investment always requires a large home loan. The important thing is to compare the available options and understand the expenses involved. Never invest all your savings without keeping enough money for emergencies."
+      },
+      {
+        type: "statsGrid",
+        stats: [
+          { value: "₹10 Lakh", label: "Accessible Co-Ownership Entry" },
+          { value: "8–12%", label: "Target Hospitality Yield" },
+          { value: "₹300+", label: "REITs Public Market Entry" },
+          { value: "100%", label: "Legally Documented Co-ownership" }
+        ]
+      },
+      {
+        type: "heading",
+        id: "reits-simple-way",
+        text: "REITs: A Simple Way to Explore Real Estate Investment"
+      },
+      {
+        type: "paragraph",
+        text: "Imagine wanting to invest in a large commercial building but not having enough money to purchase even a small office space. Real Estate Investment Trusts, commonly called REITs, make it possible to participate in certain income-generating real estate assets without directly buying a property. Investors purchase units in a trust that owns eligible real estate assets, such as office buildings and other commercial properties. In India, listed REIT units can be bought through a demat account, making them accessible to people with smaller investment budgets. For someone researching Smart Ways to Invest in India, REITs can be worth exploring because there is no need to personally manage tenants or property repairs. Investors may receive income distributions, depending on the trust's performance and applicable rules. However, the value of REIT units can change, and distributions are not guaranteed. It is important to understand the investment before putting money into it."
+      },
+      {
+        type: "heading",
+        id: "small-plot-investment",
+        text: "Can Buying a Small Plot Be a Good Investment?"
+      },
+      {
+        type: "paragraph",
+        text: "For many Indians, owning land has a special meaning. There is something satisfying about visiting a property, standing on the land, and knowing that it belongs to you. If you have a budget of ₹10 lakh, you may find smaller residential plots in certain towns or developing areas, depending on local prices. Some buyers choose land because they hope the surrounding area will develop and property prices will increase over time. However, an affordable plot is not automatically a good investment. When considering Smart Ways to Invest in India, check whether the land has clear ownership records, road access, and the required local approvals. A plot located far from basic facilities may be difficult to use or sell later. It is also important to remember that vacant land generally does not provide regular rental income."
+      },
+      {
+        type: "heading",
+        id: "actual-cost-matters",
+        text: "Why the Actual Investment Cost Matters More Than the Advertised Price"
+      },
+      {
+        type: "paragraph",
+        text: "Imagine finding a residential plot advertised for ₹9 lakh. You like the location, the price fits your budget, and you begin planning the purchase. But once you speak to the seller, you realise that stamp duty, registration charges, legal verification, and other expenses will increase the final amount. You may also need money for fencing, cleaning, or maintaining the plot. Suddenly, the property costs more than you originally expected. This is why Smart Ways to Invest in India involve calculating the complete investment instead of focusing only on the selling price. It is always better to understand every expense before paying an advance. Keeping some money aside can help you avoid financial stress after purchasing the property."
+      },
+      {
+        type: "heading",
+        id: "comparison-table",
+        text: "Comparing Real Estate Investment Options Under ₹10 Lakh in India"
+      },
+      {
+        type: "table",
+        headers: ["Investment Avenue", "Minimum Capital", "Income Profile", "Management Responsibility", "Liquidity & Exit"],
+        rows: [
+          ["Listed REITs", "₹300 – ₹50,000", "Quarterly Dividends (6–8%)", "100% Passive (Managed by Trust)", "High (Traded on Stock Exchange)"],
+          ["Affordable Residential Plot", "₹8 Lakh – ₹15 Lakh+", "No Rental Yield (Appreciation Only)", "100% Owner (Fencing, Guarding, Taxes)", "Low (Takes 6–18 months to sell)"],
+          ["Fractional Co-Ownership (Fracspace)", "From ₹10 Lakh", "Hospitality Rental Yields (8–12%)", "100% Passive (Professional On-ground Team)", "Platform Resale Windows & Private Transfers"],
+          ["Traditional Urban Flat", "₹50 Lakh – ₹1.5 Cr+", "Monthly Rental Yield (2–3%)", "Owner handles tenants, repairs & vacancies", "Moderate (Takes 6–12 months to sell)"]
+        ]
+      },
+      {
+        type: "heading",
+        id: "fractional-ownership-way",
+        text: "Fractional Ownership: Another Way to Explore Premium Property"
+      },
+      {
+        type: "paragraph",
+        text: "Have you ever stayed at a beautiful resort or holiday villa and thought about how nice it would be to own a place like that? The location may be perfect, but buying an entire premium property can cost a significant amount. Fractional ownership offers a different approach by allowing several investors to share ownership of the same real estate asset through a documented legal arrangement. For example, a property worth ₹1 crore could be divided into ten equal interests of ₹10 lakh each, before additional expenses. Each investor would hold rights according to the agreement rather than owning the entire property independently. For buyers exploring Smart Ways to Invest in India, this can make certain premium real estate opportunities more accessible. Depending on the terms, owners may also participate in rental earnings and possible property appreciation. However, fractional ownership is not necessarily available below ₹10 lakh, and the legal structure should be reviewed carefully."
+      },
+      {
+        type: "heading",
+        id: "rental-income-small",
+        text: "Can You Earn Rental Income from a Smaller Property Investment?"
+      },
+      {
+        type: "paragraph",
+        text: "One reason people invest in real estate is the possibility of earning money while continuing to own an asset. A residential apartment may generate income from tenants, while a holiday home may receive bookings from travellers. With fractional ownership, available rental income is generally shared among investors according to their ownership agreement. Suppose a professionally managed property earns ₹8 lakh in annual net rental income after operating expenses. An investor holding a 10% interest could receive ₹80,000 before personal taxes if the agreement provides for proportional distributions. This is only a simple example, not an expected return from any particular property. When looking for Smart Ways to Invest in India, it is important to understand that rental earnings can change because of vacancies, maintenance costs, and market demand. An investment should be evaluated using realistic income estimates rather than promises of fixed returns."
+      },
+      {
+        type: "callout",
+        title: "Hypothetical Rental Distribution (₹1 Cr Property, ₹10 Lakh Share)",
+        text: "How net hospitality yields flow proportionally to fractional co-owners in a managed asset:",
+        details: [
+          { label: "Asset Valuation", value: "₹1,00,00,000 (₹1 Cr)" },
+          { label: "Investor Share (1 of 10)", value: "₹10 Lakhs (10% Equity)" },
+          { label: "Net Distributable Income", value: "₹8,00,000 / year" },
+          { label: "Pro-Rata Annual Payout", value: "₹80,000 (8.0% Net Yield)" }
+        ]
+      },
+      {
+        type: "heading",
+        id: "first-time-checklist",
+        text: "What Should First-Time Investors Check Before Buying Property?"
+      },
+      {
+        type: "paragraph",
+        text: "Buying property is a big decision, especially when you are investing money that has taken years to save. Before making a payment, take time to understand exactly what you are purchasing. If you are considering land, check the title documents, location, approvals, and accessibility. If you are interested in REITs, learn about the underlying assets, income distributions, and market risks. For fractional ownership, understand your legal rights, management charges, rental arrangements, and resale conditions. Also consider how long you can keep the money invested because some real estate assets may take time to sell. A good investment decision is not simply about choosing the property with the highest projected return. It is about selecting an opportunity that matches your budget and financial goals."
+      },
+      {
+        type: "list",
+        items: [
+          "**Title Deed & Legal Approvals**: Verify non-agricultural (NA) conversion, RERA approvals, and encumbrance certificates.",
+          "**Net Operating Expenses**: Scrutinize property tax, vendor maintenance, and platform management fees subtracted from gross revenue.",
+          "**Ownership Vehicle & Registry**: Understand whether title is registered directly or through a Special Purpose Vehicle (SPV) Private Limited company.",
+          "**Holding Horizon & Resale Windows**: Check mandatory lock-in durations, secondary market trading procedures, and transfer fees."
+        ]
+      },
+      {
+        type: "heading",
+        id: "explore-fracspace",
+        text: "Explore Smart Ways to Invest in India with Fracspace"
+      },
+      {
+        type: "paragraph",
+        text: "Once your budget reaches approximately ₹10 lakh, premium property co-ownership may become another option worth considering. This is where Fracspace offers a different way to explore real estate. Based in Hyderabad, Fracspace is a proptech company that focuses on fractional ownership opportunities in selected holiday homes, villas, resorts, and other premium properties. Instead of purchasing an entire holiday property, interested buyers can explore smaller ownership interests through documented legal arrangements. For people looking for Smart Ways to Invest in India, this creates an opportunity to learn about destination-based real estate investment. Fracspace also offers professional property management services for applicable projects, helping owners with maintenance, rental operations, and everyday responsibilities. Investors can explore available properties through its digital platform and speak with the team about ownership options. The complete investment terms should always be reviewed before making a financial commitment."
+      },
+      {
+        type: "heading",
+        id: "alleppey-cottages",
+        text: "Alleppey Backwater Cottages: Explore Property Co-Ownership in Kerala"
+      },
+      {
+        type: "paragraph",
+        text: "Imagine waking up beside Kerala's peaceful backwaters, with coconut trees surrounding the property and traditional boats moving slowly across the water. Alleppey is known for this relaxed atmosphere, making it a popular destination for people looking to spend time away from busy city life. Fracspace brings this experience into its portfolio through Alleppey Backwater Cottages, a planned hospitality property in Kerala. The project concept includes four private yurt cottages and a traditional two-bedroom Kerala home, bringing together local charm and a holiday-focused setting. Instead of purchasing the entire property, interested investors can explore a fractional ownership opportunity through Fracspace. The company has advertised participation starting from approximately ₹10 lakh, depending on current availability and terms. This is an example of a property investment beginning at ₹10 lakh, rather than an investment below ₹10 lakh. Buyers should check the project's development status, ownership documents, management expenses, and rental arrangements before making a decision."
+      },
+      {
+        type: "image",
+        src: alleppeyImg,
+        alt: "Alleppey Backwater Cottages Kerala Property Investment Under 10 Lakh",
+        caption: "Alleppey Backwater Cottages by Fracspace: Luxury yurt cottages and traditional Kerala home starting from ₹10 Lakh on Kerala's emerald backwaters.",
+        tag: "Kerala Asset",
+        propertyLink: "/properties?property=alleppey#property-alleppey"
+      },
+      {
+        type: "propertyCard",
+        name: "Alleppey Backwater Cottages",
+        location: "Alleppey, Kerala",
+        description: "Planned boutique hospitality retreat featuring 4 private yurt cottages plus a traditional 2BHK Kerala home on 70 cents of waterfront land starting from ₹10 Lakh.",
+        ticketSize: "₹10,00,000 (₹10 Lakhs)",
+        type: "4 Yurts + 2BHK Traditional Home",
+        yield: "8.4% Target Yield",
+        image: alleppeyImg,
+        propertyLink: "/properties?property=alleppey#property-alleppey"
+      },
+      {
+        type: "heading",
+        id: "fracspace-management",
+        text: "How Fracspace Helps Make Property Ownership Easier"
+      },
+      {
+        type: "paragraph",
+        text: "Owning a holiday home can sound exciting until you start thinking about how it will be managed when you are not there. Suppose you live in Chennai but own a property in Kerala. If something needs repairing or a guest booking requires attention, handling everything from another city can become difficult. Fracspace aims to make this experience more convenient through professional property management services for applicable projects. The company supports investors with property discovery, investment consultation, ownership documentation, and management arrangements. Through its website and mobile application, buyers can explore properties and access relevant investment information. Owners can also monitor reported rental earnings and property performance using the digital platform. These services may reduce the everyday work involved in managing a property, although ownership costs and investment risks still remain."
+      },
+      {
+        type: "heading",
+        id: "accessible-real-estate",
+        text: "Why Fracspace Is Making Premium Real Estate More Accessible"
+      },
+      {
+        type: "paragraph",
+        text: "For many people, owning a premium holiday villa or resort property has always felt like an expensive dream. Even someone who can afford a second home may hesitate because of the time and money required to maintain it. Fracspace aims to make selected premium real estate opportunities more approachable through fractional ownership. Its model allows investors to explore a documented interest in a property instead of purchasing the entire asset independently. The company's focus on destination properties may appeal to buyers interested in holiday homes and hospitality-related real estate. Professional management services also help with the everyday responsibilities of maintaining applicable properties. Depending on the project agreement, investors may receive rental income participation and personal stay benefits. However, these opportunities should always be evaluated for their costs, legal rights, financial risks, and resale conditions."
+      },
+      {
+        type: "heading",
+        id: "matching-future-plans",
+        text: "Choosing an Investment That Matches Your Future Plans"
+      },
+      {
+        type: "paragraph",
+        text: "The right real estate investment depends on what you want to achieve over the next few years. Some people may prefer REITs because they can begin with smaller amounts and trade listed units through the market. Others may be more comfortable purchasing a physical plot that they can hold for future use. Investors with a larger budget may be interested in professionally managed co-ownership opportunities. Before making a choice, think about how much money you can invest without affecting your regular expenses. Also consider whether you are comfortable keeping the investment for several years and how easily you may be able to sell it. There is no single option that works for everyone, and an investment that suits someone else may not suit you. Taking time to understand your choices can help you make a more comfortable financial decision."
+      },
+      {
+        type: "heading",
+        id: "begin-journey",
+        text: "Begin Your Real Estate Investment Journey with Fracspace"
+      },
+      {
+        type: "paragraph",
+        text: "Starting a real estate investment does not have to mean buying an expensive apartment or taking a large home loan. Whether you have saved ₹3 lakh, ₹5 lakh, or ₹10 lakh, there are different options to explore based on your budget. Listed REITs may provide an entry point with smaller amounts, while affordable land and fractional ownership offer different types of property exposure. As your budget grows, premium co-ownership opportunities may become worth considering. Finding Smart Ways to Invest in India is about understanding the available choices, knowing the risks, and selecting an investment that supports your financial goals. Fracspace offers selected holiday property co-ownership opportunities starting from approximately ₹10 lakh, subject to current pricing and terms. Its platform brings together premium real estate opportunities, ownership information, and management support for interested investors. Visit fracspace.com to explore available properties and speak with the team before making an investment decision."
+      }
+    ],
+    faqs: [
+      {
+        question: "1. Can I invest in real estate in India with less than ₹10 lakh?",
+        answer:
+          "Yes, there are ways to explore real estate investment without buying an entire property. Listed REITs allow investors to participate in certain income-generating real estate assets with relatively small amounts. Affordable residential plots may also be available in selected towns, although prices and legal requirements differ by location. Before investing, compare the total costs, expected benefits, and risks to understand which option suits your budget."
+      },
+      {
+        question: "2. What is the best real estate investment for beginners in India?",
+        answer:
+          "The best option depends on your budget, financial goals, and comfort with risk. REITs may be worth exploring for beginners who want exposure to real estate without personally managing a property. People interested in owning physical assets can research affordable land, while those with higher budgets may consider fractional ownership. Before choosing, understand the legal structure, possible income, expenses, and how easily you can sell the investment."
+      },
+      {
+        question: "3. Can I earn rental income from a ₹10 lakh real estate investment?",
+        answer:
+          "Some property investments may generate income, but the amount depends on the asset and its performance. Fractional ownership may allow investors to receive a share of rental earnings after applicable operating expenses. Fracspace offers selected professionally managed holiday property opportunities with potential rental-income participation. However, occupancy, maintenance costs, and market demand can affect earnings, so monthly income or fixed returns should never be assumed."
+      },
+      {
+        question: "4. What is the minimum investment required with Fracspace?",
+        answer:
+          "Fracspace has advertised selected fractional ownership opportunities starting from approximately ₹10 lakh, including its Alleppey Backwater Cottages project in Kerala. This allows interested buyers to explore a share of a premium property instead of purchasing the entire asset. The investment amount may vary depending on the project and available ownership interests. Investors should confirm current pricing, applicable charges, legal documents, management fees, and ownership conditions directly with Fracspace before investing."
+      },
+      {
+        question: "5. Is fractional ownership of property legal and safe in India?",
+        answer:
+          "Fractional ownership can be legally structured in India through appropriate co-ownership agreements or property-holding entities. Fracspace offers documented ownership arrangements and professional management support for selected real estate projects. However, fractional property investment still involves risks, including changes in property values, rental income, and resale demand. Not every fractional ownership arrangement is regulated by SEBI, so investors should independently verify the legal documents, applicable regulations, and exit conditions before investing."
+      },
+      {
+        question: "6. Where can I invest ₹10 lakh in real estate in India?",
+        answer:
+          "If you have ₹10 lakh to invest, there are several options worth exploring based on your financial goals. You can consider listed REITs, affordable residential plots in smaller towns, or fractional ownership opportunities. Fracspace offers selected premium holiday property co-ownership opportunities starting from approximately ₹10 lakh. Before investing, compare the property location, ownership documents, expected expenses, and possible returns to find an option that suits your budget."
+      },
+      {
+        question: "7. Is fractional ownership a good investment for beginners in India?",
+        answer:
+          "Fractional ownership can be an option for beginners who want to explore premium real estate without purchasing an entire property. It allows multiple investors to share ownership costs and may provide rental income and potential property appreciation. Platforms like Fracspace offer selected holiday homes, villas, and resorts with professional property management support. However, beginners should understand the investment risks, maintenance charges, ownership rights, and resale conditions before purchasing a share."
+      },
+      {
+        question: "8. How can I invest in a holiday home in India with ₹10 lakh?",
+        answer:
+          "Buying an entire premium holiday home with ₹10 lakh can be difficult, especially in popular tourist destinations. However, fractional ownership offers another way to participate in holiday property investment through a smaller ownership interest. Fracspace advertises selected holiday property opportunities starting from approximately ₹10 lakh, including Alleppey Backwater Cottages in Kerala. Interested investors should check the latest availability, legal documents, management charges, and ownership benefits before making a decision."
+      },
+      {
+        question: "9. What are the risks of investing in real estate with a small budget?",
+        answer:
+          "Real estate investment involves risks regardless of how much money you invest. Property values may decrease, rental income can change, and selling an investment may take longer than expected. Smaller-budget investors should also consider additional expenses such as registration, maintenance, taxes, and management charges. Before choosing a property or a fractional ownership opportunity through Fracspace, carefully review the ownership structure, financial commitments, and exit conditions to avoid unexpected costs."
+      },
+      {
+        question: "10. Can NRIs invest in fractional ownership properties in India?",
+        answer:
+          "NRIs may be able to invest in certain fractional ownership properties in India, depending on the type of property and how the investment is legally structured. Applicable FEMA rules, RBI requirements, property eligibility, and taxation must be considered before investing. Fracspace offers premium property co-ownership opportunities that interested NRIs can enquire about, subject to eligibility and project conditions. NRI investors should confirm the ownership structure and payment requirements with Fracspace and seek professional legal and tax advice before making an investment."
+      }
+    ]
+  },
   {
     id: "2",
     slug: "fractional-ownership-vs-buying-a-property",
@@ -644,6 +959,104 @@ export const blogsData = [
 export const approvedBlog = blogsData[0];
 
 export const blogTopics = [
+  // --- Topics from Blog 3: Real Estate Investment Under ₹10 Lakh ---
+  {
+    id: "under10-is-enough",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "Budget Guide",
+    category: "Yields & Returns",
+    title: "Is ₹10 Lakh Enough to Start Investing in Real Estate?",
+    excerpt: "Explore how ₹10 Lakh unlocks REITs, affordable residential land, and luxury fractional property co-ownership.",
+    image: under10LakhHeroImg,
+    readTime: "2 min read",
+    anchor: "#is-10-lakh-enough"
+  },
+  {
+    id: "under10-reits-way",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "REITs",
+    category: "How It Works",
+    title: "REITs: A Simple Way to Explore Real Estate Investment",
+    excerpt: "How listed commercial real estate trusts allow small-budget investors to earn regular dividend distributions.",
+    image: howFsWorksBg,
+    readTime: "2 min read",
+    anchor: "#reits-simple-way"
+  },
+  {
+    id: "under10-small-plot",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "Land Investment",
+    category: "Basics",
+    title: "Can Buying a Small Plot Be a Good Investment?",
+    excerpt: "Assessing title records, road access, and development potential for affordable plots under ₹10 Lakh.",
+    image: heroImg,
+    readTime: "2 min read",
+    anchor: "#small-plot-investment"
+  },
+  {
+    id: "under10-comparison-table",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "Comparison",
+    category: "Comparisons",
+    title: "REITs vs Residential Plots vs Fractional Co-Ownership Table",
+    excerpt: "Head-to-head comparison of budget requirements, rental yields, liquidity, and management burdens.",
+    image: coOwnImg,
+    readTime: "3 min read",
+    anchor: "#comparison-table"
+  },
+  {
+    id: "under10-fractional-ownership",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "Co-Ownership",
+    category: "How It Works",
+    title: "Fractional Ownership: Explore Premium Property from ₹10 Lakh",
+    excerpt: "How multiple investors pool capital to co-own luxury vacation villas and holiday resorts from ₹10 Lakh.",
+    image: mainImg,
+    readTime: "2 min read",
+    anchor: "#fractional-ownership-way"
+  },
+  {
+    id: "under10-rental-income",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "Rental Yields",
+    category: "Yields & Returns",
+    title: "Can You Earn Rental Income from a ₹10 Lakh Investment?",
+    excerpt: "A realistic breakdown of net hospitality rental income distributions for a ₹10 Lakh fractional co-owner.",
+    image: hilltopImg,
+    readTime: "2 min read",
+    anchor: "#rental-income-small"
+  },
+  {
+    id: "under10-first-time-checklist",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "Due Diligence",
+    category: "Legal & Safety",
+    title: "What First-Time Investors Must Check Before Buying Property",
+    excerpt: "Critical due diligence: title checks, hidden registration fees, SPV entity structures, and exit terms.",
+    image: howFsWorksBg,
+    readTime: "2 min read",
+    anchor: "#first-time-checklist"
+  },
+  {
+    id: "under10-alleppey-cottages",
+    blogSlug: "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india",
+    blogTitle: "Real Estate Investment Under ₹10 Lakh",
+    tag: "Kerala Asset",
+    category: "Destinations",
+    title: "Alleppey Backwater Cottages: Property Co-Ownership in Kerala",
+    excerpt: "Co-own private yurt cottages and a traditional 2BHK Kerala home starting from ₹10 Lakh on the backwaters.",
+    image: alleppeyImg,
+    readTime: "2 min read",
+    anchor: "#alleppey-cottages"
+  },
+
   // --- Topics from Blog 2: Fractional Ownership vs Buying a Property ---
   {
     id: "vs-understanding-basics",

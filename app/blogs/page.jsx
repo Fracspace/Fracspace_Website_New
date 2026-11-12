@@ -95,7 +95,7 @@ function BlogsPage() {
           </div>
 
           {/* Grid of Complete Blog Articles */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogsData.map((blog, idx) => (
               <Link
                 key={blog.id}
@@ -188,8 +188,13 @@ function BlogsPage() {
                   key={c}
                   onClick={() => setSelectedCategory(c)}
                   className={`px-4 py-2 rounded-full text-xs font-semibold transition cursor-pointer ${active
+<<<<<<< HEAD
                       ? "bg-[#0B2452] text-white shadow-xs"
                       : "bg-white text-[#5C6B8A] border border-[#E2E8F0] hover:border-[#0B2452] hover:text-[#0B2452]"
+=======
+                    ? "bg-[#0B2452] text-white shadow-xs"
+                    : "bg-white text-[#5C6B8A] border border-[#E2E8F0] hover:border-[#0B2452] hover:text-[#0B2452]"
+>>>>>>> blogs
                     }`}
                 >
                   {c}

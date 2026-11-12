@@ -27,7 +27,13 @@ export async function generateMetadata({ params }) {
 
   const siteUrl = "https://fracspace.com";
   const canonicalUrl = `${siteUrl}/blogs/${post.slug}`;
-  const ogImageUrl = `${siteUrl}/blogs/${post.slug === "fractional-ownership-vs-buying-a-property" ? "fractional-ownership-vs-buying.webp" : "fractional-ownership-guide.jpg"}`;
+  const ogImageFilename =
+    post.slug === "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india"
+      ? "real-estate-investment-under-10-lakh.webp"
+      : post.slug === "fractional-ownership-vs-buying-a-property"
+      ? "fractional-ownership-vs-buying.webp"
+      : "fractional-ownership-guide.jpg";
+  const ogImageUrl = post.ogImage || `${siteUrl}/blogs/${ogImageFilename}`;
   const titleText = post.metaTitle || `${post.title} | Fracspace`;
   const descriptionText = post.metaDescription || post.excerpt;
 
@@ -121,7 +127,15 @@ export default async function BlogDetailPage({ params }) {
         url: `${siteUrl}/assets/logo.png`
       }
     },
-    image: `${siteUrl}/blogs/${post.slug === "fractional-ownership-vs-buying-a-property" ? "fractional-ownership-vs-buying.webp" : "fractional-ownership-guide.jpg"}`
+    image:
+      post.ogImage ||
+      `${siteUrl}/blogs/${
+        post.slug === "real-estate-investment-under-10-lakh-smart-ways-to-invest-in-india"
+          ? "real-estate-investment-under-10-lakh.webp"
+          : post.slug === "fractional-ownership-vs-buying-a-property"
+          ? "fractional-ownership-vs-buying.webp"
+          : "fractional-ownership-guide.jpg"
+      }`
   };
 
   // Breadcrumb Structured Data
