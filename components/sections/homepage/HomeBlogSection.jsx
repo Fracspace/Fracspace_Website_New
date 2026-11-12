@@ -7,14 +7,14 @@ import { blogsData, blogTopics } from "@/data/blogsData";
 import { ArrowRight, BookOpen, Compass } from "lucide-react";
 
 function HomeBlogSection() {
-  const blogs = blogsData.slice(0, 2);
+  const blogs = blogsData.slice(0, 3);
 
   // Key topic highlights for direct jumping
   const highlightTopics = [
+    blogTopics.find((t) => t.id === "under10-comparison-table") || blogTopics[0],
     blogTopics.find((t) => t.id === "vs-detailed-table") || blogTopics[5],
-    blogTopics.find((t) => t.id === "vs-alleppey-resort") || blogTopics[7],
-    blogTopics.find((t) => t.id === "investment-example") || blogTopics[12],
-    blogTopics.find((t) => t.id === "is-it-safe") || blogTopics[16]
+    blogTopics.find((t) => t.id === "under10-reits-way") || blogTopics[1],
+    blogTopics.find((t) => t.id === "vs-alleppey-resort") || blogTopics[7]
   ].filter(Boolean);
 
   if (!blogs || blogs.length === 0) return null;
@@ -34,7 +34,7 @@ function HomeBlogSection() {
               Ideas for smarter property ownership
             </h2>
             <p className="text-sm sm:text-base text-[#5C6B8A] mt-2 max-w-2xl">
-              Read comprehensive research guides and head-to-head comparisons on luxury fractional real estate in India.
+              Read comprehensive research guides, low-budget investment routes, and comparisons on luxury fractional real estate in India.
             </p>
           </div>
           <Link
@@ -47,7 +47,7 @@ function HomeBlogSection() {
         </div>
 
         {/* 1. Featured Complete Blog Articles (Side-by-Side Cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {blogs.map((blog, idx) => (
             <Link
               key={blog.id}
